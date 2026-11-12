@@ -28,10 +28,5 @@ def main():
         print('\n'.join(failures),file=sys.stderr);return 1
     cmd=[sys.executable,str(ROOT/'tests/compatibility_matrix.py'),'--require-qt','--output',str(opts.output)]
     for role,path in roles.items():cmd.extend(['--cmake' if 'cmake' in role else '--rustc',str(path)])
-    status=subprocess.call(cmd)
-    if status:return status
-    report=json.loads(opts.output.read_text())
-    report.update(status='blocked',blockers=['v0.1/depfile-loss: Unix Makefiles loses data-input dependencies after compiler depfile deletion'])
-    opts.output.write_text(json.dumps(report,indent=2)+'\n')
-    return 1
+    return subprocess.call(cmd)
 if __name__=='__main__':sys.exit(main())

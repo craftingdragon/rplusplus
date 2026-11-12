@@ -23,5 +23,20 @@ Ninja and Ninja Multi-Config retain their normal dependency-log behavior.
 
 No compiler wrapper changes, unconditional scans, new per-build commands,
 upstream patches or shell orchestration are needed. Normal no-op builds retain
-zero compiler invocations. The release blocker remains active until the permanent
-dependency-loss matrix has passed.
+zero compiler invocations. The permanent dependency-loss matrix passed with CMake 3.25.0 and 4.4.5,
+each using Rust 1.96.0 and 1.97.1, across all three generators and Debug/Release.
+Tests cover direct dependencies, modules and nested modules, independent
+include_str/include_bytes inputs, newly introduced dependencies, parallel builds,
+clean recovery, and traced zero-invocation no-ops. Removing the fix from temporary
+module copies made the permanent test fail on both CMake versions, with stale
+consumer metadata diagnosed by rustc E0460.
+
+[Validation evidence](baselines/depfile-loss-matrix.json) records the clean source
+revision and exact tool identities. Only `v0.1/depfile-loss` is resolved; unrelated
+release requirements remain in force. Historical reports retain their original
+blocker status.
+
+Reproduce offline using `tests/compatibility_matrix.py` with repeated `--cmake`
+and `--rustc` absolute paths and an `--output` JSON path. The existing installed
+module gate automatically runs the new regression; no Qt validation is required
+for this focused check.

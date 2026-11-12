@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "revision": "0b15553b76e199a6426230b7346ff7e4a137b583",
+  "dirty": false,
+  "timestamp_utc": "2026-11-12T17:40:36.705942+00:00",
+  "results": [
+    {
+      "cmake": "cmake version 3.25.0",
+      "rustc": "rustc 1.96.0 (ac68faa20 2026-05-25)",
+      "log": "Internal ctest changing into directory: /tmp/rpp matrix if8mwcet\nTest project /tmp/rpp matrix if8mwcet\n    Start 1: driver-unit\n1/4 Test #1: driver-unit ......................   Passed    0.00 sec\n    Start 2: driver-failures\n2/4 Test #2: driver-failures ..................   Passed    0.07 sec\n    Start 3: toolchain-errors\n3/4 Test #3: toolchain-errors .................   Passed    0.22 sec\n    Start 4: generator-compatibility\n4/4 Test #4: generator-compatibility ..........   Passed   40.75 sec\n\n100% tests passed, 0 tests failed out of 4\n\nTotal Test time (real) =  41.04 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 41.41239804500219
+    },
+    {
+      "cmake": "cmake version 3.25.0",
+      "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+      "log": "Internal ctest changing into directory: /tmp/rpp matrix tkqqxqno\nTest project /tmp/rpp matrix tkqqxqno\n    Start 1: driver-unit\n1/4 Test #1: driver-unit ......................   Passed    0.00 sec\n    Start 2: driver-failures\n2/4 Test #2: driver-failures ..................   Passed    0.07 sec\n    Start 3: toolchain-errors\n3/4 Test #3: toolchain-errors .................   Passed    0.21 sec\n    Start 4: generator-compatibility\n4/4 Test #4: generator-compatibility ..........   Passed   41.37 sec\n\n100% tests passed, 0 tests failed out of 4\n\nTotal Test time (real) =  41.65 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 42.036506818003545
+    },
+    {
+      "cmake": "cmake version 4.4.5",
+      "rustc": "rustc 1.96.0 (ac68faa20 2026-05-25)",
+      "log": "Test project /tmp/rpp matrix o93v5d39\n    Start 1: driver-unit\n1/4 Test #1: driver-unit ......................   Passed    0.00 sec\n    Start 2: driver-failures\n2/4 Test #2: driver-failures ..................   Passed    0.07 sec\n    Start 3: toolchain-errors\n3/4 Test #3: toolchain-errors .................   Passed    0.26 sec\n    Start 4: generator-compatibility\n4/4 Test #4: generator-compatibility ..........   Passed   49.93 sec\n\n100% tests passed out of 4\n\nTotal Test time (real) =  50.26 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 50.70245495499694
+    },
+    {
+      "cmake": "cmake version 4.4.5",
+      "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+      "log": "Test project /tmp/rpp matrix kan172jl\n    Start 1: driver-unit\n1/4 Test #1: driver-unit ......................   Passed    0.00 sec\n    Start 2: driver-failures\n2/4 Test #2: driver-failures ..................   Passed    0.07 sec\n    Start 3: toolchain-errors\n3/4 Test #3: toolchain-errors .................   Passed    0.25 sec\n    Start 4: generator-compatibility\n4/4 Test #4: generator-compatibility ..........   Passed   49.92 sec\n\n100% tests passed out of 4\n\nTotal Test time (real) =  50.24 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 50.67973222800356
+    }
+  ],
+  "resolved_blocker": "v0.1/depfile-loss",
+  "negative_controls": "Removing the Make co-output declaration reproduced stale consumer metadata (E0460) on both CMake versions; initial investigation also reproduced stale executable output with stock C++."
+}
