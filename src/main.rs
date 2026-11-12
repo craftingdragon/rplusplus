@@ -4,11 +4,19 @@ use std::{
     path::{Path, PathBuf},
     process::{Command, Stdio},
 };
+#[derive(Debug)]
+struct ToolFailure(i32);
+impl std::fmt::Display for ToolFailure {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "compiler or linker exited with status {}", self.0)
+    }
+}
+impl std::error::Error for ToolFailure {}
 type Result<T> = std::result::Result<T, Box<dyn std::error::Error>>;
 fn run(tool: &str, args: &[String]) -> Result<()> {
     let status = Command::new(tool).args(args).status()?;
     if !status.success() {
-        std::process::exit(status.code().unwrap_or(1));
+        return Err(Box::new(ToolFailure(status.code().unwrap_or(1))));
     }
     Ok(())
 }
@@ -99,11 +107,52 @@ fn embedded(path: &Path) -> Result<Vec<String>> {
 fn main() {
     if let Err(e) = execute() {
         eprintln!("rpp: {e}");
-        std::process::exit(1);
+        std::process::exit(e.downcast_ref::<ToolFailure>().map_or(1, |e| e.0));
     }
 }
 fn execute() -> Result<()> {
-    let args: Vec<String> = env::args().skip(1).collect();
+    let mut args: Vec<String> = env::args().skip(1).collect();
+    let Some(index) = args.iter().position(|s| s == "-o") else {
+        return execute_inner(args);
+    };
+    let Some(output) = args.get(index + 1).cloned() else {
+        return execute_inner(args);
+    };
+    let staged = format!("{output}.rpp-stage.rlib");
+    args[index + 1] = staged.clone();
+    let dep = args
+        .iter()
+        .position(|s| s == "--depfile")
+        .and_then(|i| args.get(i + 1))
+        .cloned();
+    if let Some(dep) = &dep {
+        let i = args.iter().position(|s| s == "--depfile").unwrap();
+        args[i + 1] = format!("{dep}.rpp-stage");
+    }
+    let result = (|| {
+        execute_inner(args)?;
+        if let Some(dep) = &dep {
+            let temp = format!("{dep}.rpp-stage");
+            let escape = |s: &str| {
+                s.replace('\\', "\\\\")
+                    .replace(' ', "\\ ")
+                    .replace('#', "\\#")
+            };
+            let text = fs::read_to_string(&temp)?.replace(&escape(&staged), &escape(&output));
+            fs::write(&temp, text)?;
+            fs::rename(temp, dep)?;
+        }
+        fs::rename(&staged, &output)?;
+        Ok(())
+    })();
+    let _ = fs::remove_file(&staged);
+    let _ = fs::remove_file(format!("{staged}.rust.a"));
+    if let Some(dep) = dep {
+        let _ = fs::remove_file(format!("{dep}.rpp-stage"));
+    }
+    result
+}
+fn execute_inner(args: Vec<String>) -> Result<()> {
     if args.first().map(String::as_str) == Some("--version") {
         println!("rpp 0.1.0");
         return Ok(());
@@ -305,7 +354,7 @@ fn execute() -> Result<()> {
                     }
                 }
                 if !result.status.success() {
-                    std::process::exit(result.status.code().unwrap_or(1));
+                    return Err(Box::new(ToolFailure(result.status.code().unwrap_or(1))));
                 }
                 let mut record = vec!["rpp-runtime-v1".into()];
                 record.extend(runtime.clone());
