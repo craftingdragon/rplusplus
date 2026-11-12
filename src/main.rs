@@ -23,6 +23,7 @@ fn take(args: &mut Vec<String>, flag: &str) -> Result<Option<String>> {
         Ok(None)
     }
 }
+#[cfg(test)]
 fn write_args(path: &Path, args: &[String]) -> Result<()> {
     if let Some(parent) = path.parent() {
         fs::create_dir_all(parent)?;
@@ -44,14 +45,14 @@ fn read_args(path: &Path) -> Result<Vec<String>> {
 }
 // Store the private compile record as a non-object ar member, so metadata and
 // compiler output have one build-system owner and cannot become separated.
-fn embed(path: &Path, args: &[String]) -> Result<()> {
+fn embed_named(path: &Path, name: &str, args: &[String]) -> Result<()> {
     use std::io::Write;
     let bytes = args.join("\0").into_bytes();
     let mut file = fs::OpenOptions::new().append(true).open(path)?;
     write!(
         file,
         "{:<16}{:<12}{:<6}{:<6}{:<8}{:<10}`\n",
-        "rpp-args/",
+        name,
         0,
         0,
         0,
@@ -64,7 +65,10 @@ fn embed(path: &Path, args: &[String]) -> Result<()> {
     }
     Ok(())
 }
-fn embedded(path: &Path) -> Result<Vec<String>> {
+fn embed(path: &Path, args: &[String]) -> Result<()> {
+    embed_named(path, "rpp-args/", args)
+}
+fn embedded_named(path: &Path, name: &[u8]) -> Result<Option<Vec<String>>> {
     let bytes = fs::read(path)?;
     if !bytes.starts_with(b"!<arch>\n") {
         return Err("invalid rlib archive".into());
@@ -77,15 +81,20 @@ fn embedded(path: &Path) -> Result<Vec<String>> {
             .parse::<usize>()?;
         offset += 60;
         let member = bytes.get(offset..offset + size).ok_or("truncated rlib")?;
-        if header.starts_with(b"rpp-args/") {
-            return Ok(member
-                .split(|b| *b == 0)
-                .map(|s| String::from_utf8(s.to_vec()))
-                .collect::<std::result::Result<_, _>>()?);
+        if header.starts_with(name) {
+            return Ok(Some(
+                member
+                    .split(|b| *b == 0)
+                    .map(|s| String::from_utf8(s.to_vec()))
+                    .collect::<std::result::Result<_, _>>()?,
+            ));
         }
         offset += size + size % 2;
     }
-    Err("missing rpp compile record".into())
+    Ok(None)
+}
+fn embedded(path: &Path) -> Result<Vec<String>> {
+    embedded_named(path, b"rpp-args/")?.ok_or_else(|| "missing rpp compile record".into())
 }
 fn main() {
     if let Err(e) = execute() {
@@ -220,7 +229,21 @@ fn execute() -> Result<()> {
         let mut boundaries = 0;
         for lib in &native {
             let sidecar = PathBuf::from(format!("{lib}.runtime"));
-            if sidecar.exists() {
+            let record = if lib.ends_with(".a") && Path::new(lib).is_file() {
+                embedded_named(Path::new(lib), b"rpp-runtime/")?
+            } else {
+                None
+            };
+            if let Some(record) = record {
+                if record.first().map(String::as_str) != Some("rpp-runtime-v1") {
+                    return Err(format!(
+                        "invalid Rpp runtime metadata in {lib}; rebuild the library"
+                    )
+                    .into());
+                }
+                boundaries += 1;
+                runtime.extend(record.into_iter().skip(1));
+            } else if sidecar.exists() {
                 boundaries += 1;
                 runtime.extend(read_args(&sidecar)?);
             }
@@ -284,7 +307,9 @@ fn execute() -> Result<()> {
                 if !result.status.success() {
                     std::process::exit(result.status.code().unwrap_or(1));
                 }
-                write_args(Path::new(&format!("{destination}.runtime")), &runtime)?;
+                let mut record = vec!["rpp-runtime-v1".into()];
+                record.extend(runtime.clone());
+                embed_named(Path::new(&destination), "rpp-runtime/", &record)?;
                 if kind == "staticlib" {
                     if !objects.is_empty() {
                         let mut a = vec!["q".into(), destination];

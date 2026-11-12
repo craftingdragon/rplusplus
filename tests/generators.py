@@ -17,7 +17,7 @@ CTEST = os.environ.get('RPP_TEST_CTEST', str(Path(CMAKE).with_name('ctest')) if 
 def run(*args):
     args = ((CMAKE if args[0] == "cmake" else CTEST if args[0] == "ctest" else args[0]), *args[1:])
     result = subprocess.run([str(a) for a in args], text=True,
-                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=180)
     if result.returncode:
         raise RuntimeError(f"Command failed: {args}\n{result.stdout}")
     return result.stdout
@@ -116,11 +116,31 @@ def main():
             assert any(p.name=='middle.rs.rlib' for p in changed),changed
             assert any(p.name=='app.rs.rlib' for p in changed),changed
             assert not any(p.name.endswith('.cpp.o') for p in changed),changed
+            # v0.1/recovery: failed compilation must recover without cleaning.
+            original = leaf.read_text()
+            leaf.write_text(original + '\ncompile_error!("intentional recovery probe");\n')
+            failed = subprocess.run([CMAKE, '--build', str(graph), '--config', 'Debug'],
+                stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, timeout=180)
+            assert failed.returncode != 0 and 'intentional recovery probe' in failed.stdout
+            leaf.write_text(original)
+            run('cmake', '--build', graph, '--config', 'Debug', '--parallel', '4')
+            # Each owned artifact must be regenerated after deletion.
+            for pattern in ('base.rs.rlib', 'libbase.rlib', 'libbridge.a', 'CppMain'):
+                candidates = [p for p in graph.rglob(pattern)
+                              if gen != 'Ninja Multi-Config' or 'Release' not in p.parts]
+                assert len(candidates) == 1, (pattern, candidates)
+                candidates[0].unlink()
+                run('cmake', '--build', graph, '--config', 'Debug', '--parallel', '4')
+                assert candidates[0].exists(), pattern
+                run('ctest', '--test-dir', graph, '-C', 'Debug', '--output-on-failure')
+            assert not list(graph.rglob('*.runtime')), 'new archives must be self-contained'
             installed=base / gen / 'export'
             run('cmake', '--install', graph, '--config', 'Debug', '--prefix', installed)
             relocated=base/gen/'relocated export'
             installed.rename(relocated)
             installed=relocated
+            shutil.rmtree(graph)
+            shutil.rmtree(graph_source)
             consumer=base / gen / 'consumer'
             consumer.mkdir()
             (consumer/'main.cpp').write_text((ROOT/'examples/multicrate/main.cpp').read_text())

@@ -23,7 +23,6 @@ set_target_properties(RustMain PROPERTIES RPP_CRATE_ROOT "${CMAKE_CURRENT_SOURCE
 target_link_libraries(RustMain PRIVATE middle)
 target_compile_options(RustMain PRIVATE "$<$<COMPILE_LANGUAGE:Rpp>:--cfg=driver_flag>")
 install(TARGETS bridge EXPORT BridgeTargets ARCHIVE DESTINATION lib)
-install(FILES "$<TARGET_FILE:bridge>.runtime" DESTINATION lib)
 install(EXPORT BridgeTargets DESTINATION lib/cmake/Bridge)
 enable_testing()
 add_test(NAME rust-main COMMAND RustMain)

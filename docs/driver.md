@@ -36,7 +36,7 @@ Rust main uses rustc for final linking, with C++ objects and native dependencies
 
 ## Installation and exports
 
-Export native staticlib targets with ordinary install(TARGETS ... EXPORT ...). Also install the accompanying `<target archive>.runtime` file beside the archive; it contains toolchain-reported native linker arguments, not build-tree paths. Enable Rpp in the consumer so final linking reads these requirements. The multicrate example demonstrates these install rules and an external C++ consumer. Rust metadata dependencies are removed from the exported native boundary because the staticlib already contains them.
+Export native staticlib targets with ordinary install(TARGETS ... EXPORT ...). Runtime linker requirements are embedded in the static archive as a versioned non-object member. No sidecar needs installation. The driver still accepts legacy `<target archive>.runtime` files from older packages. Enable Rpp in the consumer so final linking reads these requirements. The multicrate example demonstrates these install rules and an external C++ consumer. Rust metadata dependencies are removed from the exported native boundary because the staticlib already contains them.
 
 ## Tests and current limits
 
