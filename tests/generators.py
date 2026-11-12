@@ -10,9 +10,12 @@ from contextlib import nullcontext
 
 ROOT = Path(__file__).resolve().parents[1]
 RUSTC = os.environ.get('RPP_TEST_RUSTC', 'rustc')
+CMAKE = os.environ.get('RPP_TEST_CMAKE', 'cmake')
+CTEST = os.environ.get('RPP_TEST_CTEST', str(Path(CMAKE).with_name('ctest')) if Path(CMAKE).is_absolute() else 'ctest')
 
 
 def run(*args):
+    args = ((CMAKE if args[0] == "cmake" else CTEST if args[0] == "ctest" else args[0]), *args[1:])
     result = subprocess.run([str(a) for a in args], text=True,
                             stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     if result.returncode:
@@ -96,7 +99,7 @@ def main():
             graph_file=graph_source/'CMakeLists.txt'
             graph_text=graph_file.read_text()
             graph_file.write_text(graph_text.replace('RPP_EDITION 2021','RPP_EDITION 2024'))
-            failed=subprocess.run(['cmake','--build',str(graph),'--config','Debug'],
+            failed=subprocess.run([CMAKE,'--build',str(graph),'--config','Debug'],
                 stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True)
             assert failed.returncode != 0, 'edition selection did not affect compilation'
             graph_file.write_text(graph_text)
