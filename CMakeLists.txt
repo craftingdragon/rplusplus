@@ -28,6 +28,7 @@ if(BUILD_TESTING)
   add_test(NAME driver-unit COMMAND "${CMAKE_CURRENT_BINARY_DIR}/bin/rpp-tests")
 endif()
 if(BUILD_TESTING AND Python3_FOUND)
+  add_test(NAME driver-failures COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/driver_failures.py" "${RPP_DRIVER}")
   add_test(NAME toolchain-errors COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/toolchain_errors.py")
   add_test(NAME generator-compatibility
     COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/generators.py")
