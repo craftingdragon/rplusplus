@@ -13,5 +13,12 @@ int main(){
     if(notes_open({memory,sizeof(memory)-1},&db,&error))return 1;
     int status=notes_save(db,0,{text,sizeof(text)-1},&error);int count=0;
     if(!status)status=notes_list(db,row,&count,&error);
-    notes_free(error);notes_close(db);return status || count!=1;
+    notes_free(error);
+    if(status || count!=1){notes_close(db);return 3;}
+    const unsigned char invalid[]={0xff};
+    if(notes_save(db,0,{invalid,1},&error)==0)return 4;
+    notes_free(error);
+    if(notes_list(db,nullptr,&count,&error)==0)return 5;
+    notes_free(error);
+    notes_close(db);return 0;
 }

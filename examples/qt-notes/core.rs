@@ -97,7 +97,10 @@ impl Database {
         let stmt=self.prepare(c"INSERT INTO notes(id,text) VALUES(NULLIF(?1,0),?2) ON CONFLICT(id) DO UPDATE SET text=excluded.text")?;
         // SQLITE_STATIC: text remains alive until after step and finalization.
         let status = unsafe {
-            sqlite3_bind_int64(stmt.0, 1, id);
+            let bound = sqlite3_bind_int64(stmt.0, 1, id);
+            if bound != 0 {
+                return Err(self.error());
+            }
             sqlite3_bind_text(stmt.0, 2, text.as_ptr(), -1, None)
         };
         let result = if status == 0 && unsafe { sqlite3_step(stmt.0) } == 101 {
@@ -122,7 +125,11 @@ impl Database {
         loop {
             match unsafe { sqlite3_step(stmt.0) } {
                 100 => {
-                    let text = unsafe { CStr::from_ptr(sqlite3_column_text(stmt.0, 1)) }
+                    let raw = unsafe { sqlite3_column_text(stmt.0, 1) };
+                    if raw.is_null() {
+                        return Err(self.error());
+                    }
+                    let text = unsafe { CStr::from_ptr(raw) }
                         .to_str()
                         .map_err(|e| e.to_string())?;
                     row(unsafe { sqlite3_column_int64(stmt.0, 0) }, text)?;

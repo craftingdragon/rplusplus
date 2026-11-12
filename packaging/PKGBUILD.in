@@ -11,11 +11,11 @@ source=("rplusplus-${pkgver}.tar.gz")
 sha256sums=('@SOURCE_SHA256@')
 build() {
   cmake -S "rplusplus-${pkgver}" -B build -G Ninja \
-    -DCMAKE_INSTALL_PREFIX=/usr -DRPP_RUSTC_EXECUTABLE=/usr/bin/rustc
+    -DCMAKE_INSTALL_PREFIX=/usr -DRPP_RUSTC_EXECUTABLE="${RPP_RUSTC_EXECUTABLE:-/usr/bin/rustc}"
   cmake --build build
 }
 check() {
-  RPP_TEST_RUSTC=/usr/bin/rustc ctest --test-dir build --output-on-failure
+  RPP_TEST_RUSTC="${RPP_RUSTC_EXECUTABLE:-/usr/bin/rustc}" ctest --test-dir build --output-on-failure
 }
 package() {
   DESTDIR="$pkgdir" cmake --install build
