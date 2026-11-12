@@ -1,3 +1,5 @@
+include("${CMAKE_CURRENT_LIST_DIR}/RppToolchain.cmake")
+rpp_validate_toolchain()
 # SPDX-License-Identifier: GPL-3.0-or-later
 set(CMAKE_Rpp_COMPILE_OBJECT "<CMAKE_Rpp_COMPILER> compile --rustc \"${RPP_RUSTC_EXECUTABLE}\" --depfile <DEP_FILE> <FLAGS> -o <OBJECT> <SOURCE>")
 set(CMAKE_Rpp_DEPFILE_FORMAT gcc)

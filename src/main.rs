@@ -195,6 +195,12 @@ fn execute_inner(args: Vec<String>) -> Result<()> {
         }) {
             return Err("driver manages crate type, name and emitted outputs".into());
         }
+        if args
+            .iter()
+            .any(|a| a.starts_with("--target") || a.starts_with("--sysroot"))
+        {
+            return Err("Rpp v0.1 supports native builds only; remove --target/--sysroot and select a matching installed rustc".into());
+        }
         use std::hash::{Hash, Hasher};
         let mut identity = std::collections::hash_map::DefaultHasher::new();
         output.hash(&mut identity);
@@ -407,6 +413,22 @@ mod tests {
         let values = vec!["path with spaces/🦀".into(), "--cfg=feature=\"x\"".into()];
         write_args(&path, &values).unwrap();
         assert_eq!(read_args(&path).unwrap(), values);
+        fs::remove_file(path).unwrap();
+    }
+    #[test]
+    fn runtime_archive_record_is_self_contained() {
+        let path = env::temp_dir().join(format!("rpp-runtime-test-{}", std::process::id()));
+        fs::write(&path, b"!<arch>\n").unwrap();
+        let record = vec!["rpp-runtime-v1".into(), "-lm".into(), "-lm".into()];
+        embed_named(&path, "rpp-runtime/", &record).unwrap();
+        assert_eq!(
+            embedded_named(&path, b"rpp-runtime/").unwrap(),
+            Some(record)
+        );
+        let mut bytes = fs::read(&path).unwrap();
+        bytes.truncate(bytes.len() - 3);
+        fs::write(&path, bytes).unwrap();
+        assert!(embedded_named(&path, b"rpp-runtime/").is_err());
         fs::remove_file(path).unwrap();
     }
     #[test]

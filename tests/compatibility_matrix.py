@@ -28,8 +28,9 @@ def main():
     parser.add_argument('--cmake', action='append', required=True)
     parser.add_argument('--rustc', action='append', required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--require-qt', action='store_true')
     opts = parser.parse_args()
-    report = {'timestamp_utc': datetime.now(timezone.utc).isoformat(), 'results': []}
+    report = {'schema': 1, 'revision': subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(), 'timestamp_utc': datetime.now(timezone.utc).isoformat(), 'results': []}
     for cmake, rustc in itertools.product(opts.cmake, opts.rustc):
         cmake, rustc = Path(cmake).absolute(), Path(rustc).absolute()
         env = dict(os.environ, RPP_TEST_CMAKE=str(cmake), RPP_TEST_RUSTC=str(rustc),
@@ -42,7 +43,8 @@ def main():
         try:
             with tempfile.TemporaryDirectory(prefix='rpp matrix ') as tmp:
                 run([cmake, '-S', ROOT, '-B', tmp, '-G', 'Ninja',
-                     f'-DRPP_RUSTC_EXECUTABLE={rustc}'], env)
+                     f'-DRPP_RUSTC_EXECUTABLE={rustc}',
+                     f'-DRPP_ENABLE_QT_VALIDATION={"ON" if opts.require_qt else "OFF"}'], env)
                 run([cmake,'--build',tmp],env)
                 entry['log'] = run([cmake.with_name('ctest'),'--test-dir',tmp,
                                     '--output-on-failure'],env)
