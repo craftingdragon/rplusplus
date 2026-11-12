@@ -111,7 +111,14 @@ fn main() {
     }
 }
 fn execute() -> Result<()> {
-    let mut args: Vec<String> = env::args().skip(1).collect();
+    let mut args = Vec::new();
+    for arg in env::args().skip(1) {
+        if let Some(path) = arg.strip_prefix('@') {
+            args.extend(read_args(Path::new(path))?);
+        } else {
+            args.push(arg);
+        }
+    }
     let Some(index) = args.iter().position(|s| s == "-o") else {
         return execute_inner(args);
     };
@@ -161,15 +168,7 @@ fn execute_inner(args: Vec<String>) -> Result<()> {
         println!("rpp compile|link --rustc PATH [options]\nCargo-free Rust compiler driver");
         return Ok(());
     }
-    let mut expanded = Vec::new();
-    for arg in args {
-        if let Some(path) = arg.strip_prefix('@') {
-            expanded.extend(read_args(Path::new(path))?);
-        } else {
-            expanded.push(arg);
-        }
-    }
-    let mut args = expanded;
+    let mut args = args;
     let op = args.remove(0);
     let rustc = take(&mut args, "--rustc")?.unwrap_or_else(|| "rustc".into());
     let cxx = take(&mut args, "--cxx")?

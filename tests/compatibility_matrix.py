@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def run(command, env):
     result = subprocess.run(list(map(str, command)), env=env, text=True,
-                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=900)
     if result.returncode:
         raise RuntimeError(f'{command}\n{result.stdout}')
     return result.stdout
@@ -35,12 +35,16 @@ def main():
         cmake, rustc = Path(cmake).absolute(), Path(rustc).absolute()
         env = dict(os.environ, RPP_TEST_CMAKE=str(cmake), RPP_TEST_RUSTC=str(rustc),
                    RPP_TEST_CTEST=str(cmake.with_name('ctest')))
-        entry = {'cmake': run([cmake, '--version'],env).splitlines()[0],
-                 'rustc': run([rustc, '--version'],env).strip()}
-        if 'nightly' in entry['rustc'] or 'beta' in entry['rustc']:
-            raise RuntimeError('This matrix requires stable Rust compilers')
+        entry = {'cmake': str(cmake), 'rustc': str(rustc)}
         start = time.perf_counter()
         try:
+            entry['cmake'] = run([cmake, '--version'], env).splitlines()[0]
+            entry['rustc'] = run([rustc, '--version'], env).strip()
+            entry['rustc_identity'] = run([rustc, '-vV'], env)
+            if 'nightly' in entry['rustc'] or 'beta' in entry['rustc']:
+                raise ValueError('Stable Rust required')
+            if not cmake.with_name('ctest').is_file():
+                raise FileNotFoundError('Matching CTest missing')
             with tempfile.TemporaryDirectory(prefix='rpp matrix ') as tmp:
                 run([cmake, '-S', ROOT, '-B', tmp, '-G', 'Ninja',
                      f'-DRPP_RUSTC_EXECUTABLE={rustc}',
@@ -49,7 +53,9 @@ def main():
                 entry['log'] = run([cmake.with_name('ctest'),'--test-dir',tmp,
                                     '--output-on-failure'],env)
             entry['status'] = 'passed'
-        except RuntimeError as error:
+        except (OSError, ValueError) as error:
+            entry.update(status='blocked', log=str(error))
+        except (RuntimeError, subprocess.TimeoutExpired) as error:
             entry.update(status='failed', log=str(error))
         entry['elapsed_seconds'] = time.perf_counter()-start
         report['results'].append(entry)

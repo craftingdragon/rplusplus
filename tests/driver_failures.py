@@ -18,9 +18,19 @@ def main():
             ['link','--cxx',str(fake),'--libraries'],
             ['link','--ar',str(fake),'--rpp-archive','--libraries'],
         ):
-            p=subprocess.run([str(driver),*args,'-o',str(output)],capture_output=True,text=True,timeout=30)
-            assert p.returncode==17,(p.returncode,p.stderr)
-            assert output.read_bytes()==b'previous valid artifact'
-            assert not list(root.glob('*.rpp-stage*')),list(root.iterdir())
+            command=[*args,'-o',str(output)]
+            response=root/'response args'
+            for mode in ('direct','response','mixed'):
+                if mode=='response':
+                    response.write_bytes(('\0'.join(command)+'\0').encode())
+                    invocation=['@'+str(response)]
+                elif mode=='mixed':
+                    response.write_bytes(('\0'.join(command[1:])+'\0').encode())
+                    invocation=[command[0],'@'+str(response)]
+                else:invocation=command
+                p=subprocess.run([str(driver),*invocation],capture_output=True,text=True,timeout=30)
+                assert p.returncode==17,(p.returncode,p.stderr)
+                assert output.read_bytes()==b'previous valid artifact'
+                assert not list(root.glob('*.rpp-stage*')),list(root.iterdir())
         print('PASS v0.1/publication: compile, linker and archiver failures preserve output and status')
 if __name__=='__main__':main()
