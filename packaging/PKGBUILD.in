@@ -1,0 +1,22 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+pkgname=rplusplus
+pkgver=0.1.0
+pkgrel=1
+pkgdesc='Experimental Cargo-free Rust compiler driver and native CMake integration'
+arch=('x86_64')
+license=('GPL-3.0-or-later')
+depends=('rust>=1.85' 'cmake>=3.25' 'gcc-libs')
+makedepends=('ninja' 'python')
+source=("rplusplus-${pkgver}.tar.gz")
+sha256sums=('@SOURCE_SHA256@')
+build() {
+  cmake -S "rplusplus-${pkgver}" -B build -G Ninja \
+    -DCMAKE_INSTALL_PREFIX=/usr -DRPP_RUSTC_EXECUTABLE=/usr/bin/rustc
+  cmake --build build
+}
+check() {
+  RPP_TEST_RUSTC=/usr/bin/rustc ctest --test-dir build --output-on-failure
+}
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+}

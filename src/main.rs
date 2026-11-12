@@ -88,7 +88,13 @@ fn embedded_named(path: &Path, name: &[u8]) -> Result<Option<Vec<String>>> {
             .trim()
             .parse::<usize>()?;
         offset += 60;
-        let member = bytes.get(offset..offset + size).ok_or("truncated rlib")?;
+        let end = offset
+            .checked_add(size)
+            .ok_or("invalid archive member size")?;
+        if &header[58..60] != b"`\n" {
+            return Err("invalid archive member header".into());
+        }
+        let member = bytes.get(offset..end).ok_or("truncated rlib")?;
         if header.starts_with(name) {
             return Ok(Some(
                 member
@@ -97,7 +103,10 @@ fn embedded_named(path: &Path, name: &[u8]) -> Result<Option<Vec<String>>> {
                     .collect::<std::result::Result<_, _>>()?,
             ));
         }
-        offset += size + size % 2;
+        offset = end.checked_add(size % 2).ok_or("invalid archive padding")?;
+    }
+    if offset != bytes.len() {
+        return Err("truncated archive header".into());
     }
     Ok(None)
 }

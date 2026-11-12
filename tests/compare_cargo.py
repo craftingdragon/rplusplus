@@ -90,7 +90,7 @@ def main():
         tools=base/'tools';tools.mkdir()
         cc=wrapper(tools/'cxx',cxx,'cxx',trace)
         rc=wrapper(tools/'rustc',rustc,'rustc',trace)
-        rp=wrapper(tools/'rpp',prefix/'bin/rpp','rpp',trace)
+        rp=wrapper(tools/'rpp',prefix/'bin/rpp','rpp',trace,rustc_trace=rc)
         cg=wrapper(tools/'cargo',cargo,'cargo',trace)
         if args.timing_only:cc,rc,rp,cg=cxx,rustc,prefix/'bin/rpp',cargo
         # Native runtime discovery is configuration work, using the same stable

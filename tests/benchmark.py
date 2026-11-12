@@ -27,11 +27,13 @@ def run(args, env=None):
     return result.stdout
 
 
-def wrapper(path, real, tool, trace):
+def wrapper(path, real, tool, trace, rustc_trace=None):
     path.write_text(f'''#!{sys.executable}
 import json, os, tempfile, sys
 with tempfile.NamedTemporaryFile(mode='w', dir={str(trace)!r}, delete=False) as log:
     json.dump({{'tool': {tool!r}, 'args': sys.argv[1:]}}, log)
+if {str(rustc_trace) if rustc_trace else None!r} is not None and '--rustc' in sys.argv:
+    sys.argv[sys.argv.index('--rustc')+1] = {str(rustc_trace)!r}
 os.execv({str(real)!r}, [{str(real)!r}] + sys.argv[1:])
 ''')
     path.chmod(0o755)
@@ -105,7 +107,7 @@ def main():
         tools.mkdir()
         cc = wrapper(tools/'cxx', Path(shutil.which('c++')).absolute(), 'cxx', trace)
         rc = wrapper(tools/'rustc', rustc, 'rustc', trace)
-        driver = wrapper(tools/'rpp', prefix/'bin/rpp', 'rpp', trace)
+        driver = wrapper(tools/'rpp', prefix/'bin/rpp', 'rpp', trace, rustc_trace=rc)
         if opts.timing_only:
             cc, rc, driver = Path(shutil.which('c++')).absolute(), rustc, prefix/'bin/rpp'
         for gen in GENERATORS:

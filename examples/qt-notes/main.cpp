@@ -51,10 +51,11 @@ public:
     void exercise(){
         if(!db)throw std::runtime_error("database failed to open");
         editor->setPlainText(QString::fromUtf8("Hello 🦀")); saveNote();
-        if(list->count()!=1)throw std::runtime_error("save failed");
-        list->setCurrentRow(0); editor->setPlainText("updated"); saveNote();
-        if(list->count()!=1 || list->item(0)->text()!="updated")throw std::runtime_error("update failed");
+        if(list->count()!=1 || list->item(0)->text()!=QString::fromUtf8("Hello 🦀"))throw std::runtime_error("save failed");
+        list->setCurrentRow(0); editor->setPlainText(QString::fromUtf8("updated 🦀")); saveNote();
+        if(list->count()!=1 || list->item(0)->text()!=QString::fromUtf8("updated 🦀"))throw std::runtime_error("update failed");
     }
+    QString firstText()const{return list->count()?list->item(0)->text():QString();}
     int count()const{return list->count();}
     void removeFirst(){list->setCurrentRow(0);deleteNote();}
 };
@@ -63,7 +64,7 @@ int main(int argc,char **argv){
     if(app.arguments().contains("--self-test")){
         QTemporaryDir dir; if(!dir.isValid())return 1; auto path=dir.filePath("notes.sqlite");
         try { {Window w(path);w.exercise();app.processEvents();}
-            {Window w(path);if(w.count()!=1)return 2;w.removeFirst();if(w.count()!=0)return 3;}
+            {Window w(path);if(w.count()!=1 || w.firstText()!=QString::fromUtf8("updated 🦀"))return 2;w.removeFirst();if(w.count()!=0)return 3;}
             Error e; NotesHandle *h=nullptr; auto invalid=dir.filePath("missing/notes.sqlite").toUtf8();
             if(notes_open(view(invalid),&h,&e.b)==0 || h || !e.b.len)return 4;
         }catch(const std::exception &){return 5;} return 0;
