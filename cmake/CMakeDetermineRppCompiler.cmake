@@ -1,6 +1,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-find_program(CMAKE_Rpp_COMPILER NAMES rustc REQUIRED)
-execute_process(COMMAND "${CMAKE_Rpp_COMPILER}" --version OUTPUT_VARIABLE compiler_version OUTPUT_STRIP_TRAILING_WHITESPACE COMMAND_ERROR_IS_FATAL ANY)
+get_filename_component(_rpp_prefix "${CMAKE_CURRENT_LIST_DIR}/../../.." ABSOLUTE)
+find_program(CMAKE_Rpp_COMPILER NAMES rpp HINTS "${_rpp_prefix}/bin" REQUIRED)
+find_program(RPP_RUSTC_EXECUTABLE NAMES rustc REQUIRED)
+execute_process(COMMAND "${RPP_RUSTC_EXECUTABLE}" --version OUTPUT_VARIABLE compiler_version OUTPUT_STRIP_TRAILING_WHITESPACE COMMAND_ERROR_IS_FATAL ANY)
 message(STATUS "Rpp compiler=${CMAKE_Rpp_COMPILER}: ${compiler_version}")
 string(REGEX MATCH "rustc ([0-9]+\\.[0-9]+\\.[0-9]+)" _match "${compiler_version}")
 if(NOT _match)
