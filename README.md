@@ -29,7 +29,7 @@ cmake --build build-example
 RPP_TEST_RUSTC="$(rustup which --toolchain stable rustc)" python3 tests/generators.py
 ```
 
-Prerequisites: CMake 3.25 or later, Python 3, rustc supporting edition 2024, a C++ compiler, an archiver, Ninja, and Make. The CMake 3.25.0 minimum and CMake 4.4.5 pass the full gate with stable Rust 1.96.0 and 1.97.1. See [validation and build baselines](docs/validation-and-baseline.md). Cargo and network access are not used.
+Prerequisites: CMake 3.25 or later, Python 3, rustc supporting edition 2024, a C++ compiler, an archiver, Ninja, and Make. The CMake 3.25.0 minimum and CMake 4.4.5 pass the full gate with stable Rust 1.96.0 and 1.97.1. See [validation and build baselines](docs/validation-and-baseline.md) and the [Cargo comparison](docs/cargo-comparison.md). Cargo and network access are not used.
 
 ## Direction
 

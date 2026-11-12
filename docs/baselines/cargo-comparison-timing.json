@@ -1,0 +1,2971 @@
+{
+  "schema": 1,
+  "timestamp_utc": "2026-11-12T16:45:02.052319+00:00",
+  "platform": "Linux-7.2.14-zen1-1-zen-x86_64-with-glibc2.44",
+  "cmake": "cmake version 4.4.5",
+  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+  "cargo": "cargo 1.97.1 (c980f4866 2026-06-30)",
+  "cxx": "c++ (GCC) 16.2.1 20260810",
+  "ninja": "1.13.2",
+  "make": "GNU Make 4.4.1",
+  "python": "3.14.10",
+  "logical_cpus": 16,
+  "jobs": 4,
+  "config": "Debug",
+  "codegen_units": 256,
+  "instrumented": false,
+  "method": "Warm caches; identical mixed outputs. CMake + Cargo always evaluates Cargo graph. Setup, clean and tests excluded. Python process wrappers only in instrumented run.",
+  "samples": [
+    {
+      "seconds": 0.21925692399963737,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.008157901000231504,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.20968578900647117,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.06571196699951543,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.11458159900212195,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.00769320299878018,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.223312939000607,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.007731719997536857,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.21588335699925665,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.0747659519984154,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.1255332319997251,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.007761321001453325,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.23869643799844198,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.008248709003964905,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.22029512200242607,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07375104499806184,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.12663115799659863,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.008618107996881008,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.23807440300151939,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.008341398002812639,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.2228346519987099,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07408613499865169,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.12063495699840132,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.007814485004928429,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.23993496099865297,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.007984365998709109,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.2133349849973456,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.0707178670054418,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.11277791299653472,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.007641438998689409,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.30902279500151053,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.03614165599719854,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.20861496899306076,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07196443699649535,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.1394382780054002,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.037795340998854954,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.012636115003260784,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.3257111109996913,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.03586766399530461,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.20999439399747644,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.0742507300019497,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.1451454640045995,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.03622531599830836,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.012136568999267183,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.32145672499609645,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.03979370500019286,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.21796113699383568,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07886367799801519,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.1490627930033952,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.03544434200011892,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.01181238199933432,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.30425360899971565,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.03895868100516964,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.21773661200131755,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07432349000009708,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.14651528800459346,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.034303116000955924,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.011284788000921253,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.3200139929977013,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.03610123800172005,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.22305131999746663,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07217748900438892,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.14853781700367108,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.03290669900161447,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.01018733099772362,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.28894812500220723,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.03767341800266877,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.21737705200212076,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07482760299899383,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.15389738000521902,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.033796560994233005,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.010871612998016644,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.3043172119942028,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.0339769249985693,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.21827582599507878,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07965604300261475,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.13709704099892406,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.034947798994835466,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.012200010001834016,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.3109558049982297,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.03381264799827477,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.21351552700070897,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07928363500104751,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.15687821599567542,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.03431365399592323,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.010367769005824812,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.301693408000574,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.03719975700369105,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.21508393499971135,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07820554899808485,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.1478748160006944,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.035083060000033583,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.011289684000075795,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.3107159080027486,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.03406236100272508,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.21674864899978274,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07064500799606321,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.13663824900140753,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.032054399998742156,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.01030953400186263,
+      "invocations": null,
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.5365717009990476,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.16996813700097846,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.5052524710044963,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.21093719100463204,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.30077545899985125,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.1766541339966352,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.5844049169973005,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.16930020199652063,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.5082903739967151,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.21193167300225468,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.28584074300306384,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.16575154600286623,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.5423396350015537,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.14968417899945052,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.4754801250019227,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.21756013500271365,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.2952532159979455,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.15855967000243254,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.5753013930007,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.171084701003565,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.5054868779989192,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.2263609709989396,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.301945983999758,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.15192971200303873,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.5554242080033873,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.15848324800026603,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.476209138003469,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.21382807799818693,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.2834229179934482,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.15686079000442987,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.41505185999994865,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.11513614500290714,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.29129364300024463,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.14206946599733783,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.22674566899513593,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.1058271119982237,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.011031299996830057,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.4296829670056468,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.09848325000348268,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.29177743799664313,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.1414137280007708,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.21596158900501905,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.09376162300031865,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.01245500900404295,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.42271495400200365,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.10993878099543508,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.2885976350007695,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.13487504499789793,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.21532482199836522,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.10920311900554225,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.0121889470028691,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.41734041000017896,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.10692637899774127,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.3046903089998523,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.1399371530060307,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.2270950830061338,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.10571428800176363,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.011249896000663284,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.4027237550035352,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.09982006999780424,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.28686176300107036,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.1465816689960775,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.23348529299983056,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.10211741799867013,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.011089050000009593,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.4214637330005644,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.09980116699443897,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.30481802800204605,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.14770180699997582,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.24203772600594675,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.10643493699899409,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.011294106996501796,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.4098148310004035,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.10170574200310512,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.29246999000315554,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.14436719499644823,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.2251364490002743,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.0968443650053814,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.011561013001482934,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.414781061001122,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.10700616100075422,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.31287284899735823,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.1447626980007044,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.22799678499723086,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.10055062099854695,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.01061502100492362,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.41854474099818617,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.10347184700367507,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.2867768009964493,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.1374883740063524,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.22884841600171058,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.10307597999781137,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.011098226998001337,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.4017824570037192,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.10060409599827835,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.30556436799815856,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.15116070299700368,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.22850629899767227,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.0931987720032339,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.010773975001939107,
+      "invocations": null,
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.23646702900441596,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.00941126999532571,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.2236009549960727,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.06610555700171972,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.1219727710049483,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.008097205005469732,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.2173463430008269,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.008418008001171984,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.21555123199505033,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.0704589630040573,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.11603810499946121,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.007944659002532717,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.23265424300188897,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.008880662004230544,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.2321956730011152,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.06952970400016056,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.12237457699666265,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.008860394002113026,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.2333923100013635,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.008669593000377063,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.2224551139952382,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07218711099994835,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.12934795799810672,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.008642221997433808,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.2384155500039924,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.009234470002411399,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.2308008609979879,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07780710099905264,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.13563294100458734,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.008403291998547502,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.31660149300296325,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.03542477199516725,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.20954578799864976,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07534066300286213,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.14012051100144163,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.03414764699846273,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.011084284997195937,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.31026840699632885,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.037820530000317376,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.21618114600278204,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07412536699848715,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.13870457500161137,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.034974729001987725,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.01268312000320293,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.3212579649989493,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.03451614799996605,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.20868866699311184,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07220896999933757,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.13717287599865813,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.03425631200661883,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.010540414994466119,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.30859447499824455,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.038215808002860285,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.19362882399582304,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.06713911699625896,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.1308349629980512,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.03318281600513728,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.0110297939972952,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.31341098199482076,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.03556015800131718,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.208056570001645,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.0704516479963786,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.1389030290010851,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.03398906299844384,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.010276715001964476,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.297435531996598,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.034929467998153996,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.21196670799690764,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.0747230060005677,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.12814786400122102,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.035886231999029405,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.010200693999649957,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.2863114339997992,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.03451185900485143,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.22181961300520925,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07632100300543243,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.15190164399973582,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.03769513400038704,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.010835465000127442,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.2972071030017105,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.033544842997798696,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.21572782900329912,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07703162300458644,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.14162805399973877,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.03362351400573971,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.011496447004901711,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.29322183500335086,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.03453875300328946,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.22389536899572704,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.07474568800535053,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.13927846400474664,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.033869496000988875,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.010756782001408283,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.29377561799628893,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.03553821599780349,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.20643122000183212,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.0738632599968696,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.14851522499520797,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.03651991000515409,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.010654334000719246,
+      "invocations": null,
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "cargo_only_noop"
+    }
+  ],
+  "cargo_runtime_probe": [
+    "-lgcc_s",
+    "-lutil",
+    "-lrt",
+    "-lpthread",
+    "-lm",
+    "-ldl",
+    "-lc"
+  ],
+  "summary": [
+    {
+      "generator": "Ninja",
+      "system": "Rpp",
+      "scenario": "clean",
+      "median_seconds": 0.23807440300151939,
+      "min_seconds": 0.21925692399963737,
+      "max_seconds": 0.23993496099865297,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Rpp",
+      "scenario": "noop",
+      "median_seconds": 0.008157901000231504,
+      "min_seconds": 0.007731719997536857,
+      "max_seconds": 0.008341398002812639,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Rpp",
+      "scenario": "rust_leaf",
+      "median_seconds": 0.21588335699925665,
+      "min_seconds": 0.20968578900647117,
+      "max_seconds": 0.2228346519987099,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Rpp",
+      "scenario": "rust_root",
+      "median_seconds": 0.07375104499806184,
+      "min_seconds": 0.06571196699951543,
+      "max_seconds": 0.0747659519984154,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Rpp",
+      "scenario": "cxx_leaf",
+      "median_seconds": 0.12063495699840132,
+      "min_seconds": 0.11277791299653472,
+      "max_seconds": 0.12663115799659863,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Rpp",
+      "scenario": "post_noop",
+      "median_seconds": 0.007761321001453325,
+      "min_seconds": 0.007641438998689409,
+      "max_seconds": 0.008618107996881008,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "scenario": "clean",
+      "median_seconds": 0.3200139929977013,
+      "min_seconds": 0.30425360899971565,
+      "max_seconds": 0.3257111109996913,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "scenario": "noop",
+      "median_seconds": 0.03614165599719854,
+      "min_seconds": 0.03586766399530461,
+      "max_seconds": 0.03979370500019286,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "scenario": "rust_leaf",
+      "median_seconds": 0.21773661200131755,
+      "min_seconds": 0.20861496899306076,
+      "max_seconds": 0.22305131999746663,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "scenario": "rust_root",
+      "median_seconds": 0.0742507300019497,
+      "min_seconds": 0.07196443699649535,
+      "max_seconds": 0.07886367799801519,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "scenario": "cxx_leaf",
+      "median_seconds": 0.14651528800459346,
+      "min_seconds": 0.1394382780054002,
+      "max_seconds": 0.1490627930033952,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "scenario": "post_noop",
+      "median_seconds": 0.03544434200011892,
+      "min_seconds": 0.03290669900161447,
+      "max_seconds": 0.037795340998854954,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "scenario": "cargo_only_noop",
+      "median_seconds": 0.01181238199933432,
+      "min_seconds": 0.01018733099772362,
+      "max_seconds": 0.012636115003260784,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "scenario": "clean",
+      "median_seconds": 0.3043172119942028,
+      "min_seconds": 0.28894812500220723,
+      "max_seconds": 0.3109558049982297,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "scenario": "noop",
+      "median_seconds": 0.03406236100272508,
+      "min_seconds": 0.03381264799827477,
+      "max_seconds": 0.03767341800266877,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "scenario": "rust_leaf",
+      "median_seconds": 0.21674864899978274,
+      "min_seconds": 0.21351552700070897,
+      "max_seconds": 0.21827582599507878,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "scenario": "rust_root",
+      "median_seconds": 0.07820554899808485,
+      "min_seconds": 0.07064500799606321,
+      "max_seconds": 0.07965604300261475,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "scenario": "cxx_leaf",
+      "median_seconds": 0.1478748160006944,
+      "min_seconds": 0.13663824900140753,
+      "max_seconds": 0.15687821599567542,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "scenario": "post_noop",
+      "median_seconds": 0.03431365399592323,
+      "min_seconds": 0.032054399998742156,
+      "max_seconds": 0.035083060000033583,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "scenario": "cargo_only_noop",
+      "median_seconds": 0.010871612998016644,
+      "min_seconds": 0.01030953400186263,
+      "max_seconds": 0.012200010001834016,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "scenario": "clean",
+      "median_seconds": 0.5554242080033873,
+      "min_seconds": 0.5365717009990476,
+      "max_seconds": 0.5844049169973005,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "scenario": "noop",
+      "median_seconds": 0.16930020199652063,
+      "min_seconds": 0.14968417899945052,
+      "max_seconds": 0.171084701003565,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "scenario": "rust_leaf",
+      "median_seconds": 0.5052524710044963,
+      "min_seconds": 0.4754801250019227,
+      "max_seconds": 0.5082903739967151,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "scenario": "rust_root",
+      "median_seconds": 0.21382807799818693,
+      "min_seconds": 0.21093719100463204,
+      "max_seconds": 0.2263609709989396,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "scenario": "cxx_leaf",
+      "median_seconds": 0.2952532159979455,
+      "min_seconds": 0.2834229179934482,
+      "max_seconds": 0.301945983999758,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "scenario": "post_noop",
+      "median_seconds": 0.15855967000243254,
+      "min_seconds": 0.15192971200303873,
+      "max_seconds": 0.1766541339966352,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "scenario": "clean",
+      "median_seconds": 0.41734041000017896,
+      "min_seconds": 0.4027237550035352,
+      "max_seconds": 0.4296829670056468,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "scenario": "noop",
+      "median_seconds": 0.10692637899774127,
+      "min_seconds": 0.09848325000348268,
+      "max_seconds": 0.11513614500290714,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "scenario": "rust_leaf",
+      "median_seconds": 0.29129364300024463,
+      "min_seconds": 0.28686176300107036,
+      "max_seconds": 0.3046903089998523,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "scenario": "rust_root",
+      "median_seconds": 0.1414137280007708,
+      "min_seconds": 0.13487504499789793,
+      "max_seconds": 0.1465816689960775,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "scenario": "cxx_leaf",
+      "median_seconds": 0.22674566899513593,
+      "min_seconds": 0.21532482199836522,
+      "max_seconds": 0.23348529299983056,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "scenario": "post_noop",
+      "median_seconds": 0.10571428800176363,
+      "min_seconds": 0.09376162300031865,
+      "max_seconds": 0.10920311900554225,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "scenario": "cargo_only_noop",
+      "median_seconds": 0.011249896000663284,
+      "min_seconds": 0.011031299996830057,
+      "max_seconds": 0.01245500900404295,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "scenario": "clean",
+      "median_seconds": 0.414781061001122,
+      "min_seconds": 0.4017824570037192,
+      "max_seconds": 0.4214637330005644,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "scenario": "noop",
+      "median_seconds": 0.10170574200310512,
+      "min_seconds": 0.09980116699443897,
+      "max_seconds": 0.10700616100075422,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "scenario": "rust_leaf",
+      "median_seconds": 0.30481802800204605,
+      "min_seconds": 0.2867768009964493,
+      "max_seconds": 0.31287284899735823,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "scenario": "rust_root",
+      "median_seconds": 0.1447626980007044,
+      "min_seconds": 0.1374883740063524,
+      "max_seconds": 0.15116070299700368,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "scenario": "cxx_leaf",
+      "median_seconds": 0.22850629899767227,
+      "min_seconds": 0.2251364490002743,
+      "max_seconds": 0.24203772600594675,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "scenario": "post_noop",
+      "median_seconds": 0.10055062099854695,
+      "min_seconds": 0.0931987720032339,
+      "max_seconds": 0.10643493699899409,
+      "invocations": null
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "scenario": "cargo_only_noop",
+      "median_seconds": 0.011098226998001337,
+      "min_seconds": 0.01061502100492362,
+      "max_seconds": 0.011561013001482934,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "scenario": "clean",
+      "median_seconds": 0.2333923100013635,
+      "min_seconds": 0.2173463430008269,
+      "max_seconds": 0.2384155500039924,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "scenario": "noop",
+      "median_seconds": 0.008880662004230544,
+      "min_seconds": 0.008418008001171984,
+      "max_seconds": 0.00941126999532571,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "scenario": "rust_leaf",
+      "median_seconds": 0.2236009549960727,
+      "min_seconds": 0.21555123199505033,
+      "max_seconds": 0.2321956730011152,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "scenario": "rust_root",
+      "median_seconds": 0.0704589630040573,
+      "min_seconds": 0.06610555700171972,
+      "max_seconds": 0.07780710099905264,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "scenario": "cxx_leaf",
+      "median_seconds": 0.12237457699666265,
+      "min_seconds": 0.11603810499946121,
+      "max_seconds": 0.13563294100458734,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "scenario": "post_noop",
+      "median_seconds": 0.008403291998547502,
+      "min_seconds": 0.007944659002532717,
+      "max_seconds": 0.008860394002113026,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "scenario": "clean",
+      "median_seconds": 0.31341098199482076,
+      "min_seconds": 0.30859447499824455,
+      "max_seconds": 0.3212579649989493,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "scenario": "noop",
+      "median_seconds": 0.03556015800131718,
+      "min_seconds": 0.03451614799996605,
+      "max_seconds": 0.038215808002860285,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "scenario": "rust_leaf",
+      "median_seconds": 0.20868866699311184,
+      "min_seconds": 0.19362882399582304,
+      "max_seconds": 0.21618114600278204,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "scenario": "rust_root",
+      "median_seconds": 0.07220896999933757,
+      "min_seconds": 0.06713911699625896,
+      "max_seconds": 0.07534066300286213,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "scenario": "cxx_leaf",
+      "median_seconds": 0.13870457500161137,
+      "min_seconds": 0.1308349629980512,
+      "max_seconds": 0.14012051100144163,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "scenario": "post_noop",
+      "median_seconds": 0.03414764699846273,
+      "min_seconds": 0.03318281600513728,
+      "max_seconds": 0.034974729001987725,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "scenario": "cargo_only_noop",
+      "median_seconds": 0.0110297939972952,
+      "min_seconds": 0.010276715001964476,
+      "max_seconds": 0.01268312000320293,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "scenario": "clean",
+      "median_seconds": 0.29377561799628893,
+      "min_seconds": 0.2863114339997992,
+      "max_seconds": 0.297435531996598,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "scenario": "noop",
+      "median_seconds": 0.03453875300328946,
+      "min_seconds": 0.033544842997798696,
+      "max_seconds": 0.03553821599780349,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "scenario": "rust_leaf",
+      "median_seconds": 0.21572782900329912,
+      "min_seconds": 0.20643122000183212,
+      "max_seconds": 0.22389536899572704,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "scenario": "rust_root",
+      "median_seconds": 0.07474568800535053,
+      "min_seconds": 0.0738632599968696,
+      "max_seconds": 0.07703162300458644,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "scenario": "cxx_leaf",
+      "median_seconds": 0.14162805399973877,
+      "min_seconds": 0.12814786400122102,
+      "max_seconds": 0.15190164399973582,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "scenario": "post_noop",
+      "median_seconds": 0.035886231999029405,
+      "min_seconds": 0.03362351400573971,
+      "max_seconds": 0.03769513400038704,
+      "invocations": null
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "scenario": "cargo_only_noop",
+      "median_seconds": 0.010756782001408283,
+      "min_seconds": 0.010200693999649957,
+      "max_seconds": 0.011496447004901711,
+      "invocations": null
+    }
+  ]
+}

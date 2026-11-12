@@ -86,3 +86,5 @@ python3 tests/benchmark.py --cmake /path/to/cmake/bin/cmake \
 ```
 
 For a single compatibility gate, set `RPP_TEST_CMAKE`, `RPP_TEST_RUSTC`, and optionally `RPP_TEST_CTEST` before running `python3 tests/generators.py`. CTest otherwise defaults to the selected CMake binary's sibling. Run benchmarks sequentially, without concurrent compatibility/build jobs, to reduce avoidable timing interference.
+
+See the [Cargo comparison](cargo-comparison.md) for a fresh matched-workload comparison with Cargo incremental compilation both enabled and disabled.

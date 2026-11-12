@@ -1,0 +1,4429 @@
+{
+  "schema": 1,
+  "timestamp_utc": "2026-11-12T16:43:43.474748+00:00",
+  "platform": "Linux-7.2.14-zen1-1-zen-x86_64-with-glibc2.44",
+  "cmake": "cmake version 4.4.5",
+  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+  "cargo": "cargo 1.97.1 (c980f4866 2026-06-30)",
+  "cxx": "c++ (GCC) 16.2.1 20260810",
+  "ninja": "1.13.2",
+  "make": "GNU Make 4.4.1",
+  "python": "3.14.10",
+  "logical_cpus": 16,
+  "jobs": 4,
+  "config": "Debug",
+  "codegen_units": 256,
+  "instrumented": true,
+  "method": "Warm caches; identical mixed outputs. CMake + Cargo always evaluates Cargo graph. Setup, clean and tests excluded. Python process wrappers only in instrumented run.",
+  "samples": [
+    {
+      "seconds": 0.5342455739955767,
+      "invocations": {
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 7,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.0084562419942813,
+      "invocations": {},
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.5054230559981079,
+      "invocations": {
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 6,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.16281810399959795,
+      "invocations": {
+        "cxx.link": 1,
+        "rpp.compile": 1,
+        "rpp.link": 1,
+        "rustc.bin": 1,
+        "rustc.rlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.1642059580044588,
+      "invocations": {
+        "cxx.compile": 1,
+        "cxx.link": 1,
+        "rpp.link": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.008608172996900976,
+      "invocations": {},
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.5364338910003426,
+      "invocations": {
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 7,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.007880092001869343,
+      "invocations": {},
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.5017265990027227,
+      "invocations": {
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 6,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.16226859000016702,
+      "invocations": {
+        "cxx.link": 1,
+        "rpp.compile": 1,
+        "rpp.link": 1,
+        "rustc.bin": 1,
+        "rustc.rlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.16870318499422865,
+      "invocations": {
+        "cxx.compile": 1,
+        "cxx.link": 1,
+        "rpp.link": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.008536972003639676,
+      "invocations": {},
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.5403259619997698,
+      "invocations": {
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 7,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.008322891000716481,
+      "invocations": {},
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.5173893370010774,
+      "invocations": {
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 6,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.16755268500128295,
+      "invocations": {
+        "cxx.link": 1,
+        "rpp.compile": 1,
+        "rpp.link": 1,
+        "rustc.bin": 1,
+        "rustc.rlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.17458804600028088,
+      "invocations": {
+        "cxx.compile": 1,
+        "cxx.link": 1,
+        "rpp.link": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.0072041679959511384,
+      "invocations": {},
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.5535882960029994,
+      "invocations": {
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 7,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.008250325998233166,
+      "invocations": {},
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.5015381420016638,
+      "invocations": {
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 6,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.16194199299934553,
+      "invocations": {
+        "cxx.link": 1,
+        "rpp.compile": 1,
+        "rpp.link": 1,
+        "rustc.bin": 1,
+        "rustc.rlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.15998583199689165,
+      "invocations": {
+        "cxx.compile": 1,
+        "cxx.link": 1,
+        "rpp.link": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.008782650998909958,
+      "invocations": {},
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.5403174189996207,
+      "invocations": {
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 7,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.007269847999850754,
+      "invocations": {},
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.5046372520009754,
+      "invocations": {
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 6,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.16439973300293786,
+      "invocations": {
+        "cxx.link": 1,
+        "rpp.compile": 1,
+        "rpp.link": 1,
+        "rustc.bin": 1,
+        "rustc.rlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.16807142900506733,
+      "invocations": {
+        "cxx.compile": 1,
+        "cxx.link": 1,
+        "rpp.link": 1
+      },
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.007585560000734404,
+      "invocations": {},
+      "generator": "Ninja",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.5570636199990986,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.05424653099908028,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.33827641300013056,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.13063037599931704,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.19128912599990144,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.05099537500063889,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.029527883998525795,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.5668373270018492,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.052535048002027906,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.3210909859990352,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.13268536499526817,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.19539664399781032,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.05230783000297379,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.030243612003687304,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.6007746450050035,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.054050601000199094,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.34415941999759525,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.13301597099780338,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.19256641600077273,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.05197600600513397,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.0310675889995764,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.58375209299993,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.05082208000385435,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.33478117499907967,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.1297563740008627,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.1975198950021877,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.05288267700234428,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.03256901499844389,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.5746876990015153,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.05689436799730174,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.3480271860025823,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.13004753799759783,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.19039187400630908,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.05513097799848765,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.030996384004538413,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.5757073770000716,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.052719382001669146,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.3461913339997409,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.13151821599603863,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.19225061999895843,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.05325859999720706,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.03184444100043038,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.5610241510003107,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.05459470799542032,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.34277041000314057,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.13323872000182746,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.1895348829930299,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.05427543499536114,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.029946884998935275,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.5830912259989418,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.0539046510020853,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.3458830990057322,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.12888784900133032,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.18911794999439735,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.05281364499387564,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.029944613997940905,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.5707922120054718,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.05243479099590331,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.3393170389972511,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.13732727400201838,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.18475216899969382,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.05034552599681774,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.03743953299999703,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.5749152709977352,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.05859169500035932,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.346202639004332,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.13988380700175185,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.19177018399932422,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.05421599100372987,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.03061422899918398,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.898685687003308,
+      "invocations": {
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 7,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.14943070399749558,
+      "invocations": {},
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.7538096400021459,
+      "invocations": {
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 6,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.3022597480012337,
+      "invocations": {
+        "cxx.link": 1,
+        "rpp.compile": 1,
+        "rpp.link": 1,
+        "rustc.bin": 1,
+        "rustc.rlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.33400806999998167,
+      "invocations": {
+        "cxx.compile": 1,
+        "cxx.link": 1,
+        "rpp.link": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.15104293799959123,
+      "invocations": {},
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.9653403709962731,
+      "invocations": {
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 7,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.1590938500012271,
+      "invocations": {},
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.7582263220028835,
+      "invocations": {
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 6,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.30755032900196966,
+      "invocations": {
+        "cxx.link": 1,
+        "rpp.compile": 1,
+        "rpp.link": 1,
+        "rustc.bin": 1,
+        "rustc.rlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.3648869390017353,
+      "invocations": {
+        "cxx.compile": 1,
+        "cxx.link": 1,
+        "rpp.link": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.15964044100110186,
+      "invocations": {},
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.9148844990049838,
+      "invocations": {
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 7,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.1612591640005121,
+      "invocations": {},
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.7897859339936986,
+      "invocations": {
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 6,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.2990741590037942,
+      "invocations": {
+        "cxx.link": 1,
+        "rpp.compile": 1,
+        "rpp.link": 1,
+        "rustc.bin": 1,
+        "rustc.rlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.3569283679971704,
+      "invocations": {
+        "cxx.compile": 1,
+        "cxx.link": 1,
+        "rpp.link": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.14679805999912787,
+      "invocations": {},
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.9048655290025636,
+      "invocations": {
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 7,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.14350681199721294,
+      "invocations": {},
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.7429318369977409,
+      "invocations": {
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 6,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.3115686570017715,
+      "invocations": {
+        "cxx.link": 1,
+        "rpp.compile": 1,
+        "rpp.link": 1,
+        "rustc.bin": 1,
+        "rustc.rlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.3614229860031628,
+      "invocations": {
+        "cxx.compile": 1,
+        "cxx.link": 1,
+        "rpp.link": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.17041119700297713,
+      "invocations": {},
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.922064495003724,
+      "invocations": {
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 7,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.15760902999318205,
+      "invocations": {},
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.773061255000357,
+      "invocations": {
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 6,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.3063976349949371,
+      "invocations": {
+        "cxx.link": 1,
+        "rpp.compile": 1,
+        "rpp.link": 1,
+        "rustc.bin": 1,
+        "rustc.rlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.3236190820025513,
+      "invocations": {
+        "cxx.compile": 1,
+        "cxx.link": 1,
+        "rpp.link": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.15062561100057792,
+      "invocations": {},
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.6619566420049523,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.11354441200091969,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.4141180560036446,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.199747862003278,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.2656241529984982,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.12124943699745927,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.030349048996868078,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.6759531889983919,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.12558821600396186,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.4285853789988323,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.20136973100306932,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.2737061080042622,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.1169326339950203,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.030589478999900166,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.6824983369951951,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.11151696900196839,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.41635997199773556,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.19537541000318015,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.27254716899915366,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.11267860200314317,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.0311079500024789,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.6957251220010221,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.11708345299848588,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.4240237470003194,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.19200778000231367,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.26438945399422664,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.11839363699982641,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.03321638299530605,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.6896968189976178,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.11814339400007157,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.42500788100005593,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.20277471200097352,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.263137021996954,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.11744006499793613,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.029377778999332804,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.6777302690024953,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.11351544699573424,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.4273027559975162,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.19957939400046598,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.2825865330014494,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.12025710399757372,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.033047932003682945,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.6887319149973337,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.11540774899913231,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.4131973650000873,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.20161301299958723,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.265508263000811,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.11206892100017285,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.028901269994094037,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.6599602639980731,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.1148365940025542,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.40945046299748356,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.20271230900107184,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.2871292909985641,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.11981764200027101,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.029337744002987165,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.6786545740033034,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.11600221200205851,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.4367438159970334,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.1967950190010015,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.2805683929982479,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.11355583400290925,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.03111682400049176,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.6799908769971807,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.12943530299526174,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.4323124709990225,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.19835046500520548,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.2682284059992526,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.11660693200246897,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.02919343300163746,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.5555100410056184,
+      "invocations": {
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 7,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.0072199760033981875,
+      "invocations": {},
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.5209664819994941,
+      "invocations": {
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 6,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.16919633799989242,
+      "invocations": {
+        "cxx.link": 1,
+        "rpp.compile": 1,
+        "rpp.link": 1,
+        "rustc.bin": 1,
+        "rustc.rlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.17583493299753172,
+      "invocations": {
+        "cxx.compile": 1,
+        "cxx.link": 1,
+        "rpp.link": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.007577421005407814,
+      "invocations": {},
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 0,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.5585703010001453,
+      "invocations": {
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 7,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.007720615001744591,
+      "invocations": {},
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.5149350680003408,
+      "invocations": {
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 6,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.1731519169989042,
+      "invocations": {
+        "cxx.link": 1,
+        "rpp.compile": 1,
+        "rpp.link": 1,
+        "rustc.bin": 1,
+        "rustc.rlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.17198213099618442,
+      "invocations": {
+        "cxx.compile": 1,
+        "cxx.link": 1,
+        "rpp.link": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.007775635996949859,
+      "invocations": {},
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 1,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.5481185269964044,
+      "invocations": {
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 7,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.008823540003504604,
+      "invocations": {},
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.5104128759994637,
+      "invocations": {
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 6,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.16254370599926915,
+      "invocations": {
+        "cxx.link": 1,
+        "rpp.compile": 1,
+        "rpp.link": 1,
+        "rustc.bin": 1,
+        "rustc.rlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.17409518999920692,
+      "invocations": {
+        "cxx.compile": 1,
+        "cxx.link": 1,
+        "rpp.link": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.007648974999028724,
+      "invocations": {},
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 2,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.5443231310055126,
+      "invocations": {
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 7,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.007970881000801455,
+      "invocations": {},
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.5316829130024416,
+      "invocations": {
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 6,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.16951313999743434,
+      "invocations": {
+        "cxx.link": 1,
+        "rpp.compile": 1,
+        "rpp.link": 1,
+        "rustc.bin": 1,
+        "rustc.rlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.17208433899941156,
+      "invocations": {
+        "cxx.compile": 1,
+        "cxx.link": 1,
+        "rpp.link": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.007862563004891854,
+      "invocations": {},
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 3,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.5538070699985838,
+      "invocations": {
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 7,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.01036262799607357,
+      "invocations": {},
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.5101432650044444,
+      "invocations": {
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 6,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.1676410889995168,
+      "invocations": {
+        "cxx.link": 1,
+        "rpp.compile": 1,
+        "rpp.link": 1,
+        "rustc.bin": 1,
+        "rustc.rlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.16896160000032978,
+      "invocations": {
+        "cxx.compile": 1,
+        "cxx.link": 1,
+        "rpp.link": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.0072629100031917915,
+      "invocations": {},
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "repeat": 4,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.5925563830023748,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.05695368399756262,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.3365355010027997,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.1299321559999953,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.18674926300445804,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.050579568996909074,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.03049188799923286,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 0,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.5852784379967488,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.050943248003022745,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.34245541699783644,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.13757066099788062,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.1887151859991718,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.05240918900381075,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.03184453999710968,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 1,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.5986718320054933,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.054205109998292755,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.3610987499996554,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.13937828299822286,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.19480506899708416,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.05389916800049832,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.029302312999789137,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 2,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.5836422590000439,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.05581161299778614,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.33477379199757706,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.1324991069996031,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.18520747000002302,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.0542129079985898,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.02881687400076771,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 3,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.6107272900044336,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.057696578005561605,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.34666794100485276,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.13209311199898366,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.19996703299693763,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.053197437002381776,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.03370949199597817,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "repeat": 4,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.6081389309983933,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.0543175139973755,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.3546987480003736,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.13257557000179077,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.193972416993347,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.05366373799915891,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.029778798001643736,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 0,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.5824230860016542,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.05761453599552624,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.35346974300045986,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.141759643003752,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.1926149950013496,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.05134854599600658,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.03251112400175771,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 1,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.5775418050034204,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.0545758520020172,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.36299983500066446,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.1420054699992761,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.2014839630064671,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.056740698993962724,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.030392499000299722,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 2,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.6034938500015414,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.052332473002024926,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.3481005590001587,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.13779853400046704,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.1900658710001153,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.05323763599881204,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.03096030600136146,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 3,
+      "scenario": "cargo_only_noop"
+    },
+    {
+      "seconds": 0.5851713270021719,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "clean"
+    },
+    {
+      "seconds": 0.05239147999964189,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "noop"
+    },
+    {
+      "seconds": 0.3446110989971203,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "rust_leaf"
+    },
+    {
+      "seconds": 0.1309929769995506,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "rust_root"
+    },
+    {
+      "seconds": 0.19584967000264442,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "cxx_leaf"
+    },
+    {
+      "seconds": 0.05336838000221178,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "post_noop"
+    },
+    {
+      "seconds": 0.030055102994083427,
+      "invocations": {
+        "cargo.build": 1
+      },
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "repeat": 4,
+      "scenario": "cargo_only_noop"
+    }
+  ],
+  "cargo_runtime_probe": [
+    "-lgcc_s",
+    "-lutil",
+    "-lrt",
+    "-lpthread",
+    "-lm",
+    "-ldl",
+    "-lc"
+  ],
+  "summary": [
+    {
+      "generator": "Ninja",
+      "system": "Rpp",
+      "scenario": "clean",
+      "median_seconds": 0.5403174189996207,
+      "min_seconds": 0.5342455739955767,
+      "max_seconds": 0.5535882960029994,
+      "invocations": {
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 7,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      }
+    },
+    {
+      "generator": "Ninja",
+      "system": "Rpp",
+      "scenario": "noop",
+      "median_seconds": 0.008250325998233166,
+      "min_seconds": 0.007269847999850754,
+      "max_seconds": 0.0084562419942813,
+      "invocations": {}
+    },
+    {
+      "generator": "Ninja",
+      "system": "Rpp",
+      "scenario": "rust_leaf",
+      "median_seconds": 0.5046372520009754,
+      "min_seconds": 0.5015381420016638,
+      "max_seconds": 0.5173893370010774,
+      "invocations": {
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 6,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      }
+    },
+    {
+      "generator": "Ninja",
+      "system": "Rpp",
+      "scenario": "rust_root",
+      "median_seconds": 0.16281810399959795,
+      "min_seconds": 0.16194199299934553,
+      "max_seconds": 0.16755268500128295,
+      "invocations": {
+        "cxx.link": 1,
+        "rpp.compile": 1,
+        "rpp.link": 1,
+        "rustc.bin": 1,
+        "rustc.rlib": 1
+      }
+    },
+    {
+      "generator": "Ninja",
+      "system": "Rpp",
+      "scenario": "cxx_leaf",
+      "median_seconds": 0.16807142900506733,
+      "min_seconds": 0.15998583199689165,
+      "max_seconds": 0.17458804600028088,
+      "invocations": {
+        "cxx.compile": 1,
+        "cxx.link": 1,
+        "rpp.link": 1
+      }
+    },
+    {
+      "generator": "Ninja",
+      "system": "Rpp",
+      "scenario": "post_noop",
+      "median_seconds": 0.008536972003639676,
+      "min_seconds": 0.0072041679959511384,
+      "max_seconds": 0.008782650998909958,
+      "invocations": {}
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "scenario": "clean",
+      "median_seconds": 0.5746876990015153,
+      "min_seconds": 0.5570636199990986,
+      "max_seconds": 0.6007746450050035,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      }
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "scenario": "noop",
+      "median_seconds": 0.054050601000199094,
+      "min_seconds": 0.05082208000385435,
+      "max_seconds": 0.05689436799730174,
+      "invocations": {
+        "cargo.build": 1
+      }
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "scenario": "rust_leaf",
+      "median_seconds": 0.33827641300013056,
+      "min_seconds": 0.3210909859990352,
+      "max_seconds": 0.3480271860025823,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      }
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "scenario": "rust_root",
+      "median_seconds": 0.13063037599931704,
+      "min_seconds": 0.1297563740008627,
+      "max_seconds": 0.13301597099780338,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      }
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "scenario": "cxx_leaf",
+      "median_seconds": 0.19256641600077273,
+      "min_seconds": 0.19039187400630908,
+      "max_seconds": 0.1975198950021877,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      }
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "scenario": "post_noop",
+      "median_seconds": 0.05230783000297379,
+      "min_seconds": 0.05099537500063889,
+      "max_seconds": 0.05513097799848765,
+      "invocations": {
+        "cargo.build": 1
+      }
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo incremental",
+      "scenario": "cargo_only_noop",
+      "median_seconds": 0.030996384004538413,
+      "min_seconds": 0.029527883998525795,
+      "max_seconds": 0.03256901499844389,
+      "invocations": {
+        "cargo.build": 1
+      }
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "scenario": "clean",
+      "median_seconds": 0.5749152709977352,
+      "min_seconds": 0.5610241510003107,
+      "max_seconds": 0.5830912259989418,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      }
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "scenario": "noop",
+      "median_seconds": 0.0539046510020853,
+      "min_seconds": 0.05243479099590331,
+      "max_seconds": 0.05859169500035932,
+      "invocations": {
+        "cargo.build": 1
+      }
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "scenario": "rust_leaf",
+      "median_seconds": 0.3458830990057322,
+      "min_seconds": 0.3393170389972511,
+      "max_seconds": 0.346202639004332,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      }
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "scenario": "rust_root",
+      "median_seconds": 0.13323872000182746,
+      "min_seconds": 0.12888784900133032,
+      "max_seconds": 0.13988380700175185,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      }
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "scenario": "cxx_leaf",
+      "median_seconds": 0.1895348829930299,
+      "min_seconds": 0.18475216899969382,
+      "max_seconds": 0.19225061999895843,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      }
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "scenario": "post_noop",
+      "median_seconds": 0.05325859999720706,
+      "min_seconds": 0.05034552599681774,
+      "max_seconds": 0.05427543499536114,
+      "invocations": {
+        "cargo.build": 1
+      }
+    },
+    {
+      "generator": "Ninja",
+      "system": "Cargo nonincremental",
+      "scenario": "cargo_only_noop",
+      "median_seconds": 0.03061422899918398,
+      "min_seconds": 0.029944613997940905,
+      "max_seconds": 0.03743953299999703,
+      "invocations": {
+        "cargo.build": 1
+      }
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "scenario": "clean",
+      "median_seconds": 0.9148844990049838,
+      "min_seconds": 0.898685687003308,
+      "max_seconds": 0.9653403709962731,
+      "invocations": {
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 7,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      }
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "scenario": "noop",
+      "median_seconds": 0.15760902999318205,
+      "min_seconds": 0.14350681199721294,
+      "max_seconds": 0.1612591640005121,
+      "invocations": {}
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "scenario": "rust_leaf",
+      "median_seconds": 0.7582263220028835,
+      "min_seconds": 0.7429318369977409,
+      "max_seconds": 0.7897859339936986,
+      "invocations": {
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 6,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      }
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "scenario": "rust_root",
+      "median_seconds": 0.3063976349949371,
+      "min_seconds": 0.2990741590037942,
+      "max_seconds": 0.3115686570017715,
+      "invocations": {
+        "cxx.link": 1,
+        "rpp.compile": 1,
+        "rpp.link": 1,
+        "rustc.bin": 1,
+        "rustc.rlib": 1
+      }
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "scenario": "cxx_leaf",
+      "median_seconds": 0.3569283679971704,
+      "min_seconds": 0.3236190820025513,
+      "max_seconds": 0.3648869390017353,
+      "invocations": {
+        "cxx.compile": 1,
+        "cxx.link": 1,
+        "rpp.link": 1
+      }
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Rpp",
+      "scenario": "post_noop",
+      "median_seconds": 0.15104293799959123,
+      "min_seconds": 0.14679805999912787,
+      "max_seconds": 0.17041119700297713,
+      "invocations": {}
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "scenario": "clean",
+      "median_seconds": 0.6824983369951951,
+      "min_seconds": 0.6619566420049523,
+      "max_seconds": 0.6957251220010221,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      }
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "scenario": "noop",
+      "median_seconds": 0.11708345299848588,
+      "min_seconds": 0.11151696900196839,
+      "max_seconds": 0.12558821600396186,
+      "invocations": {
+        "cargo.build": 1
+      }
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "scenario": "rust_leaf",
+      "median_seconds": 0.4240237470003194,
+      "min_seconds": 0.4141180560036446,
+      "max_seconds": 0.4285853789988323,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      }
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "scenario": "rust_root",
+      "median_seconds": 0.199747862003278,
+      "min_seconds": 0.19200778000231367,
+      "max_seconds": 0.20277471200097352,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      }
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "scenario": "cxx_leaf",
+      "median_seconds": 0.2656241529984982,
+      "min_seconds": 0.263137021996954,
+      "max_seconds": 0.2737061080042622,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      }
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "scenario": "post_noop",
+      "median_seconds": 0.11744006499793613,
+      "min_seconds": 0.11267860200314317,
+      "max_seconds": 0.12124943699745927,
+      "invocations": {
+        "cargo.build": 1
+      }
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo incremental",
+      "scenario": "cargo_only_noop",
+      "median_seconds": 0.030589478999900166,
+      "min_seconds": 0.029377778999332804,
+      "max_seconds": 0.03321638299530605,
+      "invocations": {
+        "cargo.build": 1
+      }
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "scenario": "clean",
+      "median_seconds": 0.6786545740033034,
+      "min_seconds": 0.6599602639980731,
+      "max_seconds": 0.6887319149973337,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      }
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "scenario": "noop",
+      "median_seconds": 0.11540774899913231,
+      "min_seconds": 0.11351544699573424,
+      "max_seconds": 0.12943530299526174,
+      "invocations": {
+        "cargo.build": 1
+      }
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "scenario": "rust_leaf",
+      "median_seconds": 0.4273027559975162,
+      "min_seconds": 0.40945046299748356,
+      "max_seconds": 0.4367438159970334,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      }
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "scenario": "rust_root",
+      "median_seconds": 0.19957939400046598,
+      "min_seconds": 0.1967950190010015,
+      "max_seconds": 0.20271230900107184,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      }
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "scenario": "cxx_leaf",
+      "median_seconds": 0.2805683929982479,
+      "min_seconds": 0.265508263000811,
+      "max_seconds": 0.2871292909985641,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      }
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "scenario": "post_noop",
+      "median_seconds": 0.11660693200246897,
+      "min_seconds": 0.11206892100017285,
+      "max_seconds": 0.12025710399757372,
+      "invocations": {
+        "cargo.build": 1
+      }
+    },
+    {
+      "generator": "Unix Makefiles",
+      "system": "Cargo nonincremental",
+      "scenario": "cargo_only_noop",
+      "median_seconds": 0.029337744002987165,
+      "min_seconds": 0.028901269994094037,
+      "max_seconds": 0.033047932003682945,
+      "invocations": {
+        "cargo.build": 1
+      }
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "scenario": "clean",
+      "median_seconds": 0.5538070699985838,
+      "min_seconds": 0.5443231310055126,
+      "max_seconds": 0.5585703010001453,
+      "invocations": {
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 7,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      }
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "scenario": "noop",
+      "median_seconds": 0.007970881000801455,
+      "min_seconds": 0.0072199760033981875,
+      "max_seconds": 0.01036262799607357,
+      "invocations": {}
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "scenario": "rust_leaf",
+      "median_seconds": 0.5149350680003408,
+      "min_seconds": 0.5101432650044444,
+      "max_seconds": 0.5316829130024416,
+      "invocations": {
+        "cxx.link": 2,
+        "rpp.compile": 5,
+        "rpp.link": 6,
+        "rustc.bin": 1,
+        "rustc.rlib": 5,
+        "rustc.staticlib": 1
+      }
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "scenario": "rust_root",
+      "median_seconds": 0.16919633799989242,
+      "min_seconds": 0.16254370599926915,
+      "max_seconds": 0.1731519169989042,
+      "invocations": {
+        "cxx.link": 1,
+        "rpp.compile": 1,
+        "rpp.link": 1,
+        "rustc.bin": 1,
+        "rustc.rlib": 1
+      }
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "scenario": "cxx_leaf",
+      "median_seconds": 0.17208433899941156,
+      "min_seconds": 0.16896160000032978,
+      "max_seconds": 0.17583493299753172,
+      "invocations": {
+        "cxx.compile": 1,
+        "cxx.link": 1,
+        "rpp.link": 1
+      }
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Rpp",
+      "scenario": "post_noop",
+      "median_seconds": 0.007648974999028724,
+      "min_seconds": 0.0072629100031917915,
+      "max_seconds": 0.007862563004891854,
+      "invocations": {}
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "scenario": "clean",
+      "median_seconds": 0.5925563830023748,
+      "min_seconds": 0.5836422590000439,
+      "max_seconds": 0.6107272900044336,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      }
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "scenario": "noop",
+      "median_seconds": 0.05581161299778614,
+      "min_seconds": 0.050943248003022745,
+      "max_seconds": 0.057696578005561605,
+      "invocations": {
+        "cargo.build": 1
+      }
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "scenario": "rust_leaf",
+      "median_seconds": 0.34245541699783644,
+      "min_seconds": 0.33477379199757706,
+      "max_seconds": 0.3610987499996554,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      }
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "scenario": "rust_root",
+      "median_seconds": 0.1324991069996031,
+      "min_seconds": 0.1299321559999953,
+      "max_seconds": 0.13937828299822286,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      }
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "scenario": "cxx_leaf",
+      "median_seconds": 0.1887151859991718,
+      "min_seconds": 0.18520747000002302,
+      "max_seconds": 0.19996703299693763,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      }
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "scenario": "post_noop",
+      "median_seconds": 0.053197437002381776,
+      "min_seconds": 0.050579568996909074,
+      "max_seconds": 0.0542129079985898,
+      "invocations": {
+        "cargo.build": 1
+      }
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo incremental",
+      "scenario": "cargo_only_noop",
+      "median_seconds": 0.03049188799923286,
+      "min_seconds": 0.02881687400076771,
+      "max_seconds": 0.03370949199597817,
+      "invocations": {
+        "cargo.build": 1
+      }
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "scenario": "clean",
+      "median_seconds": 0.5851713270021719,
+      "min_seconds": 0.5775418050034204,
+      "max_seconds": 0.6081389309983933,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 3,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.query": 5,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      }
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "scenario": "noop",
+      "median_seconds": 0.0543175139973755,
+      "min_seconds": 0.052332473002024926,
+      "max_seconds": 0.05761453599552624,
+      "invocations": {
+        "cargo.build": 1
+      }
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "scenario": "rust_leaf",
+      "median_seconds": 0.35346974300045986,
+      "min_seconds": 0.3446110989971203,
+      "max_seconds": 0.36299983500066446,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 2,
+        "rustc.bin": 1,
+        "rustc.rlib": 3,
+        "rustc.staticlib": 1
+      }
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "scenario": "rust_root",
+      "median_seconds": 0.13779853400046704,
+      "min_seconds": 0.1309929769995506,
+      "max_seconds": 0.1420054699992761,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.link": 1,
+        "rustc.bin": 1
+      }
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "scenario": "cxx_leaf",
+      "median_seconds": 0.193972416993347,
+      "min_seconds": 0.1900658710001153,
+      "max_seconds": 0.2014839630064671,
+      "invocations": {
+        "cargo.build": 1,
+        "cxx.compile": 1,
+        "cxx.link": 1
+      }
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "scenario": "post_noop",
+      "median_seconds": 0.05336838000221178,
+      "min_seconds": 0.05134854599600658,
+      "max_seconds": 0.056740698993962724,
+      "invocations": {
+        "cargo.build": 1
+      }
+    },
+    {
+      "generator": "Ninja Multi-Config",
+      "system": "Cargo nonincremental",
+      "scenario": "cargo_only_noop",
+      "median_seconds": 0.030392499000299722,
+      "min_seconds": 0.029778798001643736,
+      "max_seconds": 0.03251112400175771,
+      "invocations": {
+        "cargo.build": 1
+      }
+    }
+  ]
+}
