@@ -1,0 +1,33 @@
+{
+  "timestamp_utc": "2026-11-12T16:31:22.442187+00:00",
+  "results": [
+    {
+      "cmake": "cmake version 3.25.0",
+      "rustc": "rustc 1.96.0 (ac68faa20 2026-05-25)",
+      "log": "Internal ctest changing into directory: /tmp/rpp matrix lvjq10__\nTest project /tmp/rpp matrix lvjq10__\n    Start 1: driver-unit\n1/2 Test #1: driver-unit ......................   Passed    0.00 sec\n    Start 2: generator-compatibility\n2/2 Test #2: generator-compatibility ..........   Passed    6.77 sec\n\n100% tests passed, 0 tests failed out of 2\n\nTotal Test time (real) =   6.77 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 7.258592607999162
+    },
+    {
+      "cmake": "cmake version 3.25.0",
+      "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+      "log": "Internal ctest changing into directory: /tmp/rpp matrix pz3ue2l0\nTest project /tmp/rpp matrix pz3ue2l0\n    Start 1: driver-unit\n1/2 Test #1: driver-unit ......................   Passed    0.00 sec\n    Start 2: generator-compatibility\n2/2 Test #2: generator-compatibility ..........   Passed    6.75 sec\n\n100% tests passed, 0 tests failed out of 2\n\nTotal Test time (real) =   6.75 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 7.113449196993315
+    },
+    {
+      "cmake": "cmake version 4.4.5",
+      "rustc": "rustc 1.96.0 (ac68faa20 2026-05-25)",
+      "log": "Test project /tmp/rpp matrix xlqqule3\n    Start 1: driver-unit\n1/2 Test #1: driver-unit ......................   Passed    0.00 sec\n    Start 2: generator-compatibility\n2/2 Test #2: generator-compatibility ..........   Passed    8.46 sec\n\n100% tests passed out of 2\n\nTotal Test time (real) =   8.46 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 8.89307871600613
+    },
+    {
+      "cmake": "cmake version 4.4.5",
+      "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+      "log": "Test project /tmp/rpp matrix _5ttcpdy\n    Start 1: driver-unit\n1/2 Test #1: driver-unit ......................   Passed    0.00 sec\n    Start 2: generator-compatibility\n2/2 Test #2: generator-compatibility ..........   Passed    8.76 sec\n\n100% tests passed out of 2\n\nTotal Test time (real) =   8.76 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 9.173187358996074
+    }
+  ]
+}

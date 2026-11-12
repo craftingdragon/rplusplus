@@ -18,7 +18,7 @@ Sources:
 
 Use `Rpp` rather than carry a CMake patch or change Ninja. This was an explicit project decision. The renamed probe passed compiler checks, static-library creation, mixed linking, execution, no-op builds, and module-triggered rebuilds on Ninja, Unix Makefiles, and Ninja Multi-Config.
 
-External language modules use internal CMake interfaces with no compatibility guarantee. Currently verified: CMake 4.4.5 and the tools above. Do not infer support for every version from the configured minimum. The available rustc was 1.98.0-nightly; the probe used no nightly features, but stable toolchain validation remains required.
+External language modules use internal CMake interfaces with no compatibility guarantee. The driver milestone now verifies CMake 3.25.0 and 4.4.5 with stable Rust 1.96.0 and 1.97.1; see [the validation matrix](validation-and-baseline.md). Do not infer support for every version from the configured minimum. The original identifier probe used rustc 1.98.0-nightly without nightly features; the later full matrix validates stable compilers explicitly.
 
 ## Gate boundaries
 
