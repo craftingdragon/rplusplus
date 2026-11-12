@@ -5,6 +5,15 @@ set(CMAKE_INSTALL_LIBDIR lib CACHE PATH "Library installation directory")
 include(GNUInstallDirs)
 install(DIRECTORY cmake/ DESTINATION "${CMAKE_INSTALL_DATADIR}/rplusplus/cmake")
 install(FILES README.md LICENSE DESTINATION "${CMAKE_INSTALL_DOCDIR}")
+find_program(RPP_RUSTC_EXECUTABLE NAMES rustc REQUIRED)
+set(RPP_DRIVER "${CMAKE_CURRENT_BINARY_DIR}/bin/rpp")
+add_custom_command(OUTPUT "${RPP_DRIVER}"
+  COMMAND "${CMAKE_COMMAND}" -E make_directory "${CMAKE_CURRENT_BINARY_DIR}/bin"
+  COMMAND "${RPP_RUSTC_EXECUTABLE}" --edition=2024 --emit=link,dep-info=${CMAKE_CURRENT_BINARY_DIR}/rpp.d
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/main.rs" -o "${RPP_DRIVER}"
+  DEPENDS src/main.rs DEPFILE "${CMAKE_CURRENT_BINARY_DIR}/rpp.d" VERBATIM)
+add_custom_target(rpp ALL DEPENDS "${RPP_DRIVER}")
+install(PROGRAMS "${RPP_DRIVER}" DESTINATION "${CMAKE_INSTALL_BINDIR}")
 find_package(Python3 COMPONENTS Interpreter)
 include(CTest)
 if(BUILD_TESTING AND Python3_FOUND)
