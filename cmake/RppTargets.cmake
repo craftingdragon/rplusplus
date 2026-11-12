@@ -98,6 +98,13 @@ function(_rpp_targets dir)
     if(NOT EXISTS "${root}")
       message(FATAL_ERROR "${t}: Rust root does not exist: ${root}")
     endif()
+    # Make consolidates compiler depfiles on a later dependency pass. Register
+    # the depfile as a co-output so loss before consolidation invalidates the
+    # Rust object via CMAKE_MULTIPLE_OUTPUT_PAIRS. Ninja manages its own depfiles.
+    if(CMAKE_GENERATOR STREQUAL "Unix Makefiles")
+      set_property(SOURCE "${root}" DIRECTORY "${dir}" APPEND PROPERTY OBJECT_OUTPUTS
+        "$<FILTER:$<TARGET_OBJECTS:${t}>,INCLUDE,[.]rlib$>.d")
+    endif()
     set_property(SOURCE "${root}" DIRECTORY "${dir}" APPEND PROPERTY OBJECT_DEPENDS
       "${CMAKE_Rpp_COMPILER}" "${RPP_RUSTC_EXECUTABLE}")
     set_property(TARGET "${t}" PROPERTY RPP_CRATE_NAME "${v_NAME}")

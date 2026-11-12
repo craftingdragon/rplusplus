@@ -50,6 +50,8 @@ def main():
         moved=base/'relocated tools'
         prefix.rename(moved)
         prefix=moved
+        from depfile_loss import verify
+        verify(base, prefix / "share/rplusplus/cmake", prefix / "bin/rpp", RUSTC, run)
         modules = prefix / 'share/rplusplus/cmake'
         for gen in ('Ninja', 'Unix Makefiles', 'Ninja Multi-Config'):
             source = base / gen / 'source tree'
@@ -93,11 +95,7 @@ def main():
             data.write_text('040')
             # 40 + ASCII('0') - 52 = 36, so test execution must expose the edit.
             run('cmake', '--build', build, '--config', 'Debug')
-            if snapshot(build) == before_data:
-                assert gen == 'Unix Makefiles', 'unexpected lost data-input dependency'
-                print('KNOWN BLOCKER v0.1/depfile-loss: Make requires clean rebuild after depfile deletion', flush=True)
-                run('cmake', '--build', build, '--config', 'Debug', '--target', 'clean')
-                run('cmake', '--build', build, '--config', 'Debug')
+            assert snapshot(build) != before_data, 'depfile deletion lost data-input dependencies'
             data.write_text('40')
             run('cmake', '--build', build, '--config', 'Debug')
             run('ctest', '--test-dir', build, '-C', 'Debug', '--output-on-failure')
