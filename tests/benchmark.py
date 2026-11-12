@@ -42,10 +42,16 @@ def category(event):
     tool, args = event['tool'], event['args']
     if tool == 'rpp':
         return 'rpp.' + args[0]
+    if tool == 'cargo':
+        return 'cargo.' + args[0]
     if tool == 'cxx':
         return 'cxx.compile' if '-c' in args else 'cxx.link'
-    return 'rustc.' + next((a.split('=', 1)[1] for a in args
-                            if a.startswith('--crate-type=')), 'query')
+    if any((a.startswith('--print') and a != '--print=native-static-libs') or a in ('-vV', '--version') for a in args):
+        return 'rustc.query'
+    kind = next((a.split('=', 1)[1] for a in args if a.startswith('--crate-type=')), None)
+    if kind is None and '--crate-type' in args:
+        kind = args[args.index('--crate-type')+1]
+    return 'rustc.' + ('rlib' if kind == 'lib' else kind or 'query')
 
 
 def measure(command, trace, env):
