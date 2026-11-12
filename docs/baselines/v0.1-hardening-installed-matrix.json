@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "revision": "90b8bb5e225891adade62a83eceb2b584992f877",
+  "dirty": false,
+  "timestamp_utc": "2026-11-12T17:28:49.076506+00:00",
+  "results": [
+    {
+      "cmake": "cmake version 3.25.0",
+      "rustc": "rustc 1.96.0 (ac68faa20 2026-05-25)",
+      "log": "Internal ctest changing into directory: /tmp/rpp matrix fb3zg_p8\nTest project /tmp/rpp matrix fb3zg_p8\n    Start 1: driver-unit\n1/5 Test #1: driver-unit ......................   Passed    0.00 sec\n    Start 2: driver-failures\n2/5 Test #2: driver-failures ..................   Passed    0.07 sec\n    Start 3: toolchain-errors\n3/5 Test #3: toolchain-errors .................   Passed    0.20 sec\n    Start 4: generator-compatibility\n4/5 Test #4: generator-compatibility ..........   Passed   12.95 sec\n    Start 5: qt-notes-installed\n5/5 Test #5: qt-notes-installed ...............   Passed   20.71 sec\n\n100% tests passed, 0 tests failed out of 5\n\nTotal Test time (real) =  33.94 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 34.31509208500211
+    },
+    {
+      "cmake": "cmake version 3.25.0",
+      "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+      "log": "Internal ctest changing into directory: /tmp/rpp matrix pd5e51zg\nTest project /tmp/rpp matrix pd5e51zg\n    Start 1: driver-unit\n1/5 Test #1: driver-unit ......................   Passed    0.00 sec\n    Start 2: driver-failures\n2/5 Test #2: driver-failures ..................   Passed    0.07 sec\n    Start 3: toolchain-errors\n3/5 Test #3: toolchain-errors .................   Passed    0.21 sec\n    Start 4: generator-compatibility\n4/5 Test #4: generator-compatibility ..........   Passed   13.01 sec\n    Start 5: qt-notes-installed\n5/5 Test #5: qt-notes-installed ...............   Passed   21.14 sec\n\n100% tests passed, 0 tests failed out of 5\n\nTotal Test time (real) =  34.44 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 34.818308656002046
+    },
+    {
+      "cmake": "cmake version 4.4.5",
+      "rustc": "rustc 1.96.0 (ac68faa20 2026-05-25)",
+      "log": "Test project /tmp/rpp matrix 23omwziw\n    Start 1: driver-unit\n1/5 Test #1: driver-unit ......................   Passed    0.00 sec\n    Start 2: driver-failures\n2/5 Test #2: driver-failures ..................   Passed    0.07 sec\n    Start 3: toolchain-errors\n3/5 Test #3: toolchain-errors .................   Passed    0.26 sec\n    Start 4: generator-compatibility\n4/5 Test #4: generator-compatibility ..........   Passed   15.78 sec\n    Start 5: qt-notes-installed\n5/5 Test #5: qt-notes-installed ...............   Passed   20.69 sec\n\n100% tests passed out of 5\n\nTotal Test time (real) =  36.80 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 37.236912977998145
+    },
+    {
+      "cmake": "cmake version 4.4.5",
+      "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+      "log": "Test project /tmp/rpp matrix pod98snw\n    Start 1: driver-unit\n1/5 Test #1: driver-unit ......................   Passed    0.00 sec\n    Start 2: driver-failures\n2/5 Test #2: driver-failures ..................   Passed    0.07 sec\n    Start 3: toolchain-errors\n3/5 Test #3: toolchain-errors .................   Passed    0.27 sec\n    Start 4: generator-compatibility\n4/5 Test #4: generator-compatibility ..........   Passed   15.81 sec\n    Start 5: qt-notes-installed\n5/5 Test #5: qt-notes-installed ...............   Passed   20.95 sec\n\n100% tests passed out of 5\n\nTotal Test time (real) =  37.09 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 37.52844877499592
+    }
+  ],
+  "release_ready": false,
+  "known_blockers": [
+    "v0.1/depfile-loss: Make loses data dependencies after compiler depfile deletion",
+    "Rust 1.85 and latest two stable release-line toolchains are not installed",
+    "Manual visual smoke check and remaining audit scenarios are pending"
+  ]
+}
