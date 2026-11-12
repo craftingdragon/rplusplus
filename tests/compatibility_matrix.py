@@ -30,7 +30,12 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--require-qt', action='store_true')
     opts = parser.parse_args()
-    report = {'schema': 1, 'revision': subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(), 'dirty': bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip()), 'timestamp_utc': datetime.now(timezone.utc).isoformat(), 'results': []}
+    revision=subprocess.run(['git','rev-parse','HEAD'],cwd=ROOT,text=True,capture_output=True)
+    dirty=subprocess.run(['git','status','--porcelain'],cwd=ROOT,text=True,capture_output=True)
+    report = {'schema': 1,
+              'revision': os.environ.get('RPP_SOURCE_REVISION') or (revision.stdout.strip() if revision.returncode==0 else None),
+              'dirty': bool(dirty.stdout.strip()) if dirty.returncode==0 else None,
+              'timestamp_utc': datetime.now(timezone.utc).isoformat(), 'results': []}
     for cmake, rustc in itertools.product(opts.cmake, opts.rustc):
         cmake, rustc = Path(cmake).absolute(), Path(rustc).absolute()
         env = dict(os.environ, RPP_TEST_CMAKE=str(cmake), RPP_TEST_RUSTC=str(rustc),

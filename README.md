@@ -19,11 +19,13 @@ The `rpp` driver bootstraps with CMake and stable `rustc`, using only Rust's sta
 
 See [driver and target usage](docs/driver.md) and the `examples/multicrate` diamond graph.
 ```sh
-cmake -S . -B build -G Ninja
+cmake -S . -B build -G Ninja \
+  -DRPP_RUSTC_EXECUTABLE=/absolute/path/to/stable/rustc
 cmake --build build
 cmake --install build --prefix /tmp/rplusplus-install
 cmake -S examples/native -B build-example -G Ninja \
-  -DRPLUSPLUS_MODULE_DIR=/tmp/rplusplus-install/share/rplusplus/cmake
+  -DRPLUSPLUS_MODULE_DIR=/tmp/rplusplus-install/share/rplusplus/cmake \
+  -DRPP_RUSTC_EXECUTABLE=/absolute/path/to/stable/rustc
 cmake --build build-example
 ./build-example/MyApp
 RPP_TEST_RUSTC="$(rustup which --toolchain stable rustc)" python3 tests/generators.py
@@ -41,3 +43,5 @@ Build the driver itself through CMake and rustc; preserve upstream Rust safety c
 ## License
 
 GPL-3.0-or-later. See [LICENSE](LICENSE).
+
+Release preparation: [candidate notes](docs/release-0.1.0.md) and [release procedure](docs/release-procedure.md).
