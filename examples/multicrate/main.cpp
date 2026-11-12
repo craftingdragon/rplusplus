@@ -1,2 +1,6 @@
+#ifndef EXPECTED
+#define EXPECTED 1
+#endif
 extern "C" int answer();
-int main() { return answer() == 42 ? 0 : 1; }
+extern "C" int build_mode();
+int main() { return answer() == 42 && build_mode() == EXPECTED ? 0 : 1; }

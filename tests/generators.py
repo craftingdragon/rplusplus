@@ -44,6 +44,9 @@ def main():
             '-DBUILD_TESTING=OFF', f'-DRPP_RUSTC_EXECUTABLE={RUSTC}', '-DCMAKE_INSTALL_LIBDIR=lib')
         run('cmake', '--build', package)
         run('cmake', '--install', package, '--prefix', prefix)
+        moved=base/'relocated tools'
+        prefix.rename(moved)
+        prefix=moved
         modules = prefix / 'share/rplusplus/cmake'
         for gen in ('Ninja', 'Unix Makefiles', 'Ninja Multi-Config'):
             source = base / gen / 'source tree'
@@ -82,6 +85,22 @@ def main():
             for config in configs:
                 run('cmake', '--build', graph, '--config', config, '--parallel', '4')
                 run('ctest', '--test-dir', graph, '-C', config, '--output-on-failure')
+            if gen != 'Ninja Multi-Config':
+                release=base/gen/'release graph'
+                run('cmake','-S',graph_source,'-B',release,'-G',gen,
+                    '-DCMAKE_BUILD_TYPE=Release',f'-DRPLUSPLUS_MODULE_DIR={modules}',
+                    f'-DCMAKE_Rpp_COMPILER={prefix / "bin/rpp"}',f'-DRPP_RUSTC_EXECUTABLE={RUSTC}')
+                run('cmake','--build',release,'--parallel','4')
+                run('ctest','--test-dir',release,'--output-on-failure')
+            # Source requires edition 2021; removing the property must fail.
+            graph_file=graph_source/'CMakeLists.txt'
+            graph_text=graph_file.read_text()
+            graph_file.write_text(graph_text.replace('RPP_EDITION 2021','RPP_EDITION 2024'))
+            failed=subprocess.run(['cmake','--build',str(graph),'--config','Debug'],
+                stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True)
+            assert failed.returncode != 0, 'edition selection did not affect compilation'
+            graph_file.write_text(graph_text)
+            run('cmake','--build',graph,'--config','Debug')
             before_graph=snapshot(graph)
             run('cmake', '--build', graph, '--config', 'Debug')
             assert snapshot(graph)==before_graph
@@ -104,7 +123,7 @@ def main():
             (consumer/'main.cpp').write_text((ROOT/'examples/multicrate/main.cpp').read_text())
             (consumer/'CMakeLists.txt').write_text(
                 'cmake_minimum_required(VERSION 3.25)\n'
-                'list(PREPEND CMAKE_MODULE_PATH "${RPLUSPLUS_MODULE_DIR}")\n'
+                'find_package(Rplusplus CONFIG REQUIRED PATHS "${RPLUSPLUS_MODULE_DIR}" NO_DEFAULT_PATH)\n'
                 'project(Consumer LANGUAGES CXX Rpp)\n'
                 'include("${BRIDGE_PREFIX}/lib/cmake/Bridge/BridgeTargets.cmake")\n'
                 'add_executable(Consumer main.cpp)\n'
@@ -113,7 +132,7 @@ def main():
             external=base/gen/'external'
             run('cmake','-S',consumer,'-B',external,'-G',gen,'-DCMAKE_BUILD_TYPE=Debug',
                 f'-DRPLUSPLUS_MODULE_DIR={modules}',f'-DBRIDGE_PREFIX={installed}',
-                f'-DCMAKE_Rpp_COMPILER={prefix / "bin/rpp"}', f'-DRPP_RUSTC_EXECUTABLE={RUSTC}')
+                f'-DRPP_RUSTC_EXECUTABLE={RUSTC}')
             run('cmake','--build',external,'--config','Debug')
             run('ctest','--test-dir',external,'-C','Debug','--output-on-failure')
             print(f'PASS {gen}: installed modules, compiler check, mixed link, execution, '

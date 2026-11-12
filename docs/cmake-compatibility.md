@@ -22,6 +22,6 @@ External language modules use internal CMake interfaces with no compatibility gu
 
 ## Gate boundaries
 
-The example intentionally uses no_std Rust without allocation or runtime dependencies. It proves identifier compatibility and depfile plumbing, not full Rust runtime aggregation, crate metadata linkage, or safe arbitrary C++ interoperability. Compiler checks must compile a real Rust fixture, not force COMPILER_WORKS. Native modules must remain usable after installation in an unrelated consumer build.
+The original identifier probe used no_std Rust without allocation or runtime dependencies. The driver milestone upgrades the examples to exercise standard-library runtime linkage; see [driver documentation](driver.md). It proves identifier compatibility and depfile plumbing, not full Rust runtime aggregation, crate metadata linkage, or safe arbitrary C++ interoperability. Compiler checks must compile a real Rust fixture, not force COMPILER_WORKS. Native modules must remain usable after installation in an unrelated consumer build.
 
 The regression script tests all three Linux generators, installation, a build path containing spaces, compiler checks, execution, no-op behavior, and selective module rebuilds. Windows, macOS, other generators, and comprehensive version coverage remain unverified.

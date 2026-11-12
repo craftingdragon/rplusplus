@@ -191,6 +191,12 @@ fn execute() -> Result<()> {
         data.extend(saved);
         embed(Path::new(&output), &data)?;
     } else if op == "link" {
+        let archive = if let Some(i) = args.iter().position(|a| a == "--rpp-archive") {
+            args.remove(i);
+            true
+        } else {
+            false
+        };
         let ar = take(&mut args, "--ar")?.unwrap_or_else(|| "ar".into());
         let split = args
             .iter()
@@ -264,7 +270,13 @@ fn execute() -> Result<()> {
                 let stderr = String::from_utf8_lossy(&result.stderr);
                 for line in stderr.lines() {
                     if let Some((_, libs)) = line.split_once("native-static-libs:") {
-                        runtime.extend(libs.split_whitespace().map(String::from));
+                        runtime.extend(
+                            libs.split('"')
+                                .next()
+                                .unwrap_or(libs)
+                                .split_whitespace()
+                                .map(String::from),
+                        );
                     } else {
                         eprintln!("{line}");
                     }
@@ -289,6 +301,14 @@ fn execute() -> Result<()> {
                 }
                 return run(&rustc, &compile);
             }
+        }
+        if archive && records.is_empty() {
+            if Path::new(&output).exists() {
+                fs::remove_file(&output)?;
+            }
+            let mut archive_args = vec!["qc".into(), output];
+            archive_args.extend(objects);
+            return run(&ar, &archive_args);
         }
         if boundaries > 1 {
             return Err("multiple Rust static runtime boundaries".into());

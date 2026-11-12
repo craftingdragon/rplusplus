@@ -15,16 +15,18 @@ CMake embeds language identifiers in generated Ninja rule names. Literal `R++` p
 
 ## Current milestone
 
-Native language modules and a reproducible mixed Rust/C++ compatibility gate. The initial path supports one `no_std` Rust crate root per target, emitted as a native object and archived or linked with C++. Rust modules are compiler-tracked dependencies. This is not yet a general Rust build system: Rust executables, the standard-library runtime, cross-crate Rust metadata, preprocessing, registry resolution, and generated interop bridges remain future work.
+The `rpp` driver bootstraps with CMake and stable `rustc`, using only Rust's standard library. Native targets support `rlib` dependencies, `staticlib` C++ boundaries, and Rust or C++ executable entry points. No Cargo or network fetching is used.
 
+See [driver and target usage](docs/driver.md) and the `examples/multicrate` diamond graph.
 ```sh
 cmake -S . -B build -G Ninja
+cmake --build build
 cmake --install build --prefix /tmp/rplusplus-install
 cmake -S examples/native -B build-example -G Ninja \
   -DRPLUSPLUS_MODULE_DIR=/tmp/rplusplus-install/share/rplusplus/cmake
 cmake --build build-example
 ./build-example/MyApp
-python3 tests/generators.py
+RPP_TEST_RUSTC="$(rustup which --toolchain stable rustc)" python3 tests/generators.py
 ```
 
 Prerequisites: CMake 3.25 or later, Python 3, rustc supporting edition 2024, a C++ compiler, an archiver, Ninja, and Make. CMake's tested versions are listed in the compatibility document; the minimum is not yet a tested compatibility guarantee. Cargo and network access are not used.
