@@ -31,6 +31,9 @@ RPP_TEST_RUSTC="$(rustup which --toolchain stable rustc)" python3 tests/generato
 
 Prerequisites: CMake 3.25 or later, Python 3, rustc supporting edition 2024, a C++ compiler, an archiver, Ninja, and Make. The CMake 3.25.0 minimum and CMake 4.4.5 pass the full gate with stable Rust 1.96.0 and 1.97.1. See [validation and build baselines](docs/validation-and-baseline.md) and the [Cargo comparison](docs/cargo-comparison.md). Cargo and network access are not used.
 
+See [v0.1 hardening and release blockers](docs/v0.1-readiness.md) and the
+`examples/qt-notes` Widgets application with a Rust backend and system SQLite.
+
 ## Direction
 
 Build the driver itself through CMake and rustc; preserve upstream Rust safety checking; add optional Rust-aware C-style preprocessing, explicit local dependencies, version-checked system libraries, and audited C ABI bridges. Keep interop and compiler backends separate for future CXX and deeper C++ integration. Linux comes first, with portable process, path, and platform-policy layers.

@@ -21,5 +21,12 @@ def main():
         rejected(fake,'requires stable Rust >=1.85','old')
         fake.write_text('#!/usr/bin/env python3\nimport sys\nprint("release: 1.85.0" if "-vV" in sys.argv else "/nonexistent-rpp-sysroot")\n')
         rejected(fake,'no usable standard library sysroot','sysroot')
+        sysroot=base/'sysroot';(sysroot/'lib/rustlib').mkdir(parents=True)
+        def tool(commit):
+            fake.write_text('#!/usr/bin/env python3\nimport sys\nprint('+repr('release: 1.85.0\ncommit-hash: '+commit)+' if "-vV" in sys.argv else '+repr(str(sysroot))+')\n')
+        tool('first')
+        run('cmake','-S',ROOT,'-B',base/'changed','-G','Ninja',f'-DRPP_RUSTC_EXECUTABLE={fake}')
+        tool('second')
+        rejected(fake,'Rust toolchain changed','changed')
         print('PASS v0.1/toolchains: missing compiler, unsupported release, missing sysroot')
 if __name__=='__main__':main()
