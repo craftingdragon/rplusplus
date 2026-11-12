@@ -75,6 +75,32 @@ def main():
             assert any(p.name == 'value.rs.rlib' for p in changed), changed
             assert not any(p.name.endswith('.cpp.o') for p in changed), changed
             run('ctest', '--test-dir', build, '-C', 'Debug', '--output-on-failure')
+            # v0.1/depfiles: renamed modules and compiler-discovered data inputs.
+            renamed = source / 'renamed module.rs'
+            sub.rename(renamed)
+            root = source / 'value.rs'
+            root.write_text(root.read_text().replace('mod sub;', '#[path="renamed module.rs"] mod sub;'))
+            run('cmake', '--build', build, '--config', 'Debug')
+            run('ctest', '--test-dir', build, '-C', 'Debug', '--output-on-failure')
+            data = source / 'value data.txt'
+            data.write_text('40')
+            root.write_text(root.read_text().replace('sub::VALUE', 'include_str!("value data.txt").parse::<i32>().unwrap() + i32::from(include_bytes!("value data.txt")[0]) - 52'))
+            run('cmake', '--build', build, '--config', 'Debug')
+            run('ctest', '--test-dir', build, '-C', 'Debug', '--output-on-failure')
+            for depfile in build.rglob('*.d'):
+                depfile.unlink()
+            before_data = snapshot(build)
+            data.write_text('040')
+            # 40 + ASCII('0') - 52 = 36, so test execution must expose the edit.
+            run('cmake', '--build', build, '--config', 'Debug')
+            if snapshot(build) == before_data:
+                assert gen == 'Unix Makefiles', 'unexpected lost data-input dependency'
+                print('KNOWN BLOCKER v0.1/depfile-loss: Make requires clean rebuild after depfile deletion', flush=True)
+                run('cmake', '--build', build, '--config', 'Debug', '--target', 'clean')
+                run('cmake', '--build', build, '--config', 'Debug')
+            data.write_text('40')
+            run('cmake', '--build', build, '--config', 'Debug')
+            run('ctest', '--test-dir', build, '-C', 'Debug', '--output-on-failure')
             # Reconfiguration must preserve valid generator output.
             cmakelists = source / 'CMakeLists.txt'
             cmakelists.write_text(cmakelists.read_text() + '\n# regenerate\n')
@@ -134,6 +160,14 @@ def main():
                 assert candidates[0].exists(), pattern
                 run('ctest', '--test-dir', graph, '-C', 'Debug', '--output-on-failure')
             assert not list(graph.rglob('*.runtime')), 'new archives must be self-contained'
+            # v0.1/final-link-failure: diagnose and recover without cleaning.
+            graph_file.write_text(graph_text + '\ntarget_link_options(CppMain PRIVATE -Wl,--rpp-intentional-invalid-option)\n')
+            failed = subprocess.run([CMAKE, '--build', str(graph), '--config', 'Debug'],
+                stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, timeout=180)
+            assert failed.returncode != 0 and 'rpp-intentional-invalid-option' in failed.stdout
+            graph_file.write_text(graph_text)
+            run('cmake', '--build', graph, '--config', 'Debug', '--parallel', '4')
+            run('ctest', '--test-dir', graph, '-C', 'Debug', '--output-on-failure')
             installed=base / gen / 'export'
             run('cmake', '--install', graph, '--config', 'Debug', '--prefix', installed)
             relocated=base/gen/'relocated export'
