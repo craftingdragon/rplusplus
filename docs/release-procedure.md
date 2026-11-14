@@ -5,11 +5,13 @@ missing evidence block release approval; elapsed benchmark times do not.
 
 ## Frozen tools
 
-The offline release gate pins CMake 3.25.0/4.4.5 and Rust
+The offline release gate pins CMake 3.25.0/4.5.0 and Rust
 1.85.0/1.99.1/1.100.0. Release selection references:
 https://doc.rust-lang.org/stable/releases.html and https://cmake.org/download/.
 Reconfirm these references before approval; changes require an explicit inventory
-update and new validation. Gate invocations require absolute installed paths.
+update and new validation. The current CMake role was updated to 4.5.0 on 2026-11-14 after checking the
+official download page. Existing 4.4.5 reports remain historical evidence.
+Gate invocations require absolute installed paths.
 The build and correctness gates never invoke Cargo. Qt/SQLite are system packages.
 
 ## Required evidence
@@ -29,8 +31,21 @@ launch RppNotes, create/edit/delete Unicode notes, restart to check persistence,
 resize the window, and inspect error presentation. Offscreen results cannot stand
 in for this visual signoff. Keep it BLOCKED until performed.
 
+Record the full source revision, source archive SHA-256, executable SHA-256,
+source/build paths, configuration, CMake/rustc versions, Qt/SQLite versions,
+operating system and desktop/display backend. Build the visual application from
+that extracted archive, not an unspecified existing build. Record the tester and
+actual test date. Use a fresh application data directory; create a note containing
+`Grüezi — 日本語 🦀`, edit it to `Überarbeitet — 中文 🦀`, restart with the same
+data directory and verify the exact text, delete it and check it stays deleted
+after restart. Record resizing and the database-open error with disabled controls
+in a separate deliberately unwritable data directory. Each observation must be
+explicitly confirmed; an unperformed check remains BLOCKED. Store this record
+beside the candidate evidence. Previous conversational observations without the
+candidate/environment/Unicode details do not satisfy this gate.
+
 Run the existing Cargo comparison sequentially, without concurrent build jobs,
-with explicit Rust/Cargo 1.100.0 and CMake 4.4.5. Use five repetitions, first
+with explicit Rust/Cargo 1.100.0 and CMake 4.5.0. Use five repetitions, first
 instrumented and then `--timing-only`; retain JSON, counts and hardware metadata.
 Rpp tracing redirects rustc calls only in the test driver wrapper so sysroot
 pinning cannot bypass instrumentation. Never alter compiler version output.

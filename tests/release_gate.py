@@ -17,7 +17,7 @@ def main():
     opts=parser.parse_args()
     roles={k:v for k,v in vars(opts).items() if k!='output'}
     failures=[f'Missing preinstalled tool: {k}={v}' for k,v in roles.items() if not v.is_file()]
-    expected={'minimum_cmake':'3.25.0','current_cmake':'4.4.5',
+    expected={'minimum_cmake':'3.25.0','current_cmake':'4.5.0',
               'minimum_rustc':'1.85.0','previous_rustc':'1.99.1','current_rustc':'1.100.0'}
     inventory={}
     for role,path in roles.items():
