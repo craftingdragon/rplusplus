@@ -310,7 +310,7 @@ def main():
                     producer.mkdir()
                     for name in ('CMakeLists.txt', 'README.md', 'LICENSE'):
                         shutil.copy2(ROOT/name, producer/name)
-                    for name in ('cmake', 'src', 'docs'):
+                    for name in ('cmake', 'src', 'docs', 'LICENSES'):
                         shutil.copytree(ROOT/name, producer/name)
                     package = base/'package'
                     prefix = base/'installed'

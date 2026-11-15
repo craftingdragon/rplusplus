@@ -1,4 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
+// M1 library only: ordinary compile/link paths do not invoke preprocessing.
+#[allow(dead_code)]
+mod lex;
 use std::{
     env, fs,
     path::{Path, PathBuf},
