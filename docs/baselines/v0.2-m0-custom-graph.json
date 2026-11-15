@@ -1,0 +1,5094 @@
+{
+  "schema": 1,
+  "stage": "v0.2/M0",
+  "status": "passed",
+  "date": "2026-11-15",
+  "prototype_revision": "2c7ef6c03c4ec77d8bf213269f5a893ac7f44527",
+  "scope": "Feasibility only; no production preprocessor, public API change, M1 or release approval.",
+  "raw_report_sha256": "bef927bc5f38f9ca4f2a44f34fa2af0f172b9cb056790b0bf56e320439d79fb4",
+  "test_sha256": {
+    "tests/preprocess_graph.py": "9828fd6bdd94f7f610f5bd6e7898a797edf46b47231b576325748bd44ecbbf35",
+    "tests/preprocess_graph_fixture.py": "ea210522399e199a07e6742059220380d78abd8a72d326b8d35c5404e2678444",
+    "tests/preprocess_feasibility.py": "7ab8e87df5c58f8fda20277f0b76f1aa5fa5e97705c50e9e1addb9c5b22e6095"
+  },
+  "results": [
+    {
+      "cmake_version": "cmake version 3.25.0",
+      "rustc_version": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+      "status": "passed",
+      "source_resolution": {
+        "mirror_editions": [
+          "2021",
+          "2024"
+        ],
+        "macro_read_reported": true,
+        "macro_generated_absolute_module_reported": true,
+        "dep_info_read_roles": "not supplied by stable dep-info"
+      },
+      "diagnostic_primary_counts": {
+        "unicode-type": [
+          1
+        ],
+        "substitution": [
+          1
+        ],
+        "borrow": [
+          1
+        ],
+        "expansion": [
+          1
+        ],
+        "multiple": [
+          2
+        ]
+      },
+      "native_control": [
+        {
+          "generator": "Ninja",
+          "configuration": "Debug",
+          "output": "module.rs",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Debug",
+          "output": "map",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Debug",
+          "output": "complete",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Release",
+          "output": "module.rs",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Release",
+          "output": "map",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Release",
+          "output": "complete",
+          "recovered": false
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Debug",
+          "output": "module.rs",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Debug",
+          "output": "map",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Debug",
+          "output": "complete",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Release",
+          "output": "module.rs",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Release",
+          "output": "map",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Release",
+          "output": "complete",
+          "recovered": true
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Debug",
+          "output": "module.rs",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Debug",
+          "output": "map",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Debug",
+          "output": "complete",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Release",
+          "output": "module.rs",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Release",
+          "output": "map",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Release",
+          "output": "complete",
+          "recovered": false
+        }
+      ],
+      "graphs": [
+        {
+          "generator": "Ninja",
+          "mode": "byproducts",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            }
+          ]
+        },
+        {
+          "generator": "Ninja",
+          "mode": "outputs",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Debug",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": []
+                },
+                "unchanged_input_payload_timestamps_preserved": true,
+                "unchanged_input_commands": [
+                  "preprocess"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": []
+                },
+                "unchanged_input_payload_timestamps_preserved": true,
+                "unchanged_input_commands": [
+                  "preprocess"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            }
+          ]
+        },
+        {
+          "generator": "Unix Makefiles",
+          "mode": "byproducts",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "initial parallel build",
+              "recovered": false,
+              "commands": [
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "preprocess",
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "initial parallel build",
+              "recovered": false,
+              "commands": [
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "preprocess",
+                "preprocess",
+                "preprocess",
+                "preprocess"
+              ]
+            }
+          ]
+        },
+        {
+          "generator": "Unix Makefiles",
+          "mode": "outputs",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": [
+                    "CMakeFiles/App.dir/App/root.rs.rlib.d",
+                    "CMakeFiles/Other.dir/Other/root.rs.rlib.d"
+                  ]
+                },
+                "unchanged_input_payload_timestamps_preserved": false,
+                "unchanged_input_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": [
+                    "CMakeFiles/App.dir/App/root.rs.rlib.d",
+                    "CMakeFiles/Other.dir/Other/root.rs.rlib.d"
+                  ]
+                },
+                "unchanged_input_payload_timestamps_preserved": false,
+                "unchanged_input_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            }
+          ]
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "mode": "byproducts",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            }
+          ]
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "mode": "outputs",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Debug",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": []
+                },
+                "unchanged_input_payload_timestamps_preserved": true,
+                "unchanged_input_commands": [
+                  "preprocess"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": []
+                },
+                "unchanged_input_payload_timestamps_preserved": true,
+                "unchanged_input_commands": [
+                  "preprocess"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cmake_version": "cmake version 4.5.0",
+      "rustc_version": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+      "status": "passed",
+      "source_resolution": {
+        "mirror_editions": [
+          "2021",
+          "2024"
+        ],
+        "macro_read_reported": true,
+        "macro_generated_absolute_module_reported": true,
+        "dep_info_read_roles": "not supplied by stable dep-info"
+      },
+      "diagnostic_primary_counts": {
+        "unicode-type": [
+          1
+        ],
+        "substitution": [
+          1
+        ],
+        "borrow": [
+          1
+        ],
+        "expansion": [
+          1
+        ],
+        "multiple": [
+          2
+        ]
+      },
+      "native_control": [
+        {
+          "generator": "Ninja",
+          "configuration": "Debug",
+          "output": "module.rs",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Debug",
+          "output": "map",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Debug",
+          "output": "complete",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Release",
+          "output": "module.rs",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Release",
+          "output": "map",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Release",
+          "output": "complete",
+          "recovered": false
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Debug",
+          "output": "module.rs",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Debug",
+          "output": "map",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Debug",
+          "output": "complete",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Release",
+          "output": "module.rs",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Release",
+          "output": "map",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Release",
+          "output": "complete",
+          "recovered": true
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Debug",
+          "output": "module.rs",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Debug",
+          "output": "map",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Debug",
+          "output": "complete",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Release",
+          "output": "module.rs",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Release",
+          "output": "map",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Release",
+          "output": "complete",
+          "recovered": false
+        }
+      ],
+      "graphs": [
+        {
+          "generator": "Ninja",
+          "mode": "byproducts",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            }
+          ]
+        },
+        {
+          "generator": "Ninja",
+          "mode": "outputs",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Debug",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": []
+                },
+                "unchanged_input_payload_timestamps_preserved": true,
+                "unchanged_input_commands": [
+                  "preprocess"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": []
+                },
+                "unchanged_input_payload_timestamps_preserved": true,
+                "unchanged_input_commands": [
+                  "preprocess"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            }
+          ]
+        },
+        {
+          "generator": "Unix Makefiles",
+          "mode": "byproducts",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "initial parallel build",
+              "recovered": false,
+              "commands": [
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "preprocess",
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "initial parallel build",
+              "recovered": false,
+              "commands": [
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "preprocess",
+                "preprocess",
+                "preprocess",
+                "preprocess"
+              ]
+            }
+          ]
+        },
+        {
+          "generator": "Unix Makefiles",
+          "mode": "outputs",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": [
+                    "CMakeFiles/App.dir/App/root.rs.rlib.d",
+                    "CMakeFiles/Other.dir/Other/root.rs.rlib.d"
+                  ]
+                },
+                "unchanged_input_payload_timestamps_preserved": false,
+                "unchanged_input_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": [
+                    "CMakeFiles/App.dir/App/root.rs.rlib.d",
+                    "CMakeFiles/Other.dir/Other/root.rs.rlib.d"
+                  ]
+                },
+                "unchanged_input_payload_timestamps_preserved": false,
+                "unchanged_input_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            }
+          ]
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "mode": "byproducts",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            }
+          ]
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "mode": "outputs",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Debug",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": []
+                },
+                "unchanged_input_payload_timestamps_preserved": true,
+                "unchanged_input_commands": [
+                  "preprocess"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": []
+                },
+                "unchanged_input_payload_timestamps_preserved": true,
+                "unchanged_input_commands": [
+                  "preprocess"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cmake_version": "cmake version 3.25.0",
+      "rustc_version": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+      "status": "passed",
+      "source_resolution": {
+        "mirror_editions": [
+          "2021",
+          "2024"
+        ],
+        "macro_read_reported": true,
+        "macro_generated_absolute_module_reported": true,
+        "dep_info_read_roles": "not supplied by stable dep-info"
+      },
+      "diagnostic_primary_counts": {
+        "unicode-type": [
+          1
+        ],
+        "substitution": [
+          1
+        ],
+        "borrow": [
+          1
+        ],
+        "expansion": [
+          1
+        ],
+        "multiple": [
+          2
+        ]
+      },
+      "native_control": [
+        {
+          "generator": "Ninja",
+          "configuration": "Debug",
+          "output": "module.rs",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Debug",
+          "output": "map",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Debug",
+          "output": "complete",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Release",
+          "output": "module.rs",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Release",
+          "output": "map",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Release",
+          "output": "complete",
+          "recovered": false
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Debug",
+          "output": "module.rs",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Debug",
+          "output": "map",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Debug",
+          "output": "complete",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Release",
+          "output": "module.rs",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Release",
+          "output": "map",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Release",
+          "output": "complete",
+          "recovered": true
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Debug",
+          "output": "module.rs",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Debug",
+          "output": "map",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Debug",
+          "output": "complete",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Release",
+          "output": "module.rs",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Release",
+          "output": "map",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Release",
+          "output": "complete",
+          "recovered": false
+        }
+      ],
+      "graphs": [
+        {
+          "generator": "Ninja",
+          "mode": "byproducts",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            }
+          ]
+        },
+        {
+          "generator": "Ninja",
+          "mode": "outputs",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Debug",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": []
+                },
+                "unchanged_input_payload_timestamps_preserved": true,
+                "unchanged_input_commands": [
+                  "preprocess"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": []
+                },
+                "unchanged_input_payload_timestamps_preserved": true,
+                "unchanged_input_commands": [
+                  "preprocess"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            }
+          ]
+        },
+        {
+          "generator": "Unix Makefiles",
+          "mode": "byproducts",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "initial parallel build",
+              "recovered": false,
+              "commands": [
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "preprocess",
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "initial parallel build",
+              "recovered": false,
+              "commands": [
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "preprocess",
+                "preprocess",
+                "preprocess",
+                "preprocess"
+              ]
+            }
+          ]
+        },
+        {
+          "generator": "Unix Makefiles",
+          "mode": "outputs",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": [
+                    "CMakeFiles/App.dir/App/root.rs.rlib.d",
+                    "CMakeFiles/Other.dir/Other/root.rs.rlib.d"
+                  ]
+                },
+                "unchanged_input_payload_timestamps_preserved": false,
+                "unchanged_input_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": [
+                    "CMakeFiles/App.dir/App/root.rs.rlib.d",
+                    "CMakeFiles/Other.dir/Other/root.rs.rlib.d"
+                  ]
+                },
+                "unchanged_input_payload_timestamps_preserved": false,
+                "unchanged_input_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            }
+          ]
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "mode": "byproducts",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            }
+          ]
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "mode": "outputs",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Debug",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": []
+                },
+                "unchanged_input_payload_timestamps_preserved": true,
+                "unchanged_input_commands": [
+                  "preprocess"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": []
+                },
+                "unchanged_input_payload_timestamps_preserved": true,
+                "unchanged_input_commands": [
+                  "preprocess"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cmake_version": "cmake version 4.5.0",
+      "rustc_version": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+      "status": "passed",
+      "source_resolution": {
+        "mirror_editions": [
+          "2021",
+          "2024"
+        ],
+        "macro_read_reported": true,
+        "macro_generated_absolute_module_reported": true,
+        "dep_info_read_roles": "not supplied by stable dep-info"
+      },
+      "diagnostic_primary_counts": {
+        "unicode-type": [
+          1
+        ],
+        "substitution": [
+          1
+        ],
+        "borrow": [
+          1
+        ],
+        "expansion": [
+          1
+        ],
+        "multiple": [
+          2
+        ]
+      },
+      "native_control": [
+        {
+          "generator": "Ninja",
+          "configuration": "Debug",
+          "output": "module.rs",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Debug",
+          "output": "map",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Debug",
+          "output": "complete",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Release",
+          "output": "module.rs",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Release",
+          "output": "map",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja",
+          "configuration": "Release",
+          "output": "complete",
+          "recovered": false
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Debug",
+          "output": "module.rs",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Debug",
+          "output": "map",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Debug",
+          "output": "complete",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Release",
+          "output": "module.rs",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Release",
+          "output": "map",
+          "recovered": true
+        },
+        {
+          "generator": "Unix Makefiles",
+          "configuration": "Release",
+          "output": "complete",
+          "recovered": true
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Debug",
+          "output": "module.rs",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Debug",
+          "output": "map",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Debug",
+          "output": "complete",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Release",
+          "output": "module.rs",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Release",
+          "output": "map",
+          "recovered": false
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "configuration": "Release",
+          "output": "complete",
+          "recovered": false
+        }
+      ],
+      "graphs": [
+        {
+          "generator": "Ninja",
+          "mode": "byproducts",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            }
+          ]
+        },
+        {
+          "generator": "Ninja",
+          "mode": "outputs",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Debug",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": []
+                },
+                "unchanged_input_payload_timestamps_preserved": true,
+                "unchanged_input_commands": [
+                  "preprocess"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": []
+                },
+                "unchanged_input_payload_timestamps_preserved": true,
+                "unchanged_input_commands": [
+                  "preprocess"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            }
+          ]
+        },
+        {
+          "generator": "Unix Makefiles",
+          "mode": "byproducts",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "initial parallel build",
+              "recovered": false,
+              "commands": [
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "preprocess",
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "initial parallel build",
+              "recovered": false,
+              "commands": [
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "cxx",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "preprocess",
+                "preprocess",
+                "preprocess",
+                "preprocess"
+              ]
+            }
+          ]
+        },
+        {
+          "generator": "Unix Makefiles",
+          "mode": "outputs",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": [
+                    "CMakeFiles/App.dir/App/root.rs.rlib.d",
+                    "CMakeFiles/Other.dir/Other/root.rs.rlib.d"
+                  ]
+                },
+                "unchanged_input_payload_timestamps_preserved": false,
+                "unchanged_input_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": [
+                    "CMakeFiles/App.dir/App/root.rs.rlib.d",
+                    "CMakeFiles/Other.dir/Other/root.rs.rlib.d"
+                  ]
+                },
+                "unchanged_input_payload_timestamps_preserved": false,
+                "unchanged_input_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            }
+          ]
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "mode": "byproducts",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            }
+          ]
+        },
+        {
+          "generator": "Ninja Multi-Config",
+          "mode": "outputs",
+          "observations": [
+            {
+              "config": "Debug",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Debug",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Debug",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": []
+                },
+                "unchanged_input_payload_timestamps_preserved": true,
+                "unchanged_input_commands": [
+                  "preprocess"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            },
+            {
+              "config": "Release",
+              "file": "root.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "module/nested.rs",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "data.txt",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "map",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "manifest",
+              "recovered": true,
+              "commands": [
+                "preprocess",
+                "compile",
+                "rustc",
+                "link",
+                "rustc",
+                "cxx"
+              ]
+            },
+            {
+              "config": "Release",
+              "file": "complete",
+              "recovered": true,
+              "commands": [
+                "preprocess"
+              ]
+            },
+            {
+              "config": "Release",
+              "acceptance": {
+                "raw_depfiles_after_build": {
+                  "preprocess": true,
+                  "compiler": []
+                },
+                "unchanged_input_payload_timestamps_preserved": true,
+                "unchanged_input_commands": [
+                  "preprocess"
+                ],
+                "changed_commands": [
+                  "preprocess",
+                  "compile",
+                  "rustc",
+                  "link",
+                  "rustc",
+                  "cxx"
+                ],
+                "interrupt_recovery": "passed",
+                "final_recompile": "passed"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "existing_compatibility_matrix": [
+    {
+      "cmake": "cmake version 3.25.0",
+      "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+      "status": "passed"
+    },
+    {
+      "cmake": "cmake version 3.25.0",
+      "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+      "status": "passed"
+    },
+    {
+      "cmake": "cmake version 4.5.0",
+      "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+      "status": "passed"
+    },
+    {
+      "cmake": "cmake version 4.5.0",
+      "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+      "status": "passed"
+    }
+  ],
+  "required_output_deletions_recovered": 168,
+  "baseline_revision": "2d9b7aadf5a1b5d6f6aa01b858b6d3ff701f893c",
+  "baseline_dirty": true,
+  "baseline_note": "Baseline ran with uncommitted M0 test/document additions; released production sources and modules were unchanged."
+}

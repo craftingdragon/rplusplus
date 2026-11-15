@@ -1,12 +1,30 @@
 # v0.2/M0: preprocessing feasibility and contract
 
-Status: **BLOCKED — generated-output ownership needs an architectural adjustment.**
+Status: **PASS for M0 feasibility, with the approved explicit-OUTPUT adjustment.**
 No production preprocessing has been implemented. The released compile/link,
 language modules and runtime metadata are unchanged.
+M1 has not started. This is not v0.2 release approval.
 
 ## Reproduce
 
-Run from the repository root with preinstalled tools (no downloads or Cargo):
+Run the complete adjusted M0 gate from the repository root with preinstalled
+tools (no downloads or Cargo):
+
+```sh
+python3 tests/preprocess_graph.py \
+  --cmake /absolute/path/to/cmake-3.25.0/bin/cmake \
+  --cmake /absolute/path/to/cmake-4.5.0/bin/cmake \
+  --rustc /absolute/path/to/rust-1.85.0/bin/rustc \
+  --rustc /absolute/path/to/rust-1.100.0/bin/rustc \
+  --output build-v02-m0/custom-graph.json
+```
+
+All four tool pairs must pass for this command to return zero. It includes the
+original native co-output negative control and source/diagnostic feasibility
+probes. For the separate unchanged-v0.1 baseline run tests/compatibility_matrix.py
+with the same repeated --cmake/--rustc arguments and an --output JSON path.
+
+The original standalone probe below remains a negative control:
 
 ```sh
 python3 tests/preprocess_feasibility.py \
@@ -17,7 +35,8 @@ python3 tests/preprocess_feasibility.py \
   --output build-v02-m0/report.json
 ```
 
-The command deliberately exits nonzero while its architectural blocker exists.
+That original command deliberately exits nonzero: native compile co-outputs still
+fail on Ninja, and the accepted design does not use them for generated payloads.
 The report retains every missing-output observation; restoring a failed probe's
 fixture only permits the other independent cases to run, and never changes the
 failed observation to a pass. Missing tools are blocked; unexpected test failures
@@ -128,7 +147,7 @@ Local raw logs are build-v02-m0/baseline-3.25.log and
 build-v02-m0/baseline-4.5.log; the probe's JSON includes compiler versions,
 structured diagnostic evidence and all 72 missing-output observations.
 
-## Proposed narrow architectural adjustment (requires review)
+## Approved architectural adjustment: validated
 
 Give the generated tree a separate CMake add_custom_command edge with real
 OUTPUT entries and its own DEPFILE. Preserve the original native Rpp compile/link
@@ -136,7 +155,7 @@ architecture; compilation consumes the completed preprocessing snapshot through
 an explicit prerequisite. Keep preprocessing optional, per-target/configuration,
 and standard-library-only. No unconditional scan or compiler invocation is allowed.
 
-Before proceeding to M1, extend M0 to prove:
+The custom-command gate now proves:
 
 1. Real custom-command outputs recover after each deletion on all six
    generator/configuration combinations and both CMake versions.
@@ -151,5 +170,10 @@ Before proceeding to M1, extend M0 to prove:
    knowledge of R++'s source/build tree.
 
 This changes output ownership and scheduling, not preprocessing features or
-mandatory recovery guarantees. The alternative is a proposal, not validated
-production behavior. Do not mark M0 passed, begin M1, or publish v0.2 on this evidence.
+mandatory recovery guarantees. See the [graph design and results](preprocessing-graph-design.md)
+and [versioned observations](baselines/v0.2-m0-custom-graph.json).
+
+The prototype is test-only Python scaffolding, using the existing Rust driver and
+installed modules. It deliberately copies files and inserts a numeric fixture
+value instead of implementing preprocessing syntax. Production behavior, a Rust
+scanner, source maps, CLI and CMake preprocessing properties remain later work.
