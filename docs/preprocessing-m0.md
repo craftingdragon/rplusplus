@@ -3,7 +3,8 @@
 Status: **PASS for M0 feasibility, with the approved explicit-OUTPUT adjustment.**
 No production preprocessing has been implemented. The released compile/link,
 language modules and runtime metadata are unchanged.
-M1 has not started. This is not v0.2 release approval.
+This records M0's scoped feasibility approval, not v0.2 release approval.
+The subsequent [M1 scanner](lexer.md) is internal infrastructure only.
 
 ## Reproduce
 

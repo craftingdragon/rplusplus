@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "stage": "v0.2/M1",
+  "status": "passed",
+  "implementation_revision": "32ca2d78fb68facb0398a345d63d61e19b39d0f9",
+  "scope": "Internal lexical scanner and necessary bootstrap dependency/publication support only. No M2, production preprocessing integration, tag or release approval.",
+  "tested_base_revisions": [
+    "12ee7d53304d4858a7938653b9ce72ff606ae444",
+    "12ee7d53304d4858a7938653b9ce72ff606ae444"
+  ],
+  "tested_dirty_worktrees": [
+    true,
+    true
+  ],
+  "provenance_note": "Matrix ran against the uncommitted M1 implementation; file hashes below bind those sources to the subsequent signed implementation commit.",
+  "source_sha256": {
+    "CMakeLists.txt": "df5e6d5c4d7d76c8a20e57acab037841810d752010190f79687399240d0be585",
+    "src/main.rs": "c5520e16c9f5708e6f6285803ece2f2d67f57c95ca2320ccbca92daa4b357960",
+    "tests/lexer.py": "a1be4afe2ba92faccd59689f0d9224f65360b36c335ab11ca80348548838f7fb",
+    "tests/lexer_probe.rs": "d8c3abfba20ce57dac77e1f5d7e0058e429a6c42244052fd794a4968197b3998",
+    "tests/preprocess_graph.py": "88779e337de3288f35b495ca40bc5beec000f9a973baf479ff8e61a57cfe1f55",
+    "src/lex/mod.rs": "a9596b4912f5b629ec234e451e135c94a1e915a5af1c3fe5b8b8ae435d0843e8",
+    "src/lex/scanner.rs": "022cf2e0721086f3a4d4ce11f7f6776354348a10cda51069163116d501ec36e8",
+    "src/lex/tests.rs": "2701a03bb333d06ff19db12e5592f46293890fff150a0b2e7260783d16965c69",
+    "src/lex/unicode.rs": "8fc7bd6ab059d5886c91780907f0da0f367e29afd63e330a8d7150d53bf7a9e7",
+    "LICENSES/Unicode-3.0.txt": "f7db81051789b729fea528a63ec4c938fdcb93d9d61d97dc8cc2e9df6d47f2a1",
+    "LICENSES/unicode-ident-data-MIT.txt": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+  },
+  "rust_unit_tests": 24,
+  "lexer_unit_tests": 21,
+  "required_ctest_gates": [
+    "driver-failures",
+    "driver-unit",
+    "generator-compatibility",
+    "lexer-regression",
+    "qt-notes-installed",
+    "toolchain-errors"
+  ],
+  "results": [
+    {
+      "cmake": "cmake version 3.25.0",
+      "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+      "rustc_identity": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.0\nLLVM version: 19.1.7\n",
+      "status": "passed",
+      "elapsed_seconds": 145.86374333599997
+    },
+    {
+      "cmake": "cmake version 3.25.0",
+      "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+      "rustc_identity": "rustc 1.100.0 (0ef1bc386 2026-11-09)\nbinary: rustc\ncommit-hash: 0ef1bc386059596dada8fb65b50425aab2ea637a\ncommit-date: 2026-11-09\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0\nLLVM version: 23.1.5\n",
+      "status": "passed",
+      "elapsed_seconds": 139.27869927799838
+    },
+    {
+      "cmake": "cmake version 4.5.0",
+      "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+      "rustc_identity": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.0\nLLVM version: 19.1.7\n",
+      "status": "passed",
+      "elapsed_seconds": 164.10343356999874
+    },
+    {
+      "cmake": "cmake version 4.5.0",
+      "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+      "rustc_identity": "rustc 1.100.0 (0ef1bc386 2026-11-09)\nbinary: rustc\ncommit-hash: 0ef1bc386059596dada8fb65b50425aab2ea637a\ncommit-date: 2026-11-09\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0\nLLVM version: 23.1.5\n",
+      "status": "passed",
+      "elapsed_seconds": 153.00964138999916
+    }
+  ],
+  "coverage": {
+    "native_generators": [
+      "Ninja",
+      "Unix Makefiles",
+      "Ninja Multi-Config"
+    ],
+    "native_configurations": [
+      "Debug",
+      "Release"
+    ],
+    "lexer_editions": [
+      "2021",
+      "2024"
+    ],
+    "bootstrap": "All three generators: module/test-only edits, lost depfiles, deleted binaries, repeated failing type checks, recovery and no-ops. Bootstrap tools use configuration-independent flags.",
+    "installed": "Relocated language modules, mixed native consumers, Qt/SQLite and isolated installed backend consumers through existing gates.",
+    "cargo": "Forbidden sentinel in correctness regression runners; direct rustc bootstrap only."
+  },
+  "supplemental_repository_roundtrip": {
+    "rust_files": 16,
+    "editions": [
+      "2021",
+      "2024"
+    ],
+    "status": "passed"
+  },
+  "supplemental_source_position_oracle": [
+    {
+      "rustc": "1.85.0",
+      "raw_byte": 45,
+      "line": 2,
+      "column": 31,
+      "status": "passed",
+      "rustc_json_byte": 45
+    },
+    {
+      "rustc": "1.100.0",
+      "raw_byte": 45,
+      "line": 2,
+      "column": 31,
+      "status": "passed",
+      "rustc_json_byte": 45
+    }
+  ],
+  "preserved_m0_native_negative_control": {
+    "cmake_versions": [
+      "3.25.0",
+      "4.5.0"
+    ],
+    "rustc": "1.85.0",
+    "cases": 36,
+    "expected_ninja_failures": 24,
+    "make_recoveries": 12,
+    "status": "passed"
+  },
+  "boundaries": [
+    "Labels and lifetimes share a lexical token; grammatical role remains with rustc.",
+    "Directive bodies are opaque physical-line tokens; M2 must validate them and provide non-directive fragment scanning.",
+    "Unicode 18 properties define boundaries, not exact older compiler Unicode acceptance or NFC normalization.",
+    "Attribute token trees are protected; procedural attribute item-body semantics and unstable macro 2.0 definitions are outside the supported contract."
+  ],
+  "raw_reports": [
+    "build-v02-m1/compatibility-3.25.json",
+    "build-v02-m1/compatibility-4.5.json"
+  ],
+  "signing_status": "signed implementation commit; signature verified during final integration"
+}

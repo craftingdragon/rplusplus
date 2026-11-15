@@ -18,6 +18,8 @@ CMake embeds language identifiers in generated Ninja rule names. Literal `R++` p
 The `rpp` driver bootstraps with CMake and stable `rustc`, using only Rust's standard library. Native targets support `rlib` dependencies, `staticlib` C++ boundaries, and Rust or C++ executable entry points. No Cargo or network fetching is used.
 
 See [driver and target usage](docs/driver.md) and the `examples/multicrate` diamond graph.
+The unreleased [v0.2 M1 lexical scanner](docs/lexer.md) is internal infrastructure;
+preprocessing is not yet a public driver feature.
 ```sh
 cmake -S . -B build -G Ninja \
   -DRPP_RUSTC_EXECUTABLE=/absolute/path/to/stable/rustc
@@ -43,5 +45,6 @@ Build the driver itself through CMake and rustc; preserve upstream Rust safety c
 ## License
 
 GPL-3.0-or-later. See [LICENSE](LICENSE).
+Unicode identifier property data retains the notices in [LICENSES](LICENSES).
 
 Release preparation: [candidate notes](docs/release-0.1.0.md) and [release procedure](docs/release-procedure.md).
