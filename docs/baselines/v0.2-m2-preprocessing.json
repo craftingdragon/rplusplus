@@ -1,0 +1,4462 @@
+{
+  "schema": 1,
+  "stage": "v0.2/M2",
+  "status": "passed",
+  "implementation_revision": "df4be6d75c2c90578ec3d2afe2902713936d33bf",
+  "scope": "Pure directive/expansion library, test-only oracle and necessary bootstrap dependencies. No M3 CLI, source mirroring, production CMake preprocessing, tag or release approval.",
+  "tested_base_revisions": [
+    "5e825345c351b7bcb6f655814f2d419492cb0b4b",
+    "5e825345c351b7bcb6f655814f2d419492cb0b4b"
+  ],
+  "tested_dirty_worktrees": [
+    true,
+    true
+  ],
+  "provenance_note": "Compatibility ran against the uncommitted M2 implementation, subsequently signed as implementation_revision. Code/test/fixture hashes bind the results to that commit. The M0 preservation run used the same code; only documentation and the implementation commit changed while it ran. PLAN.md is a user-provided untracked plan and is not modified or committed.",
+  "source_sha256": {
+    "CMakeLists.txt": "8eb8fab2806ca27b40a298dd69e270793dd87e756057edf3d3feec937697d0f3",
+    "LICENSE": "b6a8bf63ae2c95b0aa256ee774680d7bd18f21f457da75466f7610b3b16acc4e",
+    "LICENSES/Unicode-3.0.txt": "f7db81051789b729fea528a63ec4c938fdcb93d9d61d97dc8cc2e9df6d47f2a1",
+    "LICENSES/unicode-ident-data-MIT.txt": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+    "cmake/CMakeDetermineRppCompiler.cmake": "66a4aaff1cdf6d53b718516f9f8700f23525e0cc32a6e7c8d2396a2c78abb79f",
+    "cmake/CMakeRppCompiler.cmake.in": "61cd0bc650c5965b7e6594c7aaa3a7e582837dd495cc1275b567fecd6c6c0596",
+    "cmake/CMakeRppInformation.cmake": "450a734917a8dbcafe83dce11b575f6bf0619465010e4af69befb5547c653b81",
+    "cmake/CMakeTestRppCompiler.cmake": "44a7349478e183a76aaefb10f94d83cce91b57df5816da37bc95e7282b68105c",
+    "cmake/RplusplusConfig.cmake": "71f867bf9dd720583726223f30cfe4b57e45088038f8a34d1a1976e9aadf9317",
+    "cmake/RppTargets.cmake": "31ab19fd2b47a780fa41250c27fe793f6a21b5c5ac16167a62b18b611dcc8a0e",
+    "cmake/RppToolchain.cmake": "b9b98bf78072b0eb02e648b59aabc2d35f0b4782258c358e8cce61d980485d57",
+    "examples/multicrate/CMakeLists.txt": "5e9a988ed53bd75828a986d37be3bd00f7f92db257cda9e62ed8c85d1904e787",
+    "examples/multicrate/adapter.cpp": "c286baea9b8ef81ef12e18fd4ce99c2c29608fbadab210a2cd90344887eb3fd4",
+    "examples/multicrate/app.rs": "099b9322c1ffe0370d15ce2a104ee9e586759fc539d760cea3ff7fb5ce56a206",
+    "examples/multicrate/base.rs": "b66e932c35b5df0b28a10856d4c07b86c6ed4f9ecd8fb24fcd49491586314db8",
+    "examples/multicrate/bridge.rs": "ba93991c912b39418dfeca892c250e3274f2532e19a4143bc5f6e11daa755708",
+    "examples/multicrate/main.cpp": "95b9bdf27b1aa04db55cbba96a1e6035cfcf779318e063a0a2f8a2c31004221e",
+    "examples/multicrate/middle.rs": "b830f36d52ec91b974abf6401d458005429107e9beb5f2e7eb2ba4b08e5c90cb",
+    "examples/multicrate/side.rs": "5459a11c3d2a122aa67ca24db5a5d60765f0ffdf316fd6852e16fc8996fa189d",
+    "examples/multicrate/worker.cpp": "d36ba24101bf6c0f294cbc31fb0b67cdd2c509ba08ea2aacac8136f3c71a420d",
+    "examples/native/CMakeLists.txt": "e8e652d8b74bb3044b0d9d091646689078257928429b600eccc03d6493bc91c2",
+    "examples/native/extra.rs": "d2e29e2092ebf528c0a4154c1242ff98549e48bd92cb78764bb36dc57fc516e5",
+    "examples/native/main.cpp": "faf2b74ec999042e60965997fa8357a1e7c7dbfb504fda1b630d982d069296c6",
+    "examples/native/sub.rs": "0691ab76a11d729ea75594a3c6ab98ea206b61842e40985dd5cba03ae84d2d71",
+    "examples/native/value.rs": "8ba7659ee9c0d4ec685aad8fa0c7e17ab8457861c9b28ef00c4ffc63da65a5b5",
+    "examples/qt-notes/CMakeLists.txt": "7f1e9785305558e34477353ea0800abf8a14358992fed05c56f1574ab24472f8",
+    "examples/qt-notes/RppNotesConfig.cmake": "24f71f8bb72a8293d07669558d0c97cd25bdf3a806dffa50d37e24b7437034cc",
+    "examples/qt-notes/bridge.rs": "bff5bbe63c1349f2cc79f231e01d00c8d9f22972a1d344caac10c8024dfc33f4",
+    "examples/qt-notes/consumer/CMakeLists.txt": "d435ec55aa665fc5890fb127553eb8b00bb6290e1c6be0649800f2230a13d219",
+    "examples/qt-notes/consumer/main.cpp": "188f573ef65beedf4928aaffe07d42408575cfa9a34b7fc42bee8d0cbf68e8d0",
+    "examples/qt-notes/core.rs": "90c17b4df3de7fa6ea147fb91dc2f114619ea4e9d3721ce898fb855eeee0984b",
+    "examples/qt-notes/main.cpp": "8f7d40e4b5f211fcdc6786b651a95797af49fccac37b164071c5410bd349e24d",
+    "examples/qt-notes/notes.h": "51d4a2f2f4c7ca8d6e38f2f5c7b2ed60f3c702bf51a66a27b53846e7d6fd890e",
+    "src/lex/mod.rs": "bf539d0fbf5ca18cfc19efa7301714b6f8c6c444d8a71e562fab0256230c0b05",
+    "src/lex/scanner.rs": "1d3662214bcee7a1e1bc1473f3ded47b906b4518ac133f396b4afd2b26928baa",
+    "src/lex/tests.rs": "2629f24bed07f3254d125752d502369f30974a16876154f3ed88c6f55e724ccd",
+    "src/lex/unicode.rs": "8fc7bd6ab059d5886c91780907f0da0f367e29afd63e330a8d7150d53bf7a9e7",
+    "src/main.rs": "02ac950b692298f2e9a975261b5f9bd01dcc0c620fe01693491b196d7b002557",
+    "src/preprocess/engine.rs": "dcfca74e4d8dfb434f6e9828d6c2eba6f8c810664798fe8958cb6285bbd15bcc",
+    "src/preprocess/expression.rs": "841afd181271398bcd4b1d2eab46f18695bd0ea140f1885995801f512481328b",
+    "src/preprocess/mod.rs": "9d4db263d71f9c639d9be162b99493d663e95d72fc28ec1eaf065bfab09deeba",
+    "src/preprocess/tests.rs": "1186cd6955529c9838670fd9aa0ed60b0a87510932a281532f869039f2e6c64e",
+    "tests/benchmark.py": "290f87860128423b1c65058d977e7abb1048604696b7cbae10794bec044677fe",
+    "tests/compare_cargo.py": "d4edca5cfdc10468d0f291090868b4b9317768bd5781b6faf3a2fa5fdd74f1a1",
+    "tests/compatibility_matrix.py": "3243859cff9be8d3d81ce04e833028fe98add8cb50127e70742b8e4603725126",
+    "tests/depfile_loss.py": "12c6d2969ef9edff8fa909485d4194c62ad684df20051ad9d3e3111960f699ae",
+    "tests/driver_failures.py": "790bc2f318494749443a03ccb7c150f7761220d3ebc8d7b559540370e6483943",
+    "tests/generators.py": "af11b68897946b0815ecf594ce0505bc982d1140cddfc6ac188748907583e2e9",
+    "tests/lexer.py": "0ef07d4e2139580a2f6a64f5a3d6d35d132dc1cfede433a0449c0760c6919adf",
+    "tests/lexer_probe.rs": "d8c3abfba20ce57dac77e1f5d7e0058e429a6c42244052fd794a4968197b3998",
+    "tests/path_audit.py": "2fabaf673aaeeeaf9144ae889fae94a5cb99eb75ab2e5b2ee0f1ac5742201b78",
+    "tests/preprocess.py": "b34f9fdb249aeb36c0ab9bf69f5c8d3bc12842fd6ee76bb054564ce81f8c99a4",
+    "tests/preprocess_feasibility.py": "7ab8e87df5c58f8fda20277f0b76f1aa5fa5e97705c50e9e1addb9c5b22e6095",
+    "tests/preprocess_graph.py": "88779e337de3288f35b495ca40bc5beec000f9a973baf479ff8e61a57cfe1f55",
+    "tests/preprocess_graph_fixture.py": "ea210522399e199a07e6742059220380d78abd8a72d326b8d35c5404e2678444",
+    "tests/preprocess_probe.rs": "2b640e50dbb779ba5fb99f81e7625c5aaab1a207a78d4d0904f3328942182f7b",
+    "tests/qt_notes.py": "63a269d392bab3c8f4219f1abcc74a62c88299039dd44baf4f73fe49794cbdf3",
+    "tests/release_gate.py": "7058bfe368589e4dfac8f5f064b4c85b1fdb55d6d0c75f746576d525494cfbfb",
+    "tests/source_bundle.py": "0b7bc9d6581604993c234195d6f6cc9d82c65ad5351c1193a2d55974c9c05044",
+    "tests/toolchain_errors.py": "5d8d3d90cef7f36792ce873ac258c01d5ea6204a0c631fe7581dacea099e1ea6"
+  },
+  "rust_unit_tests": 43,
+  "preprocessing_unit_tests": 18,
+  "lexer_unit_tests": 22,
+  "required_ctest_gates": [
+    "driver-failures",
+    "driver-unit",
+    "generator-compatibility",
+    "lexer-regression",
+    "preprocess-regression",
+    "qt-notes-installed",
+    "toolchain-errors"
+  ],
+  "results": [
+    {
+      "cmake": "cmake version 3.25.0",
+      "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+      "rustc_identity": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.0\nLLVM version: 19.1.7\n",
+      "log": "Internal ctest changing into directory: /tmp/rpp matrix bpajaezd\nTest project /tmp/rpp matrix bpajaezd\n    Start 1: driver-unit\n1/7 Test #1: driver-unit ......................   Passed    0.25 sec\n    Start 2: driver-failures\n2/7 Test #2: driver-failures ..................   Passed    0.62 sec\n    Start 3: toolchain-errors\n3/7 Test #3: toolchain-errors .................   Passed    0.42 sec\n    Start 4: lexer-regression\n4/7 Test #4: lexer-regression .................   Passed   52.14 sec\n    Start 5: preprocess-regression\n5/7 Test #5: preprocess-regression ............   Passed    0.86 sec\n    Start 6: generator-compatibility\n6/7 Test #6: generator-compatibility ..........   Passed   72.08 sec\n    Start 7: qt-notes-installed\n7/7 Test #7: qt-notes-installed ...............   Passed   35.56 sec\n\n100% tests passed, 0 tests failed out of 7\n\nTotal Test time (real) = 161.94 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 163.51169824799945
+    },
+    {
+      "cmake": "cmake version 3.25.0",
+      "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+      "rustc_identity": "rustc 1.100.0 (0ef1bc386 2026-11-09)\nbinary: rustc\ncommit-hash: 0ef1bc386059596dada8fb65b50425aab2ea637a\ncommit-date: 2026-11-09\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0\nLLVM version: 23.1.5\n",
+      "log": "Internal ctest changing into directory: /tmp/rpp matrix _265nrf3\nTest project /tmp/rpp matrix _265nrf3\n    Start 1: driver-unit\n1/7 Test #1: driver-unit ......................   Passed    0.26 sec\n    Start 2: driver-failures\n2/7 Test #2: driver-failures ..................   Passed    0.55 sec\n    Start 3: toolchain-errors\n3/7 Test #3: toolchain-errors .................   Passed    0.41 sec\n    Start 4: lexer-regression\n4/7 Test #4: lexer-regression .................   Passed   49.04 sec\n    Start 5: preprocess-regression\n5/7 Test #5: preprocess-regression ............   Passed    0.69 sec\n    Start 6: generator-compatibility\n6/7 Test #6: generator-compatibility ..........   Passed   74.62 sec\n    Start 7: qt-notes-installed\n7/7 Test #7: qt-notes-installed ...............   Passed   37.77 sec\n\n100% tests passed, 0 tests failed out of 7\n\nTotal Test time (real) = 163.34 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 165.3725274419994
+    },
+    {
+      "cmake": "cmake version 4.5.0",
+      "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+      "rustc_identity": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.0\nLLVM version: 19.1.7\n",
+      "log": "Test project /tmp/rpp matrix lbh5su3g\n    Start 1: driver-unit\n1/7 Test #1: driver-unit ......................   Passed    0.24 sec\n    Start 2: driver-failures\n2/7 Test #2: driver-failures ..................   Passed    0.55 sec\n    Start 3: toolchain-errors\n3/7 Test #3: toolchain-errors .................   Passed    0.44 sec\n    Start 4: lexer-regression\n4/7 Test #4: lexer-regression .................   Passed   55.66 sec\n    Start 5: preprocess-regression\n5/7 Test #5: preprocess-regression ............   Passed    0.90 sec\n    Start 6: generator-compatibility\n6/7 Test #6: generator-compatibility ..........   Passed   85.76 sec\n    Start 7: qt-notes-installed\n7/7 Test #7: qt-notes-installed ...............   Passed   37.07 sec\n\n100% tests passed out of 7\n\nTotal Test time (real) = 180.62 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 182.55232731499927
+    },
+    {
+      "cmake": "cmake version 4.5.0",
+      "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+      "rustc_identity": "rustc 1.100.0 (0ef1bc386 2026-11-09)\nbinary: rustc\ncommit-hash: 0ef1bc386059596dada8fb65b50425aab2ea637a\ncommit-date: 2026-11-09\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0\nLLVM version: 23.1.5\n",
+      "log": "Test project /tmp/rpp matrix x573btj0\n    Start 1: driver-unit\n1/7 Test #1: driver-unit ......................   Passed    0.28 sec\n    Start 2: driver-failures\n2/7 Test #2: driver-failures ..................   Passed    0.55 sec\n    Start 3: toolchain-errors\n3/7 Test #3: toolchain-errors .................   Passed    0.54 sec\n    Start 4: lexer-regression\n4/7 Test #4: lexer-regression .................   Passed   53.73 sec\n    Start 5: preprocess-regression\n5/7 Test #5: preprocess-regression ............   Passed    0.69 sec\n    Start 6: generator-compatibility\n6/7 Test #6: generator-compatibility ..........   Passed   88.82 sec\n    Start 7: qt-notes-installed\n7/7 Test #7: qt-notes-installed ...............   Passed   34.23 sec\n\n100% tests passed out of 7\n\nTotal Test time (real) = 178.85 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 180.63904217399977
+    }
+  ],
+  "coverage": {
+    "native_generators": [
+      "Ninja",
+      "Unix Makefiles",
+      "Ninja Multi-Config"
+    ],
+    "native_configurations": [
+      "Debug",
+      "Release"
+    ],
+    "preprocessing_editions": [
+      "2021",
+      "2024"
+    ],
+    "cargo": "forbidden by sentinel in regression runners; bootstrap invokes rustc directly",
+    "preprocessing_publication": "not implemented; pure calls return no successful partial result on error"
+  },
+  "preserved_m0": {
+    "status": "passed",
+    "required_output_deletion_recoveries": 168,
+    "native_negative_control_cases": 72,
+    "expected_native_ninja_failures": 48,
+    "expected_native_make_recoveries": 24,
+    "expected_byproducts_make_failures": 8,
+    "results": [
+      {
+        "rustc": "/home/julian/.rustup/toolchains/1.85.0-x86_64-unknown-linux-gnu/bin/rustc",
+        "cmake": "/home/julian/Downloads/cmake-3.25.0-linux-x86_64/bin/cmake",
+        "rustc_version": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+        "cmake_version": "cmake version 3.25.0",
+        "old_native_control": [
+          {
+            "generator": "Ninja",
+            "configuration": "Debug",
+            "output": "module.rs",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Debug",
+            "output": "map",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Debug",
+            "output": "complete",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Release",
+            "output": "module.rs",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Release",
+            "output": "map",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Release",
+            "output": "complete",
+            "recovered": false
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Debug",
+            "output": "module.rs",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Debug",
+            "output": "map",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Debug",
+            "output": "complete",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Release",
+            "output": "module.rs",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Release",
+            "output": "map",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Release",
+            "output": "complete",
+            "recovered": true
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Debug",
+            "output": "module.rs",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Debug",
+            "output": "map",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Debug",
+            "output": "complete",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Release",
+            "output": "module.rs",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Release",
+            "output": "map",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Release",
+            "output": "complete",
+            "recovered": false
+          }
+        ],
+        "source_resolution": {
+          "mirror_editions": [
+            "2021",
+            "2024"
+          ],
+          "macro_read_reported": true,
+          "macro_generated_absolute_module_reported": true,
+          "dep_info_read_roles": "not supplied by stable dep-info",
+          "dual_use_path": "/tmp/rpp M0 graph fjm8ywyy/lexical/dual.txt"
+        },
+        "diagnostic_feasibility": {
+          "unicode-type": [
+            {
+              "$message_type": "diagnostic",
+              "message": "mismatched types",
+              "code": {
+                "code": "E0308",
+                "explanation": "Expected type did not match the received type.\n\nErroneous code examples:\n\n```compile_fail,E0308\nfn plus_one(x: i32) -> i32 {\n    x + 1\n}\n\nplus_one(\"Not a number\");\n//       ^^^^^^^^^^^^^^ expected `i32`, found `&str`\n\nif \"Not a bool\" {\n// ^^^^^^^^^^^^ expected `bool`, found `&str`\n}\n\nlet x: f32 = \"Not a float\";\n//     ---   ^^^^^^^^^^^^^ expected `f32`, found `&str`\n//     |\n//     expected due to this\n```\n\nThis error occurs when an expression was used in a place where the compiler\nexpected an expression of a different type. It can occur in several cases, the\nmost common being when calling a function and passing an argument which has a\ndifferent type than the matching type in the function declaration.\n"
+              },
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph fjm8ywyy/lexical/unicode-type.rs",
+                  "byte_start": 37,
+                  "byte_end": 42,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 37,
+                  "column_end": 41,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){let café = 1; let _: () = café;}",
+                      "highlight_start": 37,
+                      "highlight_end": 41
+                    }
+                  ],
+                  "label": "expected `()`, found integer",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                },
+                {
+                  "file_name": "/tmp/rpp M0 graph fjm8ywyy/lexical/unicode-type.rs",
+                  "byte_start": 32,
+                  "byte_end": 34,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 32,
+                  "column_end": 34,
+                  "is_primary": false,
+                  "text": [
+                    {
+                      "text": "fn main(){let café = 1; let _: () = café;}",
+                      "highlight_start": 32,
+                      "highlight_end": 34
+                    }
+                  ],
+                  "label": "expected due to this",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                }
+              ],
+              "children": [],
+              "rendered": "error[E0308]: mismatched types\n --> /tmp/rpp M0 graph fjm8ywyy/lexical/unicode-type.rs:1:37\n  |\n1 | fn main(){let café = 1; let _: () = café;}\n  |                                --   ^^^^ expected `()`, found integer\n  |                                |\n  |                                expected due to this\n\n"
+            }
+          ],
+          "substitution": [
+            {
+              "$message_type": "diagnostic",
+              "message": "cannot find value `replacement_missing` in this scope",
+              "code": {
+                "code": "E0425",
+                "explanation": "An unresolved name was used.\n\nErroneous code examples:\n\n```compile_fail,E0425\nsomething_that_doesnt_exist::foo;\n// error: unresolved name `something_that_doesnt_exist::foo`\n\n// or:\n\ntrait Foo {\n    fn bar() {\n        Self; // error: unresolved name `Self`\n    }\n}\n\n// or:\n\nlet x = unknown_variable;  // error: unresolved name `unknown_variable`\n```\n\nPlease verify that the name wasn't misspelled and ensure that the\nidentifier being referred to is valid for the given situation. Example:\n\n```\nenum something_that_does_exist {\n    Foo,\n}\n```\n\nOr:\n\n```\nmod something_that_does_exist {\n    pub static foo : i32 = 0i32;\n}\n\nsomething_that_does_exist::foo; // ok!\n```\n\nOr:\n\n```\nlet unknown_variable = 12u32;\nlet x = unknown_variable; // ok!\n```\n\nIf the item is not defined in the current module, it must be imported using a\n`use` statement, like so:\n\n```\n# mod foo { pub fn bar() {} }\n# fn main() {\nuse foo::bar;\nbar();\n# }\n```\n\nIf the item you are importing is not defined in some super-module of the\ncurrent module, then it must also be declared as public (e.g., `pub fn`).\n"
+              },
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph fjm8ywyy/lexical/substitution.rs",
+                  "byte_start": 18,
+                  "byte_end": 37,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 19,
+                  "column_end": 38,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){let _ = replacement_missing;}",
+                      "highlight_start": 19,
+                      "highlight_end": 38
+                    }
+                  ],
+                  "label": "not found in this scope",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                }
+              ],
+              "children": [],
+              "rendered": "error[E0425]: cannot find value `replacement_missing` in this scope\n --> /tmp/rpp M0 graph fjm8ywyy/lexical/substitution.rs:1:19\n  |\n1 | fn main(){let _ = replacement_missing;}\n  |                   ^^^^^^^^^^^^^^^^^^^ not found in this scope\n\n"
+            }
+          ],
+          "borrow": [
+            {
+              "$message_type": "diagnostic",
+              "message": "cannot borrow `x` as mutable more than once at a time",
+              "code": {
+                "code": "E0499",
+                "explanation": "A variable was borrowed as mutable more than once.\n\nErroneous code example:\n\n```compile_fail,E0499\nlet mut i = 0;\nlet mut x = &mut i;\nlet mut a = &mut i;\nx;\n// error: cannot borrow `i` as mutable more than once at a time\n```\n\nPlease note that in Rust, you can either have many immutable references, or one\nmutable reference. For more details you may want to read the\n[References & Borrowing][references-and-borrowing] section of the Book.\n\n[references-and-borrowing]: https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html\n\nExample:\n\n```\nlet mut i = 0;\nlet mut x = &mut i; // ok!\n\n// or:\nlet mut i = 0;\nlet a = &i; // ok!\nlet b = &i; // still ok!\nlet c = &i; // still ok!\nb;\na;\n```\n"
+              },
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph fjm8ywyy/lexical/borrow.rs",
+                  "byte_start": 29,
+                  "byte_end": 35,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 30,
+                  "column_end": 36,
+                  "is_primary": false,
+                  "text": [
+                    {
+                      "text": "fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}",
+                      "highlight_start": 30,
+                      "highlight_end": 36
+                    }
+                  ],
+                  "label": "first mutable borrow occurs here",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                },
+                {
+                  "file_name": "/tmp/rpp M0 graph fjm8ywyy/lexical/borrow.rs",
+                  "byte_start": 43,
+                  "byte_end": 49,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 44,
+                  "column_end": 50,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}",
+                      "highlight_start": 44,
+                      "highlight_end": 50
+                    }
+                  ],
+                  "label": "second mutable borrow occurs here",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                },
+                {
+                  "file_name": "/tmp/rpp M0 graph fjm8ywyy/lexical/borrow.rs",
+                  "byte_start": 68,
+                  "byte_end": 69,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 69,
+                  "column_end": 70,
+                  "is_primary": false,
+                  "text": [
+                    {
+                      "text": "fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}",
+                      "highlight_start": 69,
+                      "highlight_end": 70
+                    }
+                  ],
+                  "label": "first borrow later used here",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": {
+                    "span": {
+                      "file_name": "/rustc/4d91de4e48198da2e33413efdcd9cd2cc0c46688/library/std/src/macros.rs",
+                      "byte_start": 4429,
+                      "byte_end": 4462,
+                      "line_start": 143,
+                      "line_end": 143,
+                      "column_start": 28,
+                      "column_end": 61,
+                      "is_primary": false,
+                      "text": [],
+                      "label": null,
+                      "suggested_replacement": null,
+                      "suggestion_applicability": null,
+                      "expansion": {
+                        "span": {
+                          "file_name": "/tmp/rpp M0 graph fjm8ywyy/lexical/borrow.rs",
+                          "byte_start": 51,
+                          "byte_end": 72,
+                          "line_start": 1,
+                          "line_end": 1,
+                          "column_start": 52,
+                          "column_end": 73,
+                          "is_primary": false,
+                          "text": [
+                            {
+                              "text": "fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}",
+                              "highlight_start": 52,
+                              "highlight_end": 73
+                            }
+                          ],
+                          "label": null,
+                          "suggested_replacement": null,
+                          "suggestion_applicability": null,
+                          "expansion": null
+                        },
+                        "macro_decl_name": "println!",
+                        "def_site_span": {
+                          "file_name": "/rustc/4d91de4e48198da2e33413efdcd9cd2cc0c46688/library/std/src/macros.rs",
+                          "byte_start": 4307,
+                          "byte_end": 4327,
+                          "line_start": 138,
+                          "line_end": 138,
+                          "column_start": 1,
+                          "column_end": 21,
+                          "is_primary": false,
+                          "text": [],
+                          "label": null,
+                          "suggested_replacement": null,
+                          "suggestion_applicability": null,
+                          "expansion": null
+                        }
+                      }
+                    },
+                    "macro_decl_name": "$crate::format_args_nl!",
+                    "def_site_span": {
+                      "file_name": "/rustc/4d91de4e48198da2e33413efdcd9cd2cc0c46688/library/core/src/macros/mod.rs",
+                      "byte_start": 37240,
+                      "byte_end": 37267,
+                      "line_start": 1059,
+                      "line_end": 1059,
+                      "column_start": 5,
+                      "column_end": 32,
+                      "is_primary": false,
+                      "text": [],
+                      "label": null,
+                      "suggested_replacement": null,
+                      "suggestion_applicability": null,
+                      "expansion": null
+                    }
+                  }
+                }
+              ],
+              "children": [],
+              "rendered": "error[E0499]: cannot borrow `x` as mutable more than once at a time\n --> /tmp/rpp M0 graph fjm8ywyy/lexical/borrow.rs:1:44\n  |\n1 | fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}\n  |                              ------        ^^^^^^                   - first borrow later used here\n  |                              |             |\n  |                              |             second mutable borrow occurs here\n  |                              first mutable borrow occurs here\n\n"
+            }
+          ],
+          "expansion": [
+            {
+              "$message_type": "diagnostic",
+              "message": "cannot find value `missing_in_expansion` in this scope",
+              "code": {
+                "code": "E0425",
+                "explanation": "An unresolved name was used.\n\nErroneous code examples:\n\n```compile_fail,E0425\nsomething_that_doesnt_exist::foo;\n// error: unresolved name `something_that_doesnt_exist::foo`\n\n// or:\n\ntrait Foo {\n    fn bar() {\n        Self; // error: unresolved name `Self`\n    }\n}\n\n// or:\n\nlet x = unknown_variable;  // error: unresolved name `unknown_variable`\n```\n\nPlease verify that the name wasn't misspelled and ensure that the\nidentifier being referred to is valid for the given situation. Example:\n\n```\nenum something_that_does_exist {\n    Foo,\n}\n```\n\nOr:\n\n```\nmod something_that_does_exist {\n    pub static foo : i32 = 0i32;\n}\n\nsomething_that_does_exist::foo; // ok!\n```\n\nOr:\n\n```\nlet unknown_variable = 12u32;\nlet x = unknown_variable; // ok!\n```\n\nIf the item is not defined in the current module, it must be imported using a\n`use` statement, like so:\n\n```\n# mod foo { pub fn bar() {} }\n# fn main() {\nuse foo::bar;\nbar();\n# }\n```\n\nIf the item you are importing is not defined in some super-module of the\ncurrent module, then it must also be declared as public (e.g., `pub fn`).\n"
+              },
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph fjm8ywyy/lexical/expansion.rs",
+                  "byte_start": 21,
+                  "byte_end": 41,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 22,
+                  "column_end": 42,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "macro_rules! m {()=>{missing_in_expansion}} fn main(){m!();}",
+                      "highlight_start": 22,
+                      "highlight_end": 42
+                    }
+                  ],
+                  "label": "not found in this scope",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": {
+                    "span": {
+                      "file_name": "/tmp/rpp M0 graph fjm8ywyy/lexical/expansion.rs",
+                      "byte_start": 54,
+                      "byte_end": 58,
+                      "line_start": 1,
+                      "line_end": 1,
+                      "column_start": 55,
+                      "column_end": 59,
+                      "is_primary": false,
+                      "text": [
+                        {
+                          "text": "macro_rules! m {()=>{missing_in_expansion}} fn main(){m!();}",
+                          "highlight_start": 55,
+                          "highlight_end": 59
+                        }
+                      ],
+                      "label": null,
+                      "suggested_replacement": null,
+                      "suggestion_applicability": null,
+                      "expansion": null
+                    },
+                    "macro_decl_name": "m!",
+                    "def_site_span": {
+                      "file_name": "/tmp/rpp M0 graph fjm8ywyy/lexical/expansion.rs",
+                      "byte_start": 0,
+                      "byte_end": 14,
+                      "line_start": 1,
+                      "line_end": 1,
+                      "column_start": 1,
+                      "column_end": 15,
+                      "is_primary": false,
+                      "text": [
+                        {
+                          "text": "macro_rules! m {()=>{missing_in_expansion}} fn main(){m!();}",
+                          "highlight_start": 1,
+                          "highlight_end": 15
+                        }
+                      ],
+                      "label": null,
+                      "suggested_replacement": null,
+                      "suggestion_applicability": null,
+                      "expansion": null
+                    }
+                  }
+                }
+              ],
+              "children": [],
+              "rendered": "error[E0425]: cannot find value `missing_in_expansion` in this scope\n --> /tmp/rpp M0 graph fjm8ywyy/lexical/expansion.rs:1:22\n  |\n1 | macro_rules! m {()=>{missing_in_expansion}} fn main(){m!();}\n  |                      ^^^^^^^^^^^^^^^^^^^^             ---- in this macro invocation\n  |                      |\n  |                      not found in this scope\n  |\n  = note: this error originates in the macro `m` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
+            }
+          ],
+          "multiple": [
+            {
+              "$message_type": "diagnostic",
+              "message": "2 positional arguments in format string, but no arguments were given",
+              "code": null,
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph fjm8ywyy/lexical/multiple.rs",
+                  "byte_start": 20,
+                  "byte_end": 22,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 21,
+                  "column_end": 23,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){println!(\"{} {}\");}",
+                      "highlight_start": 21,
+                      "highlight_end": 23
+                    }
+                  ],
+                  "label": null,
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                },
+                {
+                  "file_name": "/tmp/rpp M0 graph fjm8ywyy/lexical/multiple.rs",
+                  "byte_start": 23,
+                  "byte_end": 25,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 24,
+                  "column_end": 26,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){println!(\"{} {}\");}",
+                      "highlight_start": 24,
+                      "highlight_end": 26
+                    }
+                  ],
+                  "label": null,
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                }
+              ],
+              "children": [],
+              "rendered": "error: 2 positional arguments in format string, but no arguments were given\n --> /tmp/rpp M0 graph fjm8ywyy/lexical/multiple.rs:1:21\n  |\n1 | fn main(){println!(\"{} {}\");}\n  |                     ^^ ^^\n\n"
+            }
+          ]
+        },
+        "graphs": [
+          {
+            "generator": "Ninja",
+            "mode": "byproducts",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              }
+            ]
+          },
+          {
+            "generator": "Ninja",
+            "mode": "outputs",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": []
+                  },
+                  "unchanged_input_payload_timestamps_preserved": true,
+                  "unchanged_input_commands": [
+                    "preprocess"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": []
+                  },
+                  "unchanged_input_payload_timestamps_preserved": true,
+                  "unchanged_input_commands": [
+                    "preprocess"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              }
+            ]
+          },
+          {
+            "generator": "Unix Makefiles",
+            "mode": "byproducts",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "initial parallel build",
+                "recovered": false
+              },
+              {
+                "config": "Release",
+                "file": "initial parallel build",
+                "recovered": false
+              }
+            ]
+          },
+          {
+            "generator": "Unix Makefiles",
+            "mode": "outputs",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": [
+                      "CMakeFiles/App.dir/App/root.rs.rlib.d",
+                      "CMakeFiles/Other.dir/Other/root.rs.rlib.d"
+                    ]
+                  },
+                  "unchanged_input_payload_timestamps_preserved": false,
+                  "unchanged_input_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": [
+                      "CMakeFiles/App.dir/App/root.rs.rlib.d",
+                      "CMakeFiles/Other.dir/Other/root.rs.rlib.d"
+                    ]
+                  },
+                  "unchanged_input_payload_timestamps_preserved": false,
+                  "unchanged_input_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              }
+            ]
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "mode": "byproducts",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              }
+            ]
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "mode": "outputs",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": []
+                  },
+                  "unchanged_input_payload_timestamps_preserved": true,
+                  "unchanged_input_commands": [
+                    "preprocess"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": []
+                  },
+                  "unchanged_input_payload_timestamps_preserved": true,
+                  "unchanged_input_commands": [
+                    "preprocess"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              }
+            ]
+          }
+        ],
+        "status": "passed"
+      },
+      {
+        "rustc": "/home/julian/.rustup/toolchains/1.85.0-x86_64-unknown-linux-gnu/bin/rustc",
+        "cmake": "/usr/bin/cmake",
+        "rustc_version": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+        "cmake_version": "cmake version 4.5.0",
+        "old_native_control": [
+          {
+            "generator": "Ninja",
+            "configuration": "Debug",
+            "output": "module.rs",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Debug",
+            "output": "map",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Debug",
+            "output": "complete",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Release",
+            "output": "module.rs",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Release",
+            "output": "map",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Release",
+            "output": "complete",
+            "recovered": false
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Debug",
+            "output": "module.rs",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Debug",
+            "output": "map",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Debug",
+            "output": "complete",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Release",
+            "output": "module.rs",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Release",
+            "output": "map",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Release",
+            "output": "complete",
+            "recovered": true
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Debug",
+            "output": "module.rs",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Debug",
+            "output": "map",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Debug",
+            "output": "complete",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Release",
+            "output": "module.rs",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Release",
+            "output": "map",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Release",
+            "output": "complete",
+            "recovered": false
+          }
+        ],
+        "source_resolution": {
+          "mirror_editions": [
+            "2021",
+            "2024"
+          ],
+          "macro_read_reported": true,
+          "macro_generated_absolute_module_reported": true,
+          "dep_info_read_roles": "not supplied by stable dep-info",
+          "dual_use_path": "/tmp/rpp M0 graph hg7aqozd/lexical/dual.txt"
+        },
+        "diagnostic_feasibility": {
+          "unicode-type": [
+            {
+              "$message_type": "diagnostic",
+              "message": "mismatched types",
+              "code": {
+                "code": "E0308",
+                "explanation": "Expected type did not match the received type.\n\nErroneous code examples:\n\n```compile_fail,E0308\nfn plus_one(x: i32) -> i32 {\n    x + 1\n}\n\nplus_one(\"Not a number\");\n//       ^^^^^^^^^^^^^^ expected `i32`, found `&str`\n\nif \"Not a bool\" {\n// ^^^^^^^^^^^^ expected `bool`, found `&str`\n}\n\nlet x: f32 = \"Not a float\";\n//     ---   ^^^^^^^^^^^^^ expected `f32`, found `&str`\n//     |\n//     expected due to this\n```\n\nThis error occurs when an expression was used in a place where the compiler\nexpected an expression of a different type. It can occur in several cases, the\nmost common being when calling a function and passing an argument which has a\ndifferent type than the matching type in the function declaration.\n"
+              },
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph hg7aqozd/lexical/unicode-type.rs",
+                  "byte_start": 37,
+                  "byte_end": 42,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 37,
+                  "column_end": 41,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){let café = 1; let _: () = café;}",
+                      "highlight_start": 37,
+                      "highlight_end": 41
+                    }
+                  ],
+                  "label": "expected `()`, found integer",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                },
+                {
+                  "file_name": "/tmp/rpp M0 graph hg7aqozd/lexical/unicode-type.rs",
+                  "byte_start": 32,
+                  "byte_end": 34,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 32,
+                  "column_end": 34,
+                  "is_primary": false,
+                  "text": [
+                    {
+                      "text": "fn main(){let café = 1; let _: () = café;}",
+                      "highlight_start": 32,
+                      "highlight_end": 34
+                    }
+                  ],
+                  "label": "expected due to this",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                }
+              ],
+              "children": [],
+              "rendered": "error[E0308]: mismatched types\n --> /tmp/rpp M0 graph hg7aqozd/lexical/unicode-type.rs:1:37\n  |\n1 | fn main(){let café = 1; let _: () = café;}\n  |                                --   ^^^^ expected `()`, found integer\n  |                                |\n  |                                expected due to this\n\n"
+            }
+          ],
+          "substitution": [
+            {
+              "$message_type": "diagnostic",
+              "message": "cannot find value `replacement_missing` in this scope",
+              "code": {
+                "code": "E0425",
+                "explanation": "An unresolved name was used.\n\nErroneous code examples:\n\n```compile_fail,E0425\nsomething_that_doesnt_exist::foo;\n// error: unresolved name `something_that_doesnt_exist::foo`\n\n// or:\n\ntrait Foo {\n    fn bar() {\n        Self; // error: unresolved name `Self`\n    }\n}\n\n// or:\n\nlet x = unknown_variable;  // error: unresolved name `unknown_variable`\n```\n\nPlease verify that the name wasn't misspelled and ensure that the\nidentifier being referred to is valid for the given situation. Example:\n\n```\nenum something_that_does_exist {\n    Foo,\n}\n```\n\nOr:\n\n```\nmod something_that_does_exist {\n    pub static foo : i32 = 0i32;\n}\n\nsomething_that_does_exist::foo; // ok!\n```\n\nOr:\n\n```\nlet unknown_variable = 12u32;\nlet x = unknown_variable; // ok!\n```\n\nIf the item is not defined in the current module, it must be imported using a\n`use` statement, like so:\n\n```\n# mod foo { pub fn bar() {} }\n# fn main() {\nuse foo::bar;\nbar();\n# }\n```\n\nIf the item you are importing is not defined in some super-module of the\ncurrent module, then it must also be declared as public (e.g., `pub fn`).\n"
+              },
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph hg7aqozd/lexical/substitution.rs",
+                  "byte_start": 18,
+                  "byte_end": 37,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 19,
+                  "column_end": 38,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){let _ = replacement_missing;}",
+                      "highlight_start": 19,
+                      "highlight_end": 38
+                    }
+                  ],
+                  "label": "not found in this scope",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                }
+              ],
+              "children": [],
+              "rendered": "error[E0425]: cannot find value `replacement_missing` in this scope\n --> /tmp/rpp M0 graph hg7aqozd/lexical/substitution.rs:1:19\n  |\n1 | fn main(){let _ = replacement_missing;}\n  |                   ^^^^^^^^^^^^^^^^^^^ not found in this scope\n\n"
+            }
+          ],
+          "borrow": [
+            {
+              "$message_type": "diagnostic",
+              "message": "cannot borrow `x` as mutable more than once at a time",
+              "code": {
+                "code": "E0499",
+                "explanation": "A variable was borrowed as mutable more than once.\n\nErroneous code example:\n\n```compile_fail,E0499\nlet mut i = 0;\nlet mut x = &mut i;\nlet mut a = &mut i;\nx;\n// error: cannot borrow `i` as mutable more than once at a time\n```\n\nPlease note that in Rust, you can either have many immutable references, or one\nmutable reference. For more details you may want to read the\n[References & Borrowing][references-and-borrowing] section of the Book.\n\n[references-and-borrowing]: https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html\n\nExample:\n\n```\nlet mut i = 0;\nlet mut x = &mut i; // ok!\n\n// or:\nlet mut i = 0;\nlet a = &i; // ok!\nlet b = &i; // still ok!\nlet c = &i; // still ok!\nb;\na;\n```\n"
+              },
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph hg7aqozd/lexical/borrow.rs",
+                  "byte_start": 29,
+                  "byte_end": 35,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 30,
+                  "column_end": 36,
+                  "is_primary": false,
+                  "text": [
+                    {
+                      "text": "fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}",
+                      "highlight_start": 30,
+                      "highlight_end": 36
+                    }
+                  ],
+                  "label": "first mutable borrow occurs here",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                },
+                {
+                  "file_name": "/tmp/rpp M0 graph hg7aqozd/lexical/borrow.rs",
+                  "byte_start": 43,
+                  "byte_end": 49,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 44,
+                  "column_end": 50,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}",
+                      "highlight_start": 44,
+                      "highlight_end": 50
+                    }
+                  ],
+                  "label": "second mutable borrow occurs here",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                },
+                {
+                  "file_name": "/tmp/rpp M0 graph hg7aqozd/lexical/borrow.rs",
+                  "byte_start": 68,
+                  "byte_end": 69,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 69,
+                  "column_end": 70,
+                  "is_primary": false,
+                  "text": [
+                    {
+                      "text": "fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}",
+                      "highlight_start": 69,
+                      "highlight_end": 70
+                    }
+                  ],
+                  "label": "first borrow later used here",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": {
+                    "span": {
+                      "file_name": "/rustc/4d91de4e48198da2e33413efdcd9cd2cc0c46688/library/std/src/macros.rs",
+                      "byte_start": 4429,
+                      "byte_end": 4462,
+                      "line_start": 143,
+                      "line_end": 143,
+                      "column_start": 28,
+                      "column_end": 61,
+                      "is_primary": false,
+                      "text": [],
+                      "label": null,
+                      "suggested_replacement": null,
+                      "suggestion_applicability": null,
+                      "expansion": {
+                        "span": {
+                          "file_name": "/tmp/rpp M0 graph hg7aqozd/lexical/borrow.rs",
+                          "byte_start": 51,
+                          "byte_end": 72,
+                          "line_start": 1,
+                          "line_end": 1,
+                          "column_start": 52,
+                          "column_end": 73,
+                          "is_primary": false,
+                          "text": [
+                            {
+                              "text": "fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}",
+                              "highlight_start": 52,
+                              "highlight_end": 73
+                            }
+                          ],
+                          "label": null,
+                          "suggested_replacement": null,
+                          "suggestion_applicability": null,
+                          "expansion": null
+                        },
+                        "macro_decl_name": "println!",
+                        "def_site_span": {
+                          "file_name": "/rustc/4d91de4e48198da2e33413efdcd9cd2cc0c46688/library/std/src/macros.rs",
+                          "byte_start": 4307,
+                          "byte_end": 4327,
+                          "line_start": 138,
+                          "line_end": 138,
+                          "column_start": 1,
+                          "column_end": 21,
+                          "is_primary": false,
+                          "text": [],
+                          "label": null,
+                          "suggested_replacement": null,
+                          "suggestion_applicability": null,
+                          "expansion": null
+                        }
+                      }
+                    },
+                    "macro_decl_name": "$crate::format_args_nl!",
+                    "def_site_span": {
+                      "file_name": "/rustc/4d91de4e48198da2e33413efdcd9cd2cc0c46688/library/core/src/macros/mod.rs",
+                      "byte_start": 37240,
+                      "byte_end": 37267,
+                      "line_start": 1059,
+                      "line_end": 1059,
+                      "column_start": 5,
+                      "column_end": 32,
+                      "is_primary": false,
+                      "text": [],
+                      "label": null,
+                      "suggested_replacement": null,
+                      "suggestion_applicability": null,
+                      "expansion": null
+                    }
+                  }
+                }
+              ],
+              "children": [],
+              "rendered": "error[E0499]: cannot borrow `x` as mutable more than once at a time\n --> /tmp/rpp M0 graph hg7aqozd/lexical/borrow.rs:1:44\n  |\n1 | fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}\n  |                              ------        ^^^^^^                   - first borrow later used here\n  |                              |             |\n  |                              |             second mutable borrow occurs here\n  |                              first mutable borrow occurs here\n\n"
+            }
+          ],
+          "expansion": [
+            {
+              "$message_type": "diagnostic",
+              "message": "cannot find value `missing_in_expansion` in this scope",
+              "code": {
+                "code": "E0425",
+                "explanation": "An unresolved name was used.\n\nErroneous code examples:\n\n```compile_fail,E0425\nsomething_that_doesnt_exist::foo;\n// error: unresolved name `something_that_doesnt_exist::foo`\n\n// or:\n\ntrait Foo {\n    fn bar() {\n        Self; // error: unresolved name `Self`\n    }\n}\n\n// or:\n\nlet x = unknown_variable;  // error: unresolved name `unknown_variable`\n```\n\nPlease verify that the name wasn't misspelled and ensure that the\nidentifier being referred to is valid for the given situation. Example:\n\n```\nenum something_that_does_exist {\n    Foo,\n}\n```\n\nOr:\n\n```\nmod something_that_does_exist {\n    pub static foo : i32 = 0i32;\n}\n\nsomething_that_does_exist::foo; // ok!\n```\n\nOr:\n\n```\nlet unknown_variable = 12u32;\nlet x = unknown_variable; // ok!\n```\n\nIf the item is not defined in the current module, it must be imported using a\n`use` statement, like so:\n\n```\n# mod foo { pub fn bar() {} }\n# fn main() {\nuse foo::bar;\nbar();\n# }\n```\n\nIf the item you are importing is not defined in some super-module of the\ncurrent module, then it must also be declared as public (e.g., `pub fn`).\n"
+              },
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph hg7aqozd/lexical/expansion.rs",
+                  "byte_start": 21,
+                  "byte_end": 41,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 22,
+                  "column_end": 42,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "macro_rules! m {()=>{missing_in_expansion}} fn main(){m!();}",
+                      "highlight_start": 22,
+                      "highlight_end": 42
+                    }
+                  ],
+                  "label": "not found in this scope",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": {
+                    "span": {
+                      "file_name": "/tmp/rpp M0 graph hg7aqozd/lexical/expansion.rs",
+                      "byte_start": 54,
+                      "byte_end": 58,
+                      "line_start": 1,
+                      "line_end": 1,
+                      "column_start": 55,
+                      "column_end": 59,
+                      "is_primary": false,
+                      "text": [
+                        {
+                          "text": "macro_rules! m {()=>{missing_in_expansion}} fn main(){m!();}",
+                          "highlight_start": 55,
+                          "highlight_end": 59
+                        }
+                      ],
+                      "label": null,
+                      "suggested_replacement": null,
+                      "suggestion_applicability": null,
+                      "expansion": null
+                    },
+                    "macro_decl_name": "m!",
+                    "def_site_span": {
+                      "file_name": "/tmp/rpp M0 graph hg7aqozd/lexical/expansion.rs",
+                      "byte_start": 0,
+                      "byte_end": 14,
+                      "line_start": 1,
+                      "line_end": 1,
+                      "column_start": 1,
+                      "column_end": 15,
+                      "is_primary": false,
+                      "text": [
+                        {
+                          "text": "macro_rules! m {()=>{missing_in_expansion}} fn main(){m!();}",
+                          "highlight_start": 1,
+                          "highlight_end": 15
+                        }
+                      ],
+                      "label": null,
+                      "suggested_replacement": null,
+                      "suggestion_applicability": null,
+                      "expansion": null
+                    }
+                  }
+                }
+              ],
+              "children": [],
+              "rendered": "error[E0425]: cannot find value `missing_in_expansion` in this scope\n --> /tmp/rpp M0 graph hg7aqozd/lexical/expansion.rs:1:22\n  |\n1 | macro_rules! m {()=>{missing_in_expansion}} fn main(){m!();}\n  |                      ^^^^^^^^^^^^^^^^^^^^             ---- in this macro invocation\n  |                      |\n  |                      not found in this scope\n  |\n  = note: this error originates in the macro `m` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
+            }
+          ],
+          "multiple": [
+            {
+              "$message_type": "diagnostic",
+              "message": "2 positional arguments in format string, but no arguments were given",
+              "code": null,
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph hg7aqozd/lexical/multiple.rs",
+                  "byte_start": 20,
+                  "byte_end": 22,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 21,
+                  "column_end": 23,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){println!(\"{} {}\");}",
+                      "highlight_start": 21,
+                      "highlight_end": 23
+                    }
+                  ],
+                  "label": null,
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                },
+                {
+                  "file_name": "/tmp/rpp M0 graph hg7aqozd/lexical/multiple.rs",
+                  "byte_start": 23,
+                  "byte_end": 25,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 24,
+                  "column_end": 26,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){println!(\"{} {}\");}",
+                      "highlight_start": 24,
+                      "highlight_end": 26
+                    }
+                  ],
+                  "label": null,
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                }
+              ],
+              "children": [],
+              "rendered": "error: 2 positional arguments in format string, but no arguments were given\n --> /tmp/rpp M0 graph hg7aqozd/lexical/multiple.rs:1:21\n  |\n1 | fn main(){println!(\"{} {}\");}\n  |                     ^^ ^^\n\n"
+            }
+          ]
+        },
+        "graphs": [
+          {
+            "generator": "Ninja",
+            "mode": "byproducts",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              }
+            ]
+          },
+          {
+            "generator": "Ninja",
+            "mode": "outputs",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": []
+                  },
+                  "unchanged_input_payload_timestamps_preserved": true,
+                  "unchanged_input_commands": [
+                    "preprocess"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": []
+                  },
+                  "unchanged_input_payload_timestamps_preserved": true,
+                  "unchanged_input_commands": [
+                    "preprocess"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              }
+            ]
+          },
+          {
+            "generator": "Unix Makefiles",
+            "mode": "byproducts",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "initial parallel build",
+                "recovered": false
+              },
+              {
+                "config": "Release",
+                "file": "initial parallel build",
+                "recovered": false
+              }
+            ]
+          },
+          {
+            "generator": "Unix Makefiles",
+            "mode": "outputs",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": [
+                      "CMakeFiles/App.dir/App/root.rs.rlib.d",
+                      "CMakeFiles/Other.dir/Other/root.rs.rlib.d"
+                    ]
+                  },
+                  "unchanged_input_payload_timestamps_preserved": false,
+                  "unchanged_input_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": [
+                      "CMakeFiles/App.dir/App/root.rs.rlib.d",
+                      "CMakeFiles/Other.dir/Other/root.rs.rlib.d"
+                    ]
+                  },
+                  "unchanged_input_payload_timestamps_preserved": false,
+                  "unchanged_input_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              }
+            ]
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "mode": "byproducts",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              }
+            ]
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "mode": "outputs",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": []
+                  },
+                  "unchanged_input_payload_timestamps_preserved": true,
+                  "unchanged_input_commands": [
+                    "preprocess"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": []
+                  },
+                  "unchanged_input_payload_timestamps_preserved": true,
+                  "unchanged_input_commands": [
+                    "preprocess"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              }
+            ]
+          }
+        ],
+        "status": "passed"
+      },
+      {
+        "rustc": "/home/julian/.rustup/toolchains/1.100.0-x86_64-unknown-linux-gnu/bin/rustc",
+        "cmake": "/home/julian/Downloads/cmake-3.25.0-linux-x86_64/bin/cmake",
+        "rustc_version": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+        "cmake_version": "cmake version 3.25.0",
+        "old_native_control": [
+          {
+            "generator": "Ninja",
+            "configuration": "Debug",
+            "output": "module.rs",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Debug",
+            "output": "map",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Debug",
+            "output": "complete",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Release",
+            "output": "module.rs",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Release",
+            "output": "map",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Release",
+            "output": "complete",
+            "recovered": false
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Debug",
+            "output": "module.rs",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Debug",
+            "output": "map",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Debug",
+            "output": "complete",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Release",
+            "output": "module.rs",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Release",
+            "output": "map",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Release",
+            "output": "complete",
+            "recovered": true
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Debug",
+            "output": "module.rs",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Debug",
+            "output": "map",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Debug",
+            "output": "complete",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Release",
+            "output": "module.rs",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Release",
+            "output": "map",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Release",
+            "output": "complete",
+            "recovered": false
+          }
+        ],
+        "source_resolution": {
+          "mirror_editions": [
+            "2021",
+            "2024"
+          ],
+          "macro_read_reported": true,
+          "macro_generated_absolute_module_reported": true,
+          "dep_info_read_roles": "not supplied by stable dep-info",
+          "dual_use_path": "/tmp/rpp M0 graph 9ppe1vxm/lexical/dual.txt"
+        },
+        "diagnostic_feasibility": {
+          "unicode-type": [
+            {
+              "$message_type": "diagnostic",
+              "message": "mismatched types",
+              "code": {
+                "code": "E0308",
+                "explanation": "Expected type did not match the received type.\n\nErroneous code examples:\n\n```compile_fail,E0308\nfn plus_one(x: i32) -> i32 {\n    x + 1\n}\n\nplus_one(\"Not a number\");\n//       ^^^^^^^^^^^^^^ expected `i32`, found `&str`\n\nif \"Not a bool\" {\n// ^^^^^^^^^^^^ expected `bool`, found `&str`\n}\n\nlet x: f32 = \"Not a float\";\n//     ---   ^^^^^^^^^^^^^ expected `f32`, found `&str`\n//     |\n//     expected due to this\n```\n\nThis error occurs when an expression was used in a place where the compiler\nexpected an expression of a different type. It can occur in several cases, the\nmost common being when calling a function and passing an argument which has a\ndifferent type than the matching type in the function declaration.\n"
+              },
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph 9ppe1vxm/lexical/unicode-type.rs",
+                  "byte_start": 37,
+                  "byte_end": 42,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 37,
+                  "column_end": 41,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){let café = 1; let _: () = café;}",
+                      "highlight_start": 37,
+                      "highlight_end": 41
+                    }
+                  ],
+                  "label": "expected `()`, found integer",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                },
+                {
+                  "file_name": "/tmp/rpp M0 graph 9ppe1vxm/lexical/unicode-type.rs",
+                  "byte_start": 32,
+                  "byte_end": 34,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 32,
+                  "column_end": 34,
+                  "is_primary": false,
+                  "text": [
+                    {
+                      "text": "fn main(){let café = 1; let _: () = café;}",
+                      "highlight_start": 32,
+                      "highlight_end": 34
+                    }
+                  ],
+                  "label": "expected due to this",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                }
+              ],
+              "children": [],
+              "rendered": "error[E0308]: mismatched types\n --> /tmp/rpp M0 graph 9ppe1vxm/lexical/unicode-type.rs:1:37\n  |\n1 | fn main(){let café = 1; let _: () = café;}\n  |                                --   ^^^^ expected `()`, found integer\n  |                                |\n  |                                expected due to this\n\n"
+            }
+          ],
+          "substitution": [
+            {
+              "$message_type": "diagnostic",
+              "message": "cannot find value `replacement_missing` in this scope",
+              "code": {
+                "code": "E0425",
+                "explanation": "An unresolved name was used.\n\nErroneous code examples:\n\n```compile_fail,E0425\nsomething_that_doesnt_exist::foo;\n// error: unresolved name `something_that_doesnt_exist::foo`\n\n// or:\n\ntrait Foo {\n    fn bar() {\n        Self; // error: unresolved name `Self`\n    }\n}\n\n// or:\n\nlet x = unknown_variable;  // error: unresolved name `unknown_variable`\n```\n\nPlease verify that the name wasn't misspelled and ensure that the\nidentifier being referred to is valid for the given situation. Example:\n\n```\nenum something_that_does_exist {\n    Foo,\n}\n```\n\nOr:\n\n```\nmod something_that_does_exist {\n    pub static foo : i32 = 0i32;\n}\n\nsomething_that_does_exist::foo; // ok!\n```\n\nOr:\n\n```\nlet unknown_variable = 12u32;\nlet x = unknown_variable; // ok!\n```\n\nIf the item is not defined in the current module, it must be imported using a\n`use` statement, like so:\n\n```\n# mod foo { pub fn bar() {} }\n# fn main() {\nuse foo::bar;\nbar();\n# }\n```\n\nIf the item you are importing is not defined in some super-module of the\ncurrent module, then it must also be declared as public (e.g., `pub fn`).\n"
+              },
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph 9ppe1vxm/lexical/substitution.rs",
+                  "byte_start": 18,
+                  "byte_end": 37,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 19,
+                  "column_end": 38,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){let _ = replacement_missing;}",
+                      "highlight_start": 19,
+                      "highlight_end": 38
+                    }
+                  ],
+                  "label": "not found in this scope",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                }
+              ],
+              "children": [],
+              "rendered": "error[E0425]: cannot find value `replacement_missing` in this scope\n --> /tmp/rpp M0 graph 9ppe1vxm/lexical/substitution.rs:1:19\n  |\n1 | fn main(){let _ = replacement_missing;}\n  |                   ^^^^^^^^^^^^^^^^^^^ not found in this scope\n\n"
+            }
+          ],
+          "borrow": [
+            {
+              "$message_type": "diagnostic",
+              "message": "cannot borrow `x` as mutable more than once at a time",
+              "code": {
+                "code": "E0499",
+                "explanation": "A variable was borrowed as mutable more than once.\n\nErroneous code example:\n\n```compile_fail,E0499\nlet mut i = 0;\nlet mut x = &mut i;\nlet mut a = &mut i;\nx;\n// error: cannot borrow `i` as mutable more than once at a time\n```\n\nPlease note that in Rust, you can either have many immutable references, or one\nmutable reference. For more details you may want to read the\n[References & Borrowing][references-and-borrowing] section of the Book.\n\n[references-and-borrowing]: https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html\n\nExample:\n\n```\nlet mut i = 0;\nlet mut x = &mut i; // ok!\n\n// or:\nlet mut i = 0;\nlet a = &i; // ok!\nlet b = &i; // still ok!\nlet c = &i; // still ok!\nb;\na;\n```\n"
+              },
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph 9ppe1vxm/lexical/borrow.rs",
+                  "byte_start": 29,
+                  "byte_end": 35,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 30,
+                  "column_end": 36,
+                  "is_primary": false,
+                  "text": [
+                    {
+                      "text": "fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}",
+                      "highlight_start": 30,
+                      "highlight_end": 36
+                    }
+                  ],
+                  "label": "first mutable borrow occurs here",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                },
+                {
+                  "file_name": "/tmp/rpp M0 graph 9ppe1vxm/lexical/borrow.rs",
+                  "byte_start": 43,
+                  "byte_end": 49,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 44,
+                  "column_end": 50,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}",
+                      "highlight_start": 44,
+                      "highlight_end": 50
+                    }
+                  ],
+                  "label": "second mutable borrow occurs here",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                },
+                {
+                  "file_name": "/tmp/rpp M0 graph 9ppe1vxm/lexical/borrow.rs",
+                  "byte_start": 68,
+                  "byte_end": 69,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 69,
+                  "column_end": 70,
+                  "is_primary": false,
+                  "text": [
+                    {
+                      "text": "fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}",
+                      "highlight_start": 69,
+                      "highlight_end": 70
+                    }
+                  ],
+                  "label": "first borrow later used here",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": {
+                    "span": {
+                      "file_name": "/rustc/0ef1bc386059596dada8fb65b50425aab2ea637a/library/std/src/macros.rs",
+                      "byte_start": 4491,
+                      "byte_end": 4524,
+                      "line_start": 148,
+                      "line_end": 148,
+                      "column_start": 28,
+                      "column_end": 61,
+                      "is_primary": false,
+                      "text": [],
+                      "label": null,
+                      "suggested_replacement": null,
+                      "suggestion_applicability": null,
+                      "expansion": {
+                        "span": {
+                          "file_name": "/rustc/0ef1bc386059596dada8fb65b50425aab2ea637a/library/std/src/macros.rs",
+                          "byte_start": 4491,
+                          "byte_end": 4524,
+                          "line_start": 148,
+                          "line_end": 148,
+                          "column_start": 28,
+                          "column_end": 61,
+                          "is_primary": false,
+                          "text": [],
+                          "label": null,
+                          "suggested_replacement": null,
+                          "suggestion_applicability": null,
+                          "expansion": {
+                            "span": {
+                              "file_name": "/tmp/rpp M0 graph 9ppe1vxm/lexical/borrow.rs",
+                              "byte_start": 51,
+                              "byte_end": 72,
+                              "line_start": 1,
+                              "line_end": 1,
+                              "column_start": 52,
+                              "column_end": 73,
+                              "is_primary": false,
+                              "text": [
+                                {
+                                  "text": "fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}",
+                                  "highlight_start": 52,
+                                  "highlight_end": 73
+                                }
+                              ],
+                              "label": null,
+                              "suggested_replacement": null,
+                              "suggestion_applicability": null,
+                              "expansion": null
+                            },
+                            "macro_decl_name": "println!",
+                            "def_site_span": {
+                              "file_name": "/rustc/0ef1bc386059596dada8fb65b50425aab2ea637a/library/std/src/macros.rs",
+                              "byte_start": 4369,
+                              "byte_end": 4389,
+                              "line_start": 143,
+                              "line_end": 143,
+                              "column_start": 1,
+                              "column_end": 21,
+                              "is_primary": false,
+                              "text": [],
+                              "label": null,
+                              "suggested_replacement": null,
+                              "suggestion_applicability": null,
+                              "expansion": null
+                            }
+                          }
+                        },
+                        "macro_decl_name": "$crate::format_args_nl!",
+                        "def_site_span": {
+                          "file_name": "/rustc/0ef1bc386059596dada8fb65b50425aab2ea637a/library/core/src/macros/mod.rs",
+                          "byte_start": 36456,
+                          "byte_end": 36483,
+                          "line_start": 1034,
+                          "line_end": 1034,
+                          "column_start": 5,
+                          "column_end": 32,
+                          "is_primary": false,
+                          "text": [],
+                          "label": null,
+                          "suggested_replacement": null,
+                          "suggestion_applicability": null,
+                          "expansion": null
+                        }
+                      }
+                    },
+                    "macro_decl_name": "desugaring of format string literal",
+                    "def_site_span": {
+                      "file_name": "/tmp/rpp M0 graph 9ppe1vxm/lexical/borrow.rs",
+                      "byte_start": 0,
+                      "byte_end": 0,
+                      "line_start": 1,
+                      "line_end": 1,
+                      "column_start": 1,
+                      "column_end": 1,
+                      "is_primary": false,
+                      "text": [],
+                      "label": null,
+                      "suggested_replacement": null,
+                      "suggestion_applicability": null,
+                      "expansion": null
+                    }
+                  }
+                }
+              ],
+              "children": [],
+              "rendered": "error[E0499]: cannot borrow `x` as mutable more than once at a time\n --> /tmp/rpp M0 graph 9ppe1vxm/lexical/borrow.rs:1:44\n  |\n1 | fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}\n  |                              ------        ^^^^^^                   - first borrow later used here\n  |                              |             |\n  |                              |             second mutable borrow occurs here\n  |                              first mutable borrow occurs here\n\n"
+            }
+          ],
+          "expansion": [
+            {
+              "$message_type": "diagnostic",
+              "message": "cannot find value `missing_in_expansion` in this scope",
+              "code": {
+                "code": "E0425",
+                "explanation": "An unresolved name was used.\n\nErroneous code examples:\n\n```compile_fail,E0425\nsomething_that_doesnt_exist::foo;\n// error: unresolved name `something_that_doesnt_exist::foo`\n\n// or:\n\ntrait Foo {\n    fn bar() {\n        Self; // error: unresolved name `Self`\n    }\n}\n\n// or:\n\nlet x = unknown_variable;  // error: unresolved name `unknown_variable`\n```\n\nPlease verify that the name wasn't misspelled and ensure that the\nidentifier being referred to is valid for the given situation. Example:\n\n```\nenum something_that_does_exist {\n    Foo,\n}\n```\n\nOr:\n\n```\nmod something_that_does_exist {\n    pub static foo : i32 = 0i32;\n}\n\nsomething_that_does_exist::foo; // ok!\n```\n\nOr:\n\n```\nlet unknown_variable = 12u32;\nlet x = unknown_variable; // ok!\n```\n\nIf the item is not defined in the current module, it must be imported using a\n`use` statement, like so:\n\n```\n# mod foo { pub fn bar() {} }\n# fn main() {\nuse foo::bar;\nbar();\n# }\n```\n\nIf the item you are importing is not defined in some super-module of the\ncurrent module, then it must also be declared as public (e.g., `pub fn`).\n"
+              },
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph 9ppe1vxm/lexical/expansion.rs",
+                  "byte_start": 21,
+                  "byte_end": 41,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 22,
+                  "column_end": 42,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "macro_rules! m {()=>{missing_in_expansion}} fn main(){m!();}",
+                      "highlight_start": 22,
+                      "highlight_end": 42
+                    }
+                  ],
+                  "label": "not found in this scope",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": {
+                    "span": {
+                      "file_name": "/tmp/rpp M0 graph 9ppe1vxm/lexical/expansion.rs",
+                      "byte_start": 54,
+                      "byte_end": 58,
+                      "line_start": 1,
+                      "line_end": 1,
+                      "column_start": 55,
+                      "column_end": 59,
+                      "is_primary": false,
+                      "text": [
+                        {
+                          "text": "macro_rules! m {()=>{missing_in_expansion}} fn main(){m!();}",
+                          "highlight_start": 55,
+                          "highlight_end": 59
+                        }
+                      ],
+                      "label": null,
+                      "suggested_replacement": null,
+                      "suggestion_applicability": null,
+                      "expansion": null
+                    },
+                    "macro_decl_name": "m!",
+                    "def_site_span": {
+                      "file_name": "/tmp/rpp M0 graph 9ppe1vxm/lexical/expansion.rs",
+                      "byte_start": 0,
+                      "byte_end": 14,
+                      "line_start": 1,
+                      "line_end": 1,
+                      "column_start": 1,
+                      "column_end": 15,
+                      "is_primary": false,
+                      "text": [
+                        {
+                          "text": "macro_rules! m {()=>{missing_in_expansion}} fn main(){m!();}",
+                          "highlight_start": 1,
+                          "highlight_end": 15
+                        }
+                      ],
+                      "label": null,
+                      "suggested_replacement": null,
+                      "suggestion_applicability": null,
+                      "expansion": null
+                    }
+                  }
+                }
+              ],
+              "children": [],
+              "rendered": "error[E0425]: cannot find value `missing_in_expansion` in this scope\n --> /tmp/rpp M0 graph 9ppe1vxm/lexical/expansion.rs:1:22\n  |\n1 | macro_rules! m {()=>{missing_in_expansion}} fn main(){m!();}\n  |                      ^^^^^^^^^^^^^^^^^^^^             ---- in this macro invocation\n  |                      |\n  |                      not found in this scope\n\n"
+            }
+          ],
+          "multiple": [
+            {
+              "$message_type": "diagnostic",
+              "message": "2 positional arguments in format string, but no arguments were given",
+              "code": null,
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph 9ppe1vxm/lexical/multiple.rs",
+                  "byte_start": 20,
+                  "byte_end": 22,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 21,
+                  "column_end": 23,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){println!(\"{} {}\");}",
+                      "highlight_start": 21,
+                      "highlight_end": 23
+                    }
+                  ],
+                  "label": null,
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                },
+                {
+                  "file_name": "/tmp/rpp M0 graph 9ppe1vxm/lexical/multiple.rs",
+                  "byte_start": 23,
+                  "byte_end": 25,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 24,
+                  "column_end": 26,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){println!(\"{} {}\");}",
+                      "highlight_start": 24,
+                      "highlight_end": 26
+                    }
+                  ],
+                  "label": null,
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                }
+              ],
+              "children": [],
+              "rendered": "error: 2 positional arguments in format string, but no arguments were given\n --> /tmp/rpp M0 graph 9ppe1vxm/lexical/multiple.rs:1:21\n  |\n1 | fn main(){println!(\"{} {}\");}\n  |                     ^^ ^^\n\n"
+            }
+          ]
+        },
+        "graphs": [
+          {
+            "generator": "Ninja",
+            "mode": "byproducts",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              }
+            ]
+          },
+          {
+            "generator": "Ninja",
+            "mode": "outputs",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": []
+                  },
+                  "unchanged_input_payload_timestamps_preserved": true,
+                  "unchanged_input_commands": [
+                    "preprocess"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": []
+                  },
+                  "unchanged_input_payload_timestamps_preserved": true,
+                  "unchanged_input_commands": [
+                    "preprocess"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              }
+            ]
+          },
+          {
+            "generator": "Unix Makefiles",
+            "mode": "byproducts",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "initial parallel build",
+                "recovered": false
+              },
+              {
+                "config": "Release",
+                "file": "initial parallel build",
+                "recovered": false
+              }
+            ]
+          },
+          {
+            "generator": "Unix Makefiles",
+            "mode": "outputs",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": [
+                      "CMakeFiles/App.dir/App/root.rs.rlib.d",
+                      "CMakeFiles/Other.dir/Other/root.rs.rlib.d"
+                    ]
+                  },
+                  "unchanged_input_payload_timestamps_preserved": false,
+                  "unchanged_input_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": [
+                      "CMakeFiles/App.dir/App/root.rs.rlib.d",
+                      "CMakeFiles/Other.dir/Other/root.rs.rlib.d"
+                    ]
+                  },
+                  "unchanged_input_payload_timestamps_preserved": false,
+                  "unchanged_input_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              }
+            ]
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "mode": "byproducts",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              }
+            ]
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "mode": "outputs",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": []
+                  },
+                  "unchanged_input_payload_timestamps_preserved": true,
+                  "unchanged_input_commands": [
+                    "preprocess"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": []
+                  },
+                  "unchanged_input_payload_timestamps_preserved": true,
+                  "unchanged_input_commands": [
+                    "preprocess"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              }
+            ]
+          }
+        ],
+        "status": "passed"
+      },
+      {
+        "rustc": "/home/julian/.rustup/toolchains/1.100.0-x86_64-unknown-linux-gnu/bin/rustc",
+        "cmake": "/usr/bin/cmake",
+        "rustc_version": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+        "cmake_version": "cmake version 4.5.0",
+        "old_native_control": [
+          {
+            "generator": "Ninja",
+            "configuration": "Debug",
+            "output": "module.rs",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Debug",
+            "output": "map",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Debug",
+            "output": "complete",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Release",
+            "output": "module.rs",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Release",
+            "output": "map",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja",
+            "configuration": "Release",
+            "output": "complete",
+            "recovered": false
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Debug",
+            "output": "module.rs",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Debug",
+            "output": "map",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Debug",
+            "output": "complete",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Release",
+            "output": "module.rs",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Release",
+            "output": "map",
+            "recovered": true
+          },
+          {
+            "generator": "Unix Makefiles",
+            "configuration": "Release",
+            "output": "complete",
+            "recovered": true
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Debug",
+            "output": "module.rs",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Debug",
+            "output": "map",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Debug",
+            "output": "complete",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Release",
+            "output": "module.rs",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Release",
+            "output": "map",
+            "recovered": false
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "configuration": "Release",
+            "output": "complete",
+            "recovered": false
+          }
+        ],
+        "source_resolution": {
+          "mirror_editions": [
+            "2021",
+            "2024"
+          ],
+          "macro_read_reported": true,
+          "macro_generated_absolute_module_reported": true,
+          "dep_info_read_roles": "not supplied by stable dep-info",
+          "dual_use_path": "/tmp/rpp M0 graph o5kdl_3h/lexical/dual.txt"
+        },
+        "diagnostic_feasibility": {
+          "unicode-type": [
+            {
+              "$message_type": "diagnostic",
+              "message": "mismatched types",
+              "code": {
+                "code": "E0308",
+                "explanation": "Expected type did not match the received type.\n\nErroneous code examples:\n\n```compile_fail,E0308\nfn plus_one(x: i32) -> i32 {\n    x + 1\n}\n\nplus_one(\"Not a number\");\n//       ^^^^^^^^^^^^^^ expected `i32`, found `&str`\n\nif \"Not a bool\" {\n// ^^^^^^^^^^^^ expected `bool`, found `&str`\n}\n\nlet x: f32 = \"Not a float\";\n//     ---   ^^^^^^^^^^^^^ expected `f32`, found `&str`\n//     |\n//     expected due to this\n```\n\nThis error occurs when an expression was used in a place where the compiler\nexpected an expression of a different type. It can occur in several cases, the\nmost common being when calling a function and passing an argument which has a\ndifferent type than the matching type in the function declaration.\n"
+              },
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph o5kdl_3h/lexical/unicode-type.rs",
+                  "byte_start": 37,
+                  "byte_end": 42,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 37,
+                  "column_end": 41,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){let café = 1; let _: () = café;}",
+                      "highlight_start": 37,
+                      "highlight_end": 41
+                    }
+                  ],
+                  "label": "expected `()`, found integer",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                },
+                {
+                  "file_name": "/tmp/rpp M0 graph o5kdl_3h/lexical/unicode-type.rs",
+                  "byte_start": 32,
+                  "byte_end": 34,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 32,
+                  "column_end": 34,
+                  "is_primary": false,
+                  "text": [
+                    {
+                      "text": "fn main(){let café = 1; let _: () = café;}",
+                      "highlight_start": 32,
+                      "highlight_end": 34
+                    }
+                  ],
+                  "label": "expected due to this",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                }
+              ],
+              "children": [],
+              "rendered": "error[E0308]: mismatched types\n --> /tmp/rpp M0 graph o5kdl_3h/lexical/unicode-type.rs:1:37\n  |\n1 | fn main(){let café = 1; let _: () = café;}\n  |                                --   ^^^^ expected `()`, found integer\n  |                                |\n  |                                expected due to this\n\n"
+            }
+          ],
+          "substitution": [
+            {
+              "$message_type": "diagnostic",
+              "message": "cannot find value `replacement_missing` in this scope",
+              "code": {
+                "code": "E0425",
+                "explanation": "An unresolved name was used.\n\nErroneous code examples:\n\n```compile_fail,E0425\nsomething_that_doesnt_exist::foo;\n// error: unresolved name `something_that_doesnt_exist::foo`\n\n// or:\n\ntrait Foo {\n    fn bar() {\n        Self; // error: unresolved name `Self`\n    }\n}\n\n// or:\n\nlet x = unknown_variable;  // error: unresolved name `unknown_variable`\n```\n\nPlease verify that the name wasn't misspelled and ensure that the\nidentifier being referred to is valid for the given situation. Example:\n\n```\nenum something_that_does_exist {\n    Foo,\n}\n```\n\nOr:\n\n```\nmod something_that_does_exist {\n    pub static foo : i32 = 0i32;\n}\n\nsomething_that_does_exist::foo; // ok!\n```\n\nOr:\n\n```\nlet unknown_variable = 12u32;\nlet x = unknown_variable; // ok!\n```\n\nIf the item is not defined in the current module, it must be imported using a\n`use` statement, like so:\n\n```\n# mod foo { pub fn bar() {} }\n# fn main() {\nuse foo::bar;\nbar();\n# }\n```\n\nIf the item you are importing is not defined in some super-module of the\ncurrent module, then it must also be declared as public (e.g., `pub fn`).\n"
+              },
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph o5kdl_3h/lexical/substitution.rs",
+                  "byte_start": 18,
+                  "byte_end": 37,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 19,
+                  "column_end": 38,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){let _ = replacement_missing;}",
+                      "highlight_start": 19,
+                      "highlight_end": 38
+                    }
+                  ],
+                  "label": "not found in this scope",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                }
+              ],
+              "children": [],
+              "rendered": "error[E0425]: cannot find value `replacement_missing` in this scope\n --> /tmp/rpp M0 graph o5kdl_3h/lexical/substitution.rs:1:19\n  |\n1 | fn main(){let _ = replacement_missing;}\n  |                   ^^^^^^^^^^^^^^^^^^^ not found in this scope\n\n"
+            }
+          ],
+          "borrow": [
+            {
+              "$message_type": "diagnostic",
+              "message": "cannot borrow `x` as mutable more than once at a time",
+              "code": {
+                "code": "E0499",
+                "explanation": "A variable was borrowed as mutable more than once.\n\nErroneous code example:\n\n```compile_fail,E0499\nlet mut i = 0;\nlet mut x = &mut i;\nlet mut a = &mut i;\nx;\n// error: cannot borrow `i` as mutable more than once at a time\n```\n\nPlease note that in Rust, you can either have many immutable references, or one\nmutable reference. For more details you may want to read the\n[References & Borrowing][references-and-borrowing] section of the Book.\n\n[references-and-borrowing]: https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html\n\nExample:\n\n```\nlet mut i = 0;\nlet mut x = &mut i; // ok!\n\n// or:\nlet mut i = 0;\nlet a = &i; // ok!\nlet b = &i; // still ok!\nlet c = &i; // still ok!\nb;\na;\n```\n"
+              },
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph o5kdl_3h/lexical/borrow.rs",
+                  "byte_start": 29,
+                  "byte_end": 35,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 30,
+                  "column_end": 36,
+                  "is_primary": false,
+                  "text": [
+                    {
+                      "text": "fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}",
+                      "highlight_start": 30,
+                      "highlight_end": 36
+                    }
+                  ],
+                  "label": "first mutable borrow occurs here",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                },
+                {
+                  "file_name": "/tmp/rpp M0 graph o5kdl_3h/lexical/borrow.rs",
+                  "byte_start": 43,
+                  "byte_end": 49,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 44,
+                  "column_end": 50,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}",
+                      "highlight_start": 44,
+                      "highlight_end": 50
+                    }
+                  ],
+                  "label": "second mutable borrow occurs here",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                },
+                {
+                  "file_name": "/tmp/rpp M0 graph o5kdl_3h/lexical/borrow.rs",
+                  "byte_start": 68,
+                  "byte_end": 69,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 69,
+                  "column_end": 70,
+                  "is_primary": false,
+                  "text": [
+                    {
+                      "text": "fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}",
+                      "highlight_start": 69,
+                      "highlight_end": 70
+                    }
+                  ],
+                  "label": "first borrow later used here",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": {
+                    "span": {
+                      "file_name": "/rustc/0ef1bc386059596dada8fb65b50425aab2ea637a/library/std/src/macros.rs",
+                      "byte_start": 4491,
+                      "byte_end": 4524,
+                      "line_start": 148,
+                      "line_end": 148,
+                      "column_start": 28,
+                      "column_end": 61,
+                      "is_primary": false,
+                      "text": [],
+                      "label": null,
+                      "suggested_replacement": null,
+                      "suggestion_applicability": null,
+                      "expansion": {
+                        "span": {
+                          "file_name": "/rustc/0ef1bc386059596dada8fb65b50425aab2ea637a/library/std/src/macros.rs",
+                          "byte_start": 4491,
+                          "byte_end": 4524,
+                          "line_start": 148,
+                          "line_end": 148,
+                          "column_start": 28,
+                          "column_end": 61,
+                          "is_primary": false,
+                          "text": [],
+                          "label": null,
+                          "suggested_replacement": null,
+                          "suggestion_applicability": null,
+                          "expansion": {
+                            "span": {
+                              "file_name": "/tmp/rpp M0 graph o5kdl_3h/lexical/borrow.rs",
+                              "byte_start": 51,
+                              "byte_end": 72,
+                              "line_start": 1,
+                              "line_end": 1,
+                              "column_start": 52,
+                              "column_end": 73,
+                              "is_primary": false,
+                              "text": [
+                                {
+                                  "text": "fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}",
+                                  "highlight_start": 52,
+                                  "highlight_end": 73
+                                }
+                              ],
+                              "label": null,
+                              "suggested_replacement": null,
+                              "suggestion_applicability": null,
+                              "expansion": null
+                            },
+                            "macro_decl_name": "println!",
+                            "def_site_span": {
+                              "file_name": "/rustc/0ef1bc386059596dada8fb65b50425aab2ea637a/library/std/src/macros.rs",
+                              "byte_start": 4369,
+                              "byte_end": 4389,
+                              "line_start": 143,
+                              "line_end": 143,
+                              "column_start": 1,
+                              "column_end": 21,
+                              "is_primary": false,
+                              "text": [],
+                              "label": null,
+                              "suggested_replacement": null,
+                              "suggestion_applicability": null,
+                              "expansion": null
+                            }
+                          }
+                        },
+                        "macro_decl_name": "$crate::format_args_nl!",
+                        "def_site_span": {
+                          "file_name": "/rustc/0ef1bc386059596dada8fb65b50425aab2ea637a/library/core/src/macros/mod.rs",
+                          "byte_start": 36456,
+                          "byte_end": 36483,
+                          "line_start": 1034,
+                          "line_end": 1034,
+                          "column_start": 5,
+                          "column_end": 32,
+                          "is_primary": false,
+                          "text": [],
+                          "label": null,
+                          "suggested_replacement": null,
+                          "suggestion_applicability": null,
+                          "expansion": null
+                        }
+                      }
+                    },
+                    "macro_decl_name": "desugaring of format string literal",
+                    "def_site_span": {
+                      "file_name": "/tmp/rpp M0 graph o5kdl_3h/lexical/borrow.rs",
+                      "byte_start": 0,
+                      "byte_end": 0,
+                      "line_start": 1,
+                      "line_end": 1,
+                      "column_start": 1,
+                      "column_end": 1,
+                      "is_primary": false,
+                      "text": [],
+                      "label": null,
+                      "suggested_replacement": null,
+                      "suggestion_applicability": null,
+                      "expansion": null
+                    }
+                  }
+                }
+              ],
+              "children": [],
+              "rendered": "error[E0499]: cannot borrow `x` as mutable more than once at a time\n --> /tmp/rpp M0 graph o5kdl_3h/lexical/borrow.rs:1:44\n  |\n1 | fn main(){let mut x=0; let a=&mut x; let b=&mut x; println!(\"{} {}\",a,b);}\n  |                              ------        ^^^^^^                   - first borrow later used here\n  |                              |             |\n  |                              |             second mutable borrow occurs here\n  |                              first mutable borrow occurs here\n\n"
+            }
+          ],
+          "expansion": [
+            {
+              "$message_type": "diagnostic",
+              "message": "cannot find value `missing_in_expansion` in this scope",
+              "code": {
+                "code": "E0425",
+                "explanation": "An unresolved name was used.\n\nErroneous code examples:\n\n```compile_fail,E0425\nsomething_that_doesnt_exist::foo;\n// error: unresolved name `something_that_doesnt_exist::foo`\n\n// or:\n\ntrait Foo {\n    fn bar() {\n        Self; // error: unresolved name `Self`\n    }\n}\n\n// or:\n\nlet x = unknown_variable;  // error: unresolved name `unknown_variable`\n```\n\nPlease verify that the name wasn't misspelled and ensure that the\nidentifier being referred to is valid for the given situation. Example:\n\n```\nenum something_that_does_exist {\n    Foo,\n}\n```\n\nOr:\n\n```\nmod something_that_does_exist {\n    pub static foo : i32 = 0i32;\n}\n\nsomething_that_does_exist::foo; // ok!\n```\n\nOr:\n\n```\nlet unknown_variable = 12u32;\nlet x = unknown_variable; // ok!\n```\n\nIf the item is not defined in the current module, it must be imported using a\n`use` statement, like so:\n\n```\n# mod foo { pub fn bar() {} }\n# fn main() {\nuse foo::bar;\nbar();\n# }\n```\n\nIf the item you are importing is not defined in some super-module of the\ncurrent module, then it must also be declared as public (e.g., `pub fn`).\n"
+              },
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph o5kdl_3h/lexical/expansion.rs",
+                  "byte_start": 21,
+                  "byte_end": 41,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 22,
+                  "column_end": 42,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "macro_rules! m {()=>{missing_in_expansion}} fn main(){m!();}",
+                      "highlight_start": 22,
+                      "highlight_end": 42
+                    }
+                  ],
+                  "label": "not found in this scope",
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": {
+                    "span": {
+                      "file_name": "/tmp/rpp M0 graph o5kdl_3h/lexical/expansion.rs",
+                      "byte_start": 54,
+                      "byte_end": 58,
+                      "line_start": 1,
+                      "line_end": 1,
+                      "column_start": 55,
+                      "column_end": 59,
+                      "is_primary": false,
+                      "text": [
+                        {
+                          "text": "macro_rules! m {()=>{missing_in_expansion}} fn main(){m!();}",
+                          "highlight_start": 55,
+                          "highlight_end": 59
+                        }
+                      ],
+                      "label": null,
+                      "suggested_replacement": null,
+                      "suggestion_applicability": null,
+                      "expansion": null
+                    },
+                    "macro_decl_name": "m!",
+                    "def_site_span": {
+                      "file_name": "/tmp/rpp M0 graph o5kdl_3h/lexical/expansion.rs",
+                      "byte_start": 0,
+                      "byte_end": 14,
+                      "line_start": 1,
+                      "line_end": 1,
+                      "column_start": 1,
+                      "column_end": 15,
+                      "is_primary": false,
+                      "text": [
+                        {
+                          "text": "macro_rules! m {()=>{missing_in_expansion}} fn main(){m!();}",
+                          "highlight_start": 1,
+                          "highlight_end": 15
+                        }
+                      ],
+                      "label": null,
+                      "suggested_replacement": null,
+                      "suggestion_applicability": null,
+                      "expansion": null
+                    }
+                  }
+                }
+              ],
+              "children": [],
+              "rendered": "error[E0425]: cannot find value `missing_in_expansion` in this scope\n --> /tmp/rpp M0 graph o5kdl_3h/lexical/expansion.rs:1:22\n  |\n1 | macro_rules! m {()=>{missing_in_expansion}} fn main(){m!();}\n  |                      ^^^^^^^^^^^^^^^^^^^^             ---- in this macro invocation\n  |                      |\n  |                      not found in this scope\n\n"
+            }
+          ],
+          "multiple": [
+            {
+              "$message_type": "diagnostic",
+              "message": "2 positional arguments in format string, but no arguments were given",
+              "code": null,
+              "level": "error",
+              "spans": [
+                {
+                  "file_name": "/tmp/rpp M0 graph o5kdl_3h/lexical/multiple.rs",
+                  "byte_start": 20,
+                  "byte_end": 22,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 21,
+                  "column_end": 23,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){println!(\"{} {}\");}",
+                      "highlight_start": 21,
+                      "highlight_end": 23
+                    }
+                  ],
+                  "label": null,
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                },
+                {
+                  "file_name": "/tmp/rpp M0 graph o5kdl_3h/lexical/multiple.rs",
+                  "byte_start": 23,
+                  "byte_end": 25,
+                  "line_start": 1,
+                  "line_end": 1,
+                  "column_start": 24,
+                  "column_end": 26,
+                  "is_primary": true,
+                  "text": [
+                    {
+                      "text": "fn main(){println!(\"{} {}\");}",
+                      "highlight_start": 24,
+                      "highlight_end": 26
+                    }
+                  ],
+                  "label": null,
+                  "suggested_replacement": null,
+                  "suggestion_applicability": null,
+                  "expansion": null
+                }
+              ],
+              "children": [],
+              "rendered": "error: 2 positional arguments in format string, but no arguments were given\n --> /tmp/rpp M0 graph o5kdl_3h/lexical/multiple.rs:1:21\n  |\n1 | fn main(){println!(\"{} {}\");}\n  |                     ^^ ^^\n\n"
+            }
+          ]
+        },
+        "graphs": [
+          {
+            "generator": "Ninja",
+            "mode": "byproducts",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              }
+            ]
+          },
+          {
+            "generator": "Ninja",
+            "mode": "outputs",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": []
+                  },
+                  "unchanged_input_payload_timestamps_preserved": true,
+                  "unchanged_input_commands": [
+                    "preprocess"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": []
+                  },
+                  "unchanged_input_payload_timestamps_preserved": true,
+                  "unchanged_input_commands": [
+                    "preprocess"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              }
+            ]
+          },
+          {
+            "generator": "Unix Makefiles",
+            "mode": "byproducts",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "initial parallel build",
+                "recovered": false
+              },
+              {
+                "config": "Release",
+                "file": "initial parallel build",
+                "recovered": false
+              }
+            ]
+          },
+          {
+            "generator": "Unix Makefiles",
+            "mode": "outputs",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": [
+                      "CMakeFiles/App.dir/App/root.rs.rlib.d",
+                      "CMakeFiles/Other.dir/Other/root.rs.rlib.d"
+                    ]
+                  },
+                  "unchanged_input_payload_timestamps_preserved": false,
+                  "unchanged_input_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": [
+                      "CMakeFiles/App.dir/App/root.rs.rlib.d",
+                      "CMakeFiles/Other.dir/Other/root.rs.rlib.d"
+                    ]
+                  },
+                  "unchanged_input_payload_timestamps_preserved": false,
+                  "unchanged_input_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              }
+            ]
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "mode": "byproducts",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              }
+            ]
+          },
+          {
+            "generator": "Ninja Multi-Config",
+            "mode": "outputs",
+            "observations": [
+              {
+                "config": "Debug",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Debug",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": []
+                  },
+                  "unchanged_input_payload_timestamps_preserved": true,
+                  "unchanged_input_commands": [
+                    "preprocess"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              },
+              {
+                "config": "Release",
+                "file": "root.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "module/nested.rs",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "data.txt",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "map",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "manifest",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "file": "complete",
+                "recovered": true
+              },
+              {
+                "config": "Release",
+                "acceptance": {
+                  "raw_depfiles_after_build": {
+                    "preprocess": true,
+                    "compiler": []
+                  },
+                  "unchanged_input_payload_timestamps_preserved": true,
+                  "unchanged_input_commands": [
+                    "preprocess"
+                  ],
+                  "changed_commands": [
+                    "preprocess",
+                    "compile",
+                    "rustc",
+                    "link",
+                    "rustc",
+                    "cxx"
+                  ],
+                  "interrupt_recovery": "passed",
+                  "final_recompile": "passed"
+                }
+              }
+            ]
+          }
+        ],
+        "status": "passed"
+      }
+    ]
+  },
+  "boundaries": [
+    "ASCII object-like names; protected original Rust macros/attributes; no function macros, paste, stringification or line continuation.",
+    "Left-to-right replacement rescans each code segment; emitted text is not retroactively reprocessed across directive/include boundaries.",
+    "Logical input paths only: physical symlink/source-tree validation belongs to M4.",
+    "Internal exact/inexact provenance only: source-map serialization belongs to M3, downstream rustc diagnostic rewriting to M5.",
+    "No production generated outputs or new ownership graph in M2; validated M0 explicit-OUTPUT prototype is preserved for later integration.",
+    "The complete release matrix (including the previous stable line and a clean signed source archive) remains an M8 gate."
+  ],
+  "raw_reports": [
+    {
+      "path": "build-v02-m2/matrix-325.json",
+      "sha256": "c8dedbf79189e1ff0c14be54dc613efbf7ef3666ada40a5870ae93a6292310d9"
+    },
+    {
+      "path": "build-v02-m2/matrix-450.json",
+      "sha256": "def18424afbd1415e7a13b89fbe6d869f5f4ed7d54aeabcccf51eba2ee51b1a7"
+    },
+    {
+      "path": "build-v02-m2/m0-preservation.json",
+      "sha256": "1066e4b870ac4d5f3791772374112a343d51e8462bae6ba80dc5cc104efa5611"
+    }
+  ],
+  "implementation_signature": "verified: 96653CBEFDD9F8E0F7B288881396EBBD1AADE388"
+}
