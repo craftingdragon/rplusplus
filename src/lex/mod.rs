@@ -172,7 +172,30 @@ impl Lexed<'_> {
 }
 
 pub fn scan(source: &str, edition: Edition) -> Result<Lexed<'_>, Error> {
-    scanner::scan(source, edition)
+    scanner::scan(source, edition, true)
+}
+
+/// Rust-token fragments have neither preprocessing directives nor file prologues.
+pub fn scan_fragment(source: &str, edition: Edition) -> Result<Lexed<'_>, Error> {
+    scanner::scan(source, edition, false)
+}
+
+/// Original-source locations are also available when lexical scanning failed.
+pub fn source_position(source: &str, byte: usize) -> Option<Position> {
+    if byte > source.len() || !source.is_char_boundary(byte) {
+        return None;
+    }
+    let start = source[..byte].rfind('\n').map_or(0, |p| p + 1);
+    let line = source[..byte].bytes().filter(|&b| b == b'\n').count() + 1;
+    let prefix = &source[start..byte];
+    let mut column = prefix.chars().count() + 1;
+    if start == 0 && prefix.starts_with('\u{feff}') {
+        column -= 1;
+    }
+    if prefix.ends_with('\r') && source[byte..].starts_with('\n') {
+        column -= 1;
+    }
+    Some(Position { byte, line, column })
 }
 
 pub fn scan_bytes(source: &[u8], edition: Edition) -> Result<Lexed<'_>, Error> {

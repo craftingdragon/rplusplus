@@ -43,6 +43,7 @@ struct Frame {
 struct Scanner<'a> {
     source: &'a str,
     edition: Edition,
+    directives: bool,
     at: usize,
     tokens: Vec<Token>,
     significant: Vec<usize>,
@@ -90,7 +91,7 @@ impl Scanner<'_> {
     }
 
     fn directive(&mut self) -> Option<Kind> {
-        if !self.frames.is_empty() || !self.rest().starts_with('#') {
+        if !self.directives || !self.frames.is_empty() || !self.rest().starts_with('#') {
             return None;
         }
         let line = self.source[..self.at].rfind('\n').map_or(0, |i| i + 1);
@@ -566,6 +567,7 @@ fn shebang_attribute(source: &str, at: usize) -> bool {
         source,
         at,
         edition: Edition::Rust2024,
+        directives: false,
         tokens: vec![],
         significant: vec![],
         frames: vec![],
@@ -586,24 +588,25 @@ fn shebang_attribute(source: &str, at: usize) -> bool {
     }
 }
 
-pub(super) fn scan(source: &str, edition: Edition) -> Result<Lexed<'_>, Error> {
+pub(super) fn scan(source: &str, edition: Edition, directives: bool) -> Result<Lexed<'_>, Error> {
     let mut s = Scanner {
         source,
         edition,
+        directives,
         at: 0,
         tokens: vec![],
         significant: vec![],
         frames: vec![],
         regions: vec![],
     };
-    if source.starts_with('\u{feff}') {
+    if directives && source.starts_with('\u{feff}') {
         s.at = 3;
         s.push(Token {
             kind: Kind::Bom,
             span: Span { start: 0, end: 3 },
         })?;
     }
-    if s.rest().starts_with("#!") && !shebang_attribute(source, s.at + 2) {
+    if directives && s.rest().starts_with("#!") && !shebang_attribute(source, s.at + 2) {
         let start = s.at;
         s.at += s.rest().find('\n').unwrap_or(s.rest().len());
         s.push(Token {

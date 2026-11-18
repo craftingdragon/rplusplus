@@ -2,6 +2,8 @@
 // M1 library only: ordinary compile/link paths do not invoke preprocessing.
 #[allow(dead_code)]
 mod lex;
+#[allow(dead_code)]
+mod preprocess;
 use std::{
     env, fs,
     path::{Path, PathBuf},

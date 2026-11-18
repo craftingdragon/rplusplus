@@ -1,6 +1,25 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 use super::*;
 
+#[test]
+fn fragments_do_not_recognize_directives_or_file_prologues() {
+    let l = scan_fragment("#error text", Edition::Rust2024).unwrap();
+    assert!(
+        !l.tokens
+            .iter()
+            .any(|t| matches!(t.kind, Kind::DirectiveLine { .. } | Kind::Shebang))
+    );
+    assert!(scan_fragment("\u{feff}x", Edition::Rust2024).is_err());
+    assert_eq!(
+        source_position("\"unfinished\r\n🦀", 17),
+        Some(Position {
+            byte: 17,
+            line: 2,
+            column: 2
+        })
+    );
+}
+
 fn lex(s: &str) -> Lexed<'_> {
     scan(s, Edition::Rust2024).unwrap()
 }

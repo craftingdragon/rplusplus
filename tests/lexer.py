@@ -63,16 +63,20 @@ def bootstrap(base):
         original = stamps()
         log = build_now()
         assert stamps() == original, (gen, 'no-op', original, stamps(), log)
-        scanner = source/'src/lex/scanner.rs'
-        scanner.write_text(scanner.read_text()+'\n// bootstrap dependency probe\n')
-        build_now()
-        changed = stamps()
-        assert all(a != b for a,b in zip(original, changed)), (gen, 'module edit')
-        tests = source/'src/lex/tests.rs'
-        tests.write_text(tests.read_text()+'\n// test-only dependency probe\n')
-        build_now()
-        tested = stamps()
-        assert tested[0] == changed[0] and tested[1] != changed[1], (gen, 'test-only edit')
+        for module in ('lex/scanner.rs', 'preprocess/engine.rs', 'preprocess/expression.rs'):
+            scanner = source/'src'/module
+            scanner.write_text(scanner.read_text()+'\n// bootstrap dependency probe\n')
+            build_now()
+            changed = stamps()
+            assert all(a != b for a,b in zip(original, changed)), (gen, 'module edit', module)
+            original = changed
+        for module in ('lex/tests.rs', 'preprocess/tests.rs'):
+            tests = source/'src'/module
+            tests.write_text(tests.read_text()+'\n// test-only dependency probe\n')
+            build_now()
+            tested = stamps()
+            assert tested[0] == changed[0] and tested[1] != changed[1], (gen, 'test-only edit', module)
+            changed = tested
         for dep in build.rglob('*.d'): dep.unlink()
         scanner.write_text(scanner.read_text()+'\n// edit after depfile deletion\n')
         build_now()
