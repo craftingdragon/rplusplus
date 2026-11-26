@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-// M1 library only: ordinary compile/link paths do not invoke preprocessing.
 #[allow(dead_code)]
 mod lex;
-#[allow(dead_code)]
 mod preprocess;
+mod preprocess_cli;
 use std::{
     env, fs,
     path::{Path, PathBuf},
@@ -133,6 +132,13 @@ fn execute() -> Result<()> {
             args.push(arg);
         }
     }
+    if args.first().is_some_and(|op| op == "preprocess") {
+        let status = preprocess_cli::run(&args[1..]);
+        if status != 0 {
+            std::process::exit(status);
+        }
+        return Ok(());
+    }
     let Some(index) = args.iter().position(|s| s == "-o") else {
         return execute_inner(args);
     };
@@ -179,7 +185,7 @@ fn execute_inner(args: Vec<String>) -> Result<()> {
         return Ok(());
     }
     if args.is_empty() || args[0] == "--help" {
-        println!("rpp compile|link --rustc PATH [options]\nCargo-free Rust compiler driver");
+        println!("rpp compile|link --rustc PATH [options]\nrpp preprocess INPUT -o OUTPUT [options]\nCargo-free Rust compiler driver");
         return Ok(());
     }
     let mut args = args;

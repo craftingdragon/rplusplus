@@ -172,12 +172,17 @@ impl Lexed<'_> {
 }
 
 pub fn scan(source: &str, edition: Edition) -> Result<Lexed<'_>, Error> {
-    scanner::scan(source, edition, true)
+    scanner::scan(source, edition, true, true)
 }
 
 /// Rust-token fragments have neither preprocessing directives nor file prologues.
 pub fn scan_fragment(source: &str, edition: Edition) -> Result<Lexed<'_>, Error> {
-    scanner::scan(source, edition, false)
+    scanner::scan(source, edition, false, false)
+}
+
+/// Generated Rust keeps file prologues, but cannot introduce directives.
+pub fn scan_generated(source: &str, edition: Edition) -> Result<Lexed<'_>, Error> {
+    scanner::scan(source, edition, false, true)
 }
 
 /// Original-source locations are also available when lexical scanning failed.

@@ -63,7 +63,7 @@ def bootstrap(base):
         original = stamps()
         log = build_now()
         assert stamps() == original, (gen, 'no-op', original, stamps(), log)
-        for module in ('lex/scanner.rs', 'preprocess/engine.rs', 'preprocess/expression.rs'):
+        for module in ('lex/scanner.rs', 'preprocess/engine.rs', 'preprocess/expression.rs', 'preprocess_cli/artifacts.rs'):
             scanner = source/'src'/module
             scanner.write_text(scanner.read_text()+'\n// bootstrap dependency probe\n')
             build_now()

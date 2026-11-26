@@ -588,7 +588,12 @@ fn shebang_attribute(source: &str, at: usize) -> bool {
     }
 }
 
-pub(super) fn scan(source: &str, edition: Edition, directives: bool) -> Result<Lexed<'_>, Error> {
+pub(super) fn scan(
+    source: &str,
+    edition: Edition,
+    directives: bool,
+    prologue: bool,
+) -> Result<Lexed<'_>, Error> {
     let mut s = Scanner {
         source,
         edition,
@@ -599,14 +604,14 @@ pub(super) fn scan(source: &str, edition: Edition, directives: bool) -> Result<L
         frames: vec![],
         regions: vec![],
     };
-    if directives && source.starts_with('\u{feff}') {
+    if prologue && source.starts_with('\u{feff}') {
         s.at = 3;
         s.push(Token {
             kind: Kind::Bom,
             span: Span { start: 0, end: 3 },
         })?;
     }
-    if directives && s.rest().starts_with("#!") && !shebang_attribute(source, s.at + 2) {
+    if prologue && s.rest().starts_with("#!") && !shebang_attribute(source, s.at + 2) {
         let start = s.at;
         s.at += s.rest().find('\n').unwrap_or(s.rest().len());
         s.push(Token {

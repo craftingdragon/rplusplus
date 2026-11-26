@@ -12,6 +12,7 @@ include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/RppToolchain.cmake")
 rpp_validate_toolchain()
 set(RPP_DRIVER "${CMAKE_CURRENT_BINARY_DIR}/bin/rpp")
 set(RPP_DRIVER_SOURCES src/main.rs src/lex/mod.rs src/lex/scanner.rs src/lex/unicode.rs
+  src/preprocess_cli/mod.rs src/preprocess_cli/artifacts.rs
   src/preprocess/mod.rs src/preprocess/engine.rs src/preprocess/expression.rs)
 # A dep-info-only pass gives one stable depfile target across rustc versions.
 # Combined link+dep-info changes target order between supported compilers, which
@@ -58,6 +59,7 @@ if(BUILD_TESTING AND Python3_FOUND)
   add_test(NAME toolchain-errors COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/toolchain_errors.py")
   add_test(NAME lexer-regression COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/lexer.py")
   add_test(NAME preprocess-regression COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/preprocess.py")
+  add_test(NAME preprocess-cli COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/preprocess_cli.py" "${RPP_DRIVER}")
   add_test(NAME generator-compatibility
     COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/generators.py")
 endif()

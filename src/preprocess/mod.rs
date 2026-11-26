@@ -103,6 +103,10 @@ pub struct Sources {
     files: BTreeMap<PathBuf, String>,
 }
 impl Sources {
+    pub(crate) fn text(&self, path: &Path) -> Option<&str> {
+        self.files.get(path).map(String::as_str)
+    }
+
     pub fn insert(&mut self, path: impl AsRef<Path>, text: String) -> Result<(), String> {
         let path = normalize(path.as_ref())?;
         if self.files.contains_key(&path) {
@@ -164,7 +168,7 @@ fn normalize_directory(path: &Path) -> Result<PathBuf, String> {
     Ok(out)
 }
 
-fn name(s: &str) -> bool {
+pub(crate) fn name(s: &str) -> bool {
     let mut bytes = s.bytes();
     bytes
         .next()

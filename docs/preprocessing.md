@@ -1,10 +1,66 @@
-# v0.2 M2: directives and object-like expansion
+# Rust-aware preprocessing
 
-M2 implements an internal, standard-library-only Rust library in
-`src/preprocess`. It does not add a public `rpp preprocess` command, change
-compilation or linking, mirror a source tree, write files, or enable preprocessing
-in CMake. Those are later milestones. Ordinary v0.1 builds continue through the
-existing driver unchanged. The library uses the [M1 scanner](lexer.md).
+## Standalone command (v0.2 M3)
+
+Run `rpp preprocess --help` for the command and options. For example, with
+`#include "settings.rph"` in `app/main.rs`:
+
+```sh
+rpp preprocess app/main.rs -o generated.rs \
+  -I app/config --input app/config/settings.rph \
+  -DDEBUG --edition 2024 --depfile generated.d --source-map generated.json
+```
+
+Paths on the command line are relative to the working directory. The entry’s
+directory is the default source root. Use `--source-root` to pick a wider
+root for inputs. Every preprocessing fragment must be declared with
+`--input`. The entry, fragment paths and include directories must stay under
+the root, including when resolving symlinks. All declared files must be
+readable UTF-8. Only actively used fragments appear in the depfile.
+Plain `-DNAME` sets a value of `1`. Definitions and undefinitions are applied
+in argument order. To pass a filename starting with `-`, use `./` or place the
+entry after `--`. The driver accepts its existing NUL-separated UTF-8
+response files for the whole command or part of it.
+
+Use single-file mode for Rust files that can compile without separate Rust
+modules or Rust include files. Inline modules and preprocessing `#include`
+fragments work. The command flags external `mod` declarations and visible
+`include!`, `include_str!` and `include_bytes!` calls, including calls nested in
+attributes or macro arguments. This is a lexical check, including when a
+user-defined macro has one of those names. Rust macro definitions are opaque
+to the check. Reads introduced by Rust macro expansion require the later
+source-tree and compiler integration. Use the command explicitly to generate
+a file for a separate compiler invocation.
+
+Exit status is 0 for success, 2 for argument misuse, and 1 for preprocessing,
+validation or I/O errors. Errors go to stderr. `--diagnostic-format json` emits
+one object for operational errors after argument parsing. For source
+diagnostics it includes the kind, message, location, notes and include stack.
+Argument syntax and response-file read errors use human diagnostics.
+
+The source map is JSON with `version: 1`, the generated path and a list of
+mappings. Byte ranges are zero-based and half-open. Original file paths are
+relative to the source root. Original line and scalar column are one-based.
+Definition and include provenance retain their original locations. The
+depfile uses paths relative to the working directory where possible, with
+absolute paths otherwise. GNU Make escaping covers spaces, hashes and dollar
+signs. Paths with ambiguous Make syntax, such as backslashes, colons, percent
+signs and newlines, are rejected when writing a depfile.
+
+Output directories must already exist. Existing regular output files can be
+replaced. Byte-identical files retain their timestamps. The command stages
+every changed file before replacing any destination, then publishes the
+optional sidecars before the Rust file. Ordinary failures preserve the
+previous Rust output and clean pending temporary files. If a rename fails
+after a sidecar was replaced, rerun the command to regenerate the set.
+Publishing several paths takes several renames. A process termination can
+leave a temporary file behind.
+
+## Preprocessing language and internal library (v0.2 M2)
+
+M2 implements the pure, standard-library-only Rust library in `src/preprocess`
+using the [M1 scanner](lexer.md). M3 uses the library from the standalone
+command. Compilation, linking and CMake keep their existing entry points.
 
 ## Library boundary
 
@@ -23,8 +79,8 @@ on-disk outputs belong to M3/M4, not this library.
 
 Logical paths are normalized and checked for absolute paths, root escape and
 duplicate aliases. Include directories can name the logical root (`.`).
-Physical filesystem validation, symlink escape checks, destination collisions
-and Rust source/data declarations remain mandatory M4 work. Logical validation
+The M3 adapter validates standalone paths. M4 extends these checks to tree
+outputs, destination collisions and Rust source/data declarations. Logical validation
 is not a filesystem sandbox.
 
 ## Directives
@@ -168,10 +224,9 @@ included ranges retain their include stack. Columns count Unicode scalar values,
 not UTF-8 bytes, grapheme clusters or display width. Raw byte spans preserve CRLF;
 column computation excludes a leading BOM and the CR of CRLF.
 
-These are internal provenance records, not a versioned on-disk source-map format
-or downstream rustc diagnostic rewriting. Ambiguous generated ranges must not
-be advertised as exact. M3 owns serialization; M5 must demonstrate the required
-compiler diagnostic mapping separately using M0's JSON probes.
+These internal provenance records feed the M3 source-map serializer. Ambiguous
+generated ranges stay marked inexact. M5 must demonstrate downstream compiler
+diagnostic mapping separately using M0's JSON probes.
 
 ## Regression validation
 
