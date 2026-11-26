@@ -64,6 +64,7 @@ if(BUILD_TESTING AND Python3_FOUND)
   add_test(NAME preprocess-cli COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/preprocess_cli.py" "${RPP_DRIVER}")
   add_test(NAME preprocess-tree COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/preprocess_tree.py" "${RPP_DRIVER}")
   add_test(NAME snapshot-compile COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/snapshot_compile.py" "${RPP_DRIVER}")
+  add_test(NAME preprocess-cmake COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/preprocess_cmake.py")
   add_test(NAME generator-compatibility
     COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/generators.py")
 endif()
