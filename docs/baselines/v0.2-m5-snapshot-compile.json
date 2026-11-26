@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "stage": "v0.2/M5",
+  "status": "passed",
+  "implementation_revision": "1d657a215a8a6adedbc0a5841e93fdae27e535cc",
+  "provenance": "The CTest matrix and M0 replay started before signing. The tested source and tests match the signed implementation. PLAN.md is untracked.",
+  "implementation_sha256": {
+    "CMakeLists.txt": "03d6899c4c5cc70e544fc857faeb65190988e970e43c01ae18021efa21c77fde",
+    "docs/driver.md": "f7ec7ff8096fda22ced7ef168655f4346f1089cdc194fb1cab65786b75c8a70b",
+    "docs/preprocessing.md": "405d48ce9db985d1b9086e89398ee292c529dc3755be5c623be6b2ef22bd3666",
+    "src/main.rs": "bf7387c0eec78b3b63e77af92f3ed29594c060f4be5d8d4c1bd23f8d0fe0a03b",
+    "src/preprocess_cli/artifacts.rs": "96d48cffb14aa7aa48af544cbe5be96aa8cee25b260f918e84226fb989e347c0",
+    "src/preprocess_cli/mod.rs": "be517ba582acdaade44fbca942eb49fe9440d0f3c0a804d02c4fd89112ceed45",
+    "src/preprocess_cli/snapshot.rs": "03d9a724b14a50c7c3f923bdf8b33d801a1bc83a04e47d54614f47c390119138",
+    "src/preprocess_cli/tree.rs": "f417da8990171501d95b29d7f7640ed252f29f46dc016d3b00c1a5ff1f9741d9",
+    "src/snapshot_compile/depfile.rs": "d1a48e4611f2c866d2e49b6468fb9a0fa3703031c5ac16f3b70b0e33d722fd1f",
+    "src/snapshot_compile/diagnostics.rs": "5ac92a7c304883aaa0444718cd4eead7cf2b11f24679057fca24218bbdc5bdf0",
+    "src/snapshot_compile/json.rs": "a0050d50355d50c6bb2a3e9d68cdccfae83553b5856f21826cbd07a45be567f5",
+    "src/snapshot_compile/mod.rs": "f41645eba92724df1a63a13524339a15260166412593bab91930465df6990abf",
+    "tests/lexer.py": "74e51dedd4d77aff079c939c51b643100cbff1e987bd03cd769ae11af469b64b",
+    "tests/preprocess_tree.py": "79ba01190eb09fe6416b87340403bdee082e7022c82efc9ca3b614e992b4a1a6",
+    "tests/snapshot_compile.py": "62e7db013dc61dd3200e912518565e3d83421a43ecfb4c3a4c76841286b5ccf0"
+  },
+  "required_ctest_gates": [
+    "driver-failures",
+    "driver-unit",
+    "generator-compatibility",
+    "lexer-regression",
+    "preprocess-cli",
+    "preprocess-regression",
+    "preprocess-tree",
+    "qt-notes-installed",
+    "snapshot-compile",
+    "toolchain-errors"
+  ],
+  "results": [
+    {
+      "cmake": "cmake version 3.25.0",
+      "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+      "rustc_identity": "rustc 1.100.0 (0ef1bc386 2026-11-09)\nbinary: rustc\ncommit-hash: 0ef1bc386059596dada8fb65b50425aab2ea637a\ncommit-date: 2026-11-09\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0\nLLVM version: 23.1.5\n",
+      "log": "Internal ctest changing into directory: /tmp/rpp matrix o9pn0783\nTest project /tmp/rpp matrix o9pn0783\n      Start  1: driver-unit\n 1/10 Test  #1: driver-unit ......................   Passed    0.25 sec\n      Start  2: driver-failures\n 2/10 Test  #2: driver-failures ..................   Passed    0.38 sec\n      Start  3: toolchain-errors\n 3/10 Test  #3: toolchain-errors .................   Passed    0.26 sec\n      Start  4: lexer-regression\n 4/10 Test  #4: lexer-regression .................   Passed  113.76 sec\n      Start  5: preprocess-regression\n 5/10 Test  #5: preprocess-regression ............   Passed    0.71 sec\n      Start  6: preprocess-cli\n 6/10 Test  #6: preprocess-cli ...................   Passed    0.27 sec\n      Start  7: preprocess-tree\n 7/10 Test  #7: preprocess-tree ..................   Passed    0.32 sec\n      Start  8: snapshot-compile\n 8/10 Test  #8: snapshot-compile .................   Passed    3.04 sec\n      Start  9: generator-compatibility\n 9/10 Test  #9: generator-compatibility ..........   Passed   67.52 sec\n      Start 10: qt-notes-installed\n10/10 Test #10: qt-notes-installed ...............   Passed   33.61 sec\n\n100% tests passed, 0 tests failed out of 10\n\nTotal Test time (real) = 220.13 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 222.54380733000016,
+      "tested_base_revision": "9992c6eb486582b7e3ffc15b6efe5673c797cd31",
+      "tested_dirty_worktree": true,
+      "timestamp_utc": "2026-11-26T08:29:42.703051+00:00"
+    },
+    {
+      "cmake": "cmake version 3.25.0",
+      "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+      "rustc_identity": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.0\nLLVM version: 19.1.7\n",
+      "log": "Internal ctest changing into directory: /tmp/rpp matrix z7dnrw6u\nTest project /tmp/rpp matrix z7dnrw6u\n      Start  1: driver-unit\n 1/10 Test  #1: driver-unit ......................   Passed    0.16 sec\n      Start  2: driver-failures\n 2/10 Test  #2: driver-failures ..................   Passed    0.37 sec\n      Start  3: toolchain-errors\n 3/10 Test  #3: toolchain-errors .................   Passed    0.26 sec\n      Start  4: lexer-regression\n 4/10 Test  #4: lexer-regression .................   Passed  129.18 sec\n      Start  5: preprocess-regression\n 5/10 Test  #5: preprocess-regression ............   Passed    0.90 sec\n      Start  6: preprocess-cli\n 6/10 Test  #6: preprocess-cli ...................   Passed    0.29 sec\n      Start  7: preprocess-tree\n 7/10 Test  #7: preprocess-tree ..................   Passed    0.41 sec\n      Start  8: snapshot-compile\n 8/10 Test  #8: snapshot-compile .................   Passed    3.13 sec\n      Start  9: generator-compatibility\n 9/10 Test  #9: generator-compatibility ..........   Passed   66.47 sec\n      Start 10: qt-notes-installed\n10/10 Test #10: qt-notes-installed ...............   Passed   31.83 sec\n\n100% tests passed, 0 tests failed out of 10\n\nTotal Test time (real) = 233.02 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 235.81007236699952,
+      "tested_base_revision": "9992c6eb486582b7e3ffc15b6efe5673c797cd31",
+      "tested_dirty_worktree": true,
+      "timestamp_utc": "2026-11-26T08:29:42.702802+00:00"
+    },
+    {
+      "cmake": "cmake version 4.5.0",
+      "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+      "rustc_identity": "rustc 1.100.0 (0ef1bc386 2026-11-09)\nbinary: rustc\ncommit-hash: 0ef1bc386059596dada8fb65b50425aab2ea637a\ncommit-date: 2026-11-09\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0\nLLVM version: 23.1.5\n",
+      "log": "Test project /tmp/rpp matrix vee07bmc\n      Start  1: driver-unit\n 1/10 Test  #1: driver-unit ......................   Passed    0.27 sec\n      Start  2: driver-failures\n 2/10 Test  #2: driver-failures ..................   Passed    0.37 sec\n      Start  3: toolchain-errors\n 3/10 Test  #3: toolchain-errors .................   Passed    0.31 sec\n      Start  4: lexer-regression\n 4/10 Test  #4: lexer-regression .................   Passed  118.75 sec\n      Start  5: preprocess-regression\n 5/10 Test  #5: preprocess-regression ............   Passed    0.63 sec\n      Start  6: preprocess-cli\n 6/10 Test  #6: preprocess-cli ...................   Passed    0.20 sec\n      Start  7: preprocess-tree\n 7/10 Test  #7: preprocess-tree ..................   Passed    0.36 sec\n      Start  8: snapshot-compile\n 8/10 Test  #8: snapshot-compile .................   Passed    3.01 sec\n      Start  9: generator-compatibility\n 9/10 Test  #9: generator-compatibility ..........   Passed   80.66 sec\n      Start 10: qt-notes-installed\n10/10 Test #10: qt-notes-installed ...............   Passed   31.39 sec\n\n100% tests passed out of 10\n\nTotal Test time (real) = 235.97 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 238.49259043199982,
+      "tested_base_revision": "9992c6eb486582b7e3ffc15b6efe5673c797cd31",
+      "tested_dirty_worktree": true,
+      "timestamp_utc": "2026-11-26T08:29:42.702716+00:00"
+    },
+    {
+      "cmake": "cmake version 4.5.0",
+      "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+      "rustc_identity": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.0\nLLVM version: 19.1.7\n",
+      "log": "Test project /tmp/rpp matrix x6q92o3z\n      Start  1: driver-unit\n 1/10 Test  #1: driver-unit ......................   Passed    0.19 sec\n      Start  2: driver-failures\n 2/10 Test  #2: driver-failures ..................   Passed    0.34 sec\n      Start  3: toolchain-errors\n 3/10 Test  #3: toolchain-errors .................   Passed    0.32 sec\n      Start  4: lexer-regression\n 4/10 Test  #4: lexer-regression .................   Passed  133.32 sec\n      Start  5: preprocess-regression\n 5/10 Test  #5: preprocess-regression ............   Passed    0.89 sec\n      Start  6: preprocess-cli\n 6/10 Test  #6: preprocess-cli ...................   Passed    0.29 sec\n      Start  7: preprocess-tree\n 7/10 Test  #7: preprocess-tree ..................   Passed    0.40 sec\n      Start  8: snapshot-compile\n 8/10 Test  #8: snapshot-compile .................   Passed    3.15 sec\n      Start  9: generator-compatibility\n 9/10 Test  #9: generator-compatibility ..........   Passed   79.11 sec\n      Start 10: qt-notes-installed\n10/10 Test #10: qt-notes-installed ...............   Passed   29.13 sec\n\n100% tests passed out of 10\n\nTotal Test time (real) = 247.13 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 250.059839259,
+      "tested_base_revision": "9992c6eb486582b7e3ffc15b6efe5673c797cd31",
+      "tested_dirty_worktree": true,
+      "timestamp_utc": "2026-11-26T08:29:42.703682+00:00"
+    }
+  ],
+  "standalone_probes": {
+    "installed_driver_with_original_tree_deleted": "passed",
+    "legacy_snapshot_regeneration": "passed",
+    "malformed_dep_info_preserves_prior_artifact_and_depfile": "passed"
+  },
+  "m0_preservation": {
+    "status": "passed",
+    "rows": [
+      {
+        "cmake": "cmake version 3.25.0",
+        "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+        "status": "passed",
+        "required_output_recoveries": 42,
+        "native_control_failures": 12,
+        "native_control_recoveries": 6,
+        "byproduct_control_failures": 2
+      },
+      {
+        "cmake": "cmake version 4.5.0",
+        "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+        "status": "passed",
+        "required_output_recoveries": 42,
+        "native_control_failures": 12,
+        "native_control_recoveries": 6,
+        "byproduct_control_failures": 2
+      },
+      {
+        "cmake": "cmake version 3.25.0",
+        "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+        "status": "passed",
+        "required_output_recoveries": 42,
+        "native_control_failures": 12,
+        "native_control_recoveries": 6,
+        "byproduct_control_failures": 2
+      },
+      {
+        "cmake": "cmake version 4.5.0",
+        "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+        "status": "passed",
+        "required_output_recoveries": 42,
+        "native_control_failures": 12,
+        "native_control_recoveries": 6,
+        "byproduct_control_failures": 2
+      }
+    ],
+    "raw_report": "build-v02-m5/m0-preservation.json",
+    "raw_report_sha256": "e0e1c0ee82b85b7d5c1b8ae21e15bcc88df690e3bef4d751672c8da39e008867"
+  }
+}

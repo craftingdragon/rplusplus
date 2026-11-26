@@ -180,6 +180,12 @@ their generated locations. Suggestions keep their original compiler locations.
 Pass `--error-format=json` to forward rustc's JSON stderr unchanged. An explicitly
 requested human format keeps the selected compiler presentation.
 
+M5 passed all ten CTest gates with CMake 3.25.0 and 4.5.0, each paired with
+stable Rust 1.85.0 and 1.100.0. The Ninja fixture verifies separate dependency
+edges and zero-command no-ops. The M0 graph replay preserved the original
+failure controls and verified all 168 required output recoveries.
+[Compatibility evidence](baselines/v0.2-m5-snapshot-compile.json)
+
 ## Preprocessing language and internal library (v0.2 M2)
 
 M2 implements the pure, standard-library-only Rust library in `src/preprocess`
