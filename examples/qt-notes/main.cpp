@@ -110,8 +110,12 @@ int main(int argc,char **argv){
                 w.expectCount(enabled,0);
             }
             {Window w(path);w.expectCount(enabled,0);}
-            Window invalid(dir.filePath("missing/notes.sqlite"));
+            const auto invalidPath=dir.filePath("missing/notes.sqlite");
+            Window invalid(invalidPath);
             if(!invalid.showsOpenError())return 4;
+            Error error;
+            NotesHandle *handle=nullptr;
+            if(notes_open(view(invalidPath.toUtf8()),&handle,&error.b)==0 || handle || !error.b.len)return 4;
         }catch(const std::exception &error){qCritical("%s",error.what());return 5;}
         return 0;
     }
