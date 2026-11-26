@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 pkgname=rplusplus
-pkgver=0.1.0
+pkgver=@VERSION@
 pkgrel=1
 pkgdesc='Experimental Cargo-free Rust compiler driver and native CMake integration'
 arch=('x86_64')

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.25)
-project(Rplusplus VERSION 0.1.0 LANGUAGES NONE)
+project(Rplusplus VERSION 0.2.0 LANGUAGES NONE)
 # Driver bootstrap uses rustc directly without enabling a compiled CMake language.
 set(CMAKE_INSTALL_LIBDIR lib CACHE PATH "Library installation directory")
 include(GNUInstallDirs)

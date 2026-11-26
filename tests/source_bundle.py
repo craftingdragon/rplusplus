@@ -7,6 +7,7 @@ import hashlib
 import io
 import json
 from pathlib import Path
+import re
 import subprocess
 from generators import ROOT
 
@@ -17,18 +18,24 @@ def main():
     if subprocess.check_output(['git','status','--porcelain'],cwd=ROOT):
         raise SystemExit('Commit the candidate before creating a source bundle')
     revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
-    tar=subprocess.check_output(['git','archive','--format=tar','--prefix=rplusplus-0.1.0/',revision],cwd=ROOT)
+    subprocess.run(['git', 'verify-commit', revision], cwd=ROOT, check=True)
+    version = re.search(r'^project\(Rplusplus VERSION (\d+\.\d+\.\d+) LANGUAGES NONE\)$',
+                        (ROOT/'CMakeLists.txt').read_text(), re.M)
+    if not version:
+        raise SystemExit('Cannot determine the release version from CMakeLists.txt')
+    version = version[1]
+    tar=subprocess.check_output(['git','archive','--format=tar',f'--prefix=rplusplus-{version}/',revision],cwd=ROOT)
     def compress():
         stream=io.BytesIO()
         with gzip.GzipFile(filename='',fileobj=stream,mode='wb',mtime=0) as output:output.write(tar)
         return stream.getvalue()
     data=compress();assert data==compress()
     args.output.mkdir(parents=True,exist_ok=True)
-    name='rplusplus-0.1.0-candidate.tar.gz'
+    name=f'rplusplus-{version}.tar.gz'
     (args.output/name).write_bytes(data)
     checksum=hashlib.sha256(data).hexdigest()
     (args.output/'SHA256SUMS').write_text(f'{checksum}  {name}\n')
-    recipe=(ROOT/'packaging/PKGBUILD.in').read_text().replace('@SOURCE_SHA256@',checksum).replace('rplusplus-${pkgver}.tar.gz','rplusplus-${pkgver}-candidate.tar.gz')
+    recipe=(ROOT/'packaging/PKGBUILD.in').read_text().replace('@VERSION@',version).replace('@SOURCE_SHA256@',checksum)
     (args.output/'PKGBUILD').write_text(recipe)
-    (args.output/'manifest.json').write_text(json.dumps({'schema':1,'revision':revision,'source_sha256':checksum,'status':'candidate','release_ready':False},indent=2)+'\n')
+    (args.output/'manifest.json').write_text(json.dumps({'schema':1,'version':version,'revision':revision,'source_archive':name,'source_sha256':checksum,'status':'candidate','release_ready':False},indent=2)+'\n')
 if __name__=='__main__':main()

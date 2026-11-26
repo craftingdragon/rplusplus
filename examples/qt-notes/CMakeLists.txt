@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 cmake_minimum_required(VERSION 3.25)
 list(PREPEND CMAKE_MODULE_PATH "${RPLUSPLUS_MODULE_DIR}")
-project(RppNotes VERSION 0.1.0 LANGUAGES CXX Rpp)
+project(RppNotes VERSION 0.2.0 LANGUAGES CXX Rpp)
 find_package(SQLite3 REQUIRED)
 # CMake 3.25 exposes only the legacy imported name.
 if(NOT TARGET SQLite3::SQLite3)

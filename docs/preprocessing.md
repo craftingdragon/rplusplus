@@ -228,7 +228,10 @@ Ninja can consume the native compiler depfile. With cross-configuration
 Ninja aliases enabled on CMake releases older than 4.5, the preprocessing
 edge uses its explicit input dependencies. This avoids a CMake 3.25
 generation crash with a custom-command depfile. The driver still emits
-the preprocessing depfile. Interrupted regeneration is
+the preprocessing depfile. The same explicit input dependencies handle
+Ninja build directories containing a literal dollar sign on older CMake
+releases, which can emit an unescaped path for the transformed depfile.
+Interrupted regeneration is
 recovered on the next build, with a private ownership journal outside the
 mirror to survive generator cleanup. Installed static archives continue to
 use the existing runtime metadata and require no preprocessing state.

@@ -2,7 +2,7 @@
 include_guard(GLOBAL)
 function(rpp_validate_toolchain)
   if(CMAKE_CROSSCOMPILING)
-    message(FATAL_ERROR "Rpp v0.1 supports native toolchains only; use a native build directory")
+    message(FATAL_ERROR "Rpp supports native toolchains only; use a native build directory")
   endif()
   execute_process(COMMAND "${RPP_RUSTC_EXECUTABLE}" -vV
     RESULT_VARIABLE status OUTPUT_VARIABLE identity ERROR_VARIABLE diagnostic)
@@ -14,7 +14,7 @@ function(rpp_validate_toolchain)
     message(FATAL_ERROR "Rpp requires stable Rust >=1.85 for edition 2024. Select it with -DRPP_RUSTC_EXECUTABLE=/path/to/rustc. Found: ${identity}")
   endif()
   if(identity MATCHES "nightly|beta")
-    message(WARNING "Selected Rust is outside the supported stable v0.1 matrix: ${identity}")
+    message(WARNING "Selected Rust is outside the supported stable matrix: ${identity}")
   endif()
   execute_process(COMMAND "${RPP_RUSTC_EXECUTABLE}" --print sysroot
     RESULT_VARIABLE status OUTPUT_VARIABLE sysroot OUTPUT_STRIP_TRAILING_WHITESPACE)
