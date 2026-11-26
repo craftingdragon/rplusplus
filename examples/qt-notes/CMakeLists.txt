@@ -11,6 +11,15 @@ find_package(Qt6 REQUIRED COMPONENTS Widgets)
 add_library(notes_core STATIC core.rs)
 set_target_properties(notes_core PROPERTIES RPP_CRATE_TYPE rlib)
 add_library(notes_backend STATIC bridge.rs)
+option(RPP_NOTES_PREPROCESS "Enable preprocessed note-count reporting" OFF)
+if(RPP_NOTES_PREPROCESS)
+  target_sources(notes_backend PRIVATE count_preprocessed.rs)
+  set_target_properties(notes_backend PROPERTIES
+    RPP_CRATE_ROOT bridge.rs
+    RPP_PREPROCESS ON
+    RPP_PREPROCESS_DEFINITIONS "RPP_NOTES_COUNT=1")
+  target_compile_options(notes_backend PRIVATE "$<$<COMPILE_LANGUAGE:Rpp>:--cfg=rpp_notes_preprocess>")
+endif()
 target_link_libraries(notes_backend PRIVATE notes_core PUBLIC SQLite3::SQLite3)
 target_include_directories(notes_backend PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>" "$<INSTALL_INTERFACE:include>")
 add_executable(RppNotes main.cpp)

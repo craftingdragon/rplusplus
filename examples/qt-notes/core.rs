@@ -120,6 +120,13 @@ impl Database {
         }
         Ok(())
     }
+    pub fn count(&self) -> Result<i64, String> {
+        let stmt = self.prepare(c"SELECT COUNT(*) FROM notes")?;
+        if unsafe { sqlite3_step(stmt.0) } != 100 {
+            return Err(self.error());
+        }
+        Ok(unsafe { sqlite3_column_int64(stmt.0, 0) })
+    }
     pub fn list(&self, mut row: impl FnMut(i64, &str) -> Result<(), String>) -> Result<(), String> {
         let stmt = self.prepare(c"SELECT id,text FROM notes ORDER BY id")?;
         loop {

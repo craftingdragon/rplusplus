@@ -239,6 +239,53 @@ deletion recoveries. The M0 replay verified another 168 recoveries and
 preserved both negative controls.
 [Compatibility evidence](baselines/v0.2-m6-preprocess-cmake.json)
 
+## Qt Notes example (v0.2 M7)
+
+Install R++ and use system Qt 6 Widgets and SQLite. Configure the example
+with a stable Rust compiler and opt in to the note count.
+
+```sh
+cmake -S examples/qt-notes -B build-qt-count -G Ninja \
+  -DRPLUSPLUS_MODULE_DIR=/path/to/install/share/rplusplus/cmake \
+  -DRPP_RUSTC_EXECUTABLE=/path/to/stable/rustc \
+  -DRPP_NOTES_PREPROCESS=ON
+cmake --build build-qt-count
+RPP_NOTES_EXPECT_COUNT=1 ctest --test-dir build-qt-count --output-on-failure
+```
+
+`RPP_NOTES_PREPROCESS` defaults to `OFF`. The default build uses ordinary Rust
+and hides the count. Both builds export `notes_count` through the same
+`RppNotes::notes_backend` package and header. The call returns
+`NOTES_COUNT_UNAVAILABLE` in the count output when the feature is inactive.
+Callers release any error buffer with `notes_free`.
+
+For a visual smoke test, use a fresh data directory on Linux.
+
+```sh
+visual=$(mktemp -d)
+XDG_DATA_HOME="$visual/data" ./build-qt-count/RppNotes
+```
+
+Check that the empty window shows `0 notes`. Save `Grüezi — 日本語 🦀`,
+edit it to `Überarbeitet — 中文 🦀`, and add a second note. The count should
+reach two and editing should leave it unchanged. Resize the window, close
+it, and reopen it with the same command. Check the exact Unicode text and
+delete both notes. The count should reach zero and stay there after a restart.
+Build with the option off and repeat with a fresh data directory to check
+that the count is hidden.
+
+To exercise the database-open error without changing existing notes, set
+`XDG_DATA_HOME` to a regular file in the temporary directory.
+
+```sh
+touch "$visual/blocked"
+XDG_DATA_HOME="$visual/blocked" ./build-qt-count/RppNotes
+```
+
+Check that an error appears and that Save and Delete are disabled. Follow the
+candidate-specific recording instructions for the mandatory release visual
+signoff. [Release procedure](release-procedure.md)
+
 ## Preprocessing language and internal library (v0.2 M2)
 
 M2 implements the pure, standard-library-only Rust library in `src/preprocess`

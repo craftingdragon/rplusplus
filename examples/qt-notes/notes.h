@@ -16,6 +16,10 @@ void notes_close(NotesHandle *);
 void notes_free(NotesBuffer);
 int32_t notes_save(NotesHandle *, int64_t, NotesView, NotesBuffer *);
 int32_t notes_delete(NotesHandle *, int64_t, NotesBuffer *);
+enum { NOTES_COUNT_UNAVAILABLE = -1 };
+/* On success, writes the count or NOTES_COUNT_UNAVAILABLE. On failure the
+   output is untouched and any error buffer must be freed with notes_free. */
+int32_t notes_count(NotesHandle *, int64_t *, NotesBuffer *);
 int32_t notes_list(NotesHandle *, NotesRow, void *, NotesBuffer *);
 #ifdef __cplusplus
 }

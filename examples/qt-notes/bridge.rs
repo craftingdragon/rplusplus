@@ -4,6 +4,17 @@ use std::{
     panic::{AssertUnwindSafe, catch_unwind},
     ptr,
 };
+#[cfg(rpp_notes_preprocess)]
+#[path = "count_preprocessed.rs"]
+mod count;
+#[cfg(not(rpp_notes_preprocess))]
+mod count {
+    use notes_core::Database;
+
+    pub(super) fn read(_db: &Database) -> Result<Option<i64>, String> {
+        Ok(None)
+    }
+}
 #[repr(C)]
 pub struct View {
     data: *const u8,
@@ -88,6 +99,16 @@ pub unsafe extern "C" fn notes_save(h: *mut Database, id: i64, v: View, err: *mu
 #[unsafe(no_mangle)]
 pub unsafe extern "C" fn notes_delete(h: *mut Database, id: i64, err: *mut Buffer) -> i32 {
     unsafe { boundary(err, || db(h)?.delete(id)) }
+}
+#[unsafe(no_mangle)]
+pub unsafe extern "C" fn notes_count(h: *mut Database, out: *mut i64, err: *mut Buffer) -> i32 {
+    unsafe {
+        boundary(err, || {
+            let out = out.as_mut().ok_or("null output count")?;
+            *out = count::read(db(h)?)?.unwrap_or(-1);
+            Ok(())
+        })
+    }
 }
 #[unsafe(no_mangle)]
 pub unsafe extern "C" fn notes_list(
