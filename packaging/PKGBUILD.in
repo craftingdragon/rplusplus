@@ -5,8 +5,11 @@ pkgrel=1
 pkgdesc='Experimental Cargo-free Rust compiler driver and native CMake integration'
 arch=('x86_64')
 license=('GPL-3.0-or-later')
-depends=('rust>=1.85' 'cmake>=3.25' 'gcc-libs')
+# rustup provides unversioned rust. CMake checks the selected rustc version.
+depends=('rust' 'cmake>=3.25' 'gcc-libs')
 makedepends=('ninja' 'python')
+# Mixed Rust/C++ links need regular C++ objects, not GCC LTO bytecode.
+options=('!lto')
 source=("rplusplus-${pkgver}.tar.gz")
 sha256sums=('@SOURCE_SHA256@')
 build() {
