@@ -233,6 +233,12 @@ recovered on the next build, with a private ownership journal outside the
 mirror to survive generator cleanup. Installed static archives continue to
 use the existing runtime metadata and require no preprocessing state.
 
+All eleven CTest gates passed with CMake 3.25.0 and 4.5.0, each paired with
+stable Rust 1.85.0 and 1.100.0. The native gate verified 240 generated-output
+deletion recoveries. The M0 replay verified another 168 recoveries and
+preserved both negative controls.
+[Compatibility evidence](baselines/v0.2-m6-preprocess-cmake.json)
+
 ## Preprocessing language and internal library (v0.2 M2)
 
 M2 implements the pure, standard-library-only Rust library in `src/preprocess`
