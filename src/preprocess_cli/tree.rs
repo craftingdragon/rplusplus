@@ -89,8 +89,27 @@ pub(super) fn execute(cli: Cli, cwd: &Path) -> Result<()> {
     }
 
     let mut options = cli.options;
+    let managed = cli.cmake_source_dir.is_some();
+    if managed {
+        let mut definitions = BTreeMap::new();
+        for definition in &options.definitions {
+            if let pp::InitialDefinition::Define(name, value) = definition {
+                if definitions
+                    .insert(name, value)
+                    .is_some_and(|old| old != value)
+                {
+                    return Err(format!(
+                        "{}: conflicting initial definition of {name}",
+                        out.display()
+                    )
+                    .into());
+                }
+            }
+        }
+    }
     for dir in &mut options.include_dirs {
-        let (rel, physical) = resolve(dir)?;
+        let path = absolute(cli.cmake_source_dir.as_deref().unwrap_or(cwd), dir);
+        let (rel, physical) = resolve(&path)?;
         if !physical.is_dir() {
             return Err(format!("{} is not an include directory", dir.display()).into());
         }
@@ -166,5 +185,5 @@ pub(super) fn execute(cli: Cli, cwd: &Path) -> Result<()> {
             crate::lex::Edition::Rust2024 => "2024",
         },
     };
-    snapshot::publish(&out, spec, payload, dependency, &physical_inputs)
+    snapshot::publish(&out, spec, payload, dependency, &physical_inputs, managed)
 }

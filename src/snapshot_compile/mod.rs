@@ -33,7 +33,12 @@ impl Snapshot {
         Ok((fs::canonicalize(directory)?, verified))
     }
 
-    pub(crate) fn compile(dir: &str, edition: &str, args: &mut [String]) -> Result<Self> {
+    pub(crate) fn compile(
+        dir: &str,
+        edition: &str,
+        original_entry: Option<&str>,
+        args: &mut [String],
+    ) -> Result<Self> {
         let cwd = std::env::current_dir()?;
         let (directory, verified) = Self::open(Path::new(dir))?;
         if verified.edition != edition {
@@ -58,10 +63,17 @@ impl Snapshot {
                 "snapshot compile requires the original entry as the final argument".into(),
             );
         }
-        let mut original = absolute(&cwd, Path::new(source));
+        let generated = directory.join(&verified.entry);
+        if original_entry.is_some()
+            && fs::canonicalize(absolute(&cwd, Path::new(source)))? != generated
+        {
+            return Err("native compile source does not match the verified snapshot entry".into());
+        }
+        let original_entry = original_entry.unwrap_or(source);
+        let mut original = absolute(&cwd, Path::new(original_entry));
         if !original.ends_with(&verified.entry) {
             return Err(format!(
-                "original entry {source} must end with {}",
+                "original entry {original_entry} must end with {}",
                 verified.entry.display()
             )
             .into());
@@ -69,7 +81,7 @@ impl Snapshot {
         for _ in verified.entry.components() {
             original.pop();
         }
-        *source = utf8(&directory.join(&verified.entry))?.to_owned();
+        *source = utf8(&generated)?.to_owned();
         Ok(Self {
             directory,
             original,

@@ -40,6 +40,7 @@ struct Cli {
     map: Option<PathBuf>,
     options: pp::Options,
     json: bool,
+    cmake_source_dir: Option<PathBuf>,
 }
 
 fn set<T>(slot: &mut Option<T>, value: T, name: &str) -> Result<(), String> {
@@ -91,6 +92,7 @@ fn parse(args: &[String]) -> Result<Option<Cli>, String> {
                 | "--depfile"
                 | "--source-map"
                 | "--diagnostic-format"
+                | "--rpp-cmake-source-dir"
         ) {
             return Err(format!("unknown option {flag}"));
         }
@@ -106,6 +108,7 @@ fn parse(args: &[String]) -> Result<Option<Cli>, String> {
             "--source-root" => set(&mut cli.root, value.into(), flag)?,
             "--depfile" => set(&mut cli.depfile, value.into(), flag)?,
             "--source-map" => set(&mut cli.map, value.into(), flag)?,
+            "--rpp-cmake-source-dir" => set(&mut cli.cmake_source_dir, value.into(), flag)?,
             "-I" | "--include-dir" => cli.options.include_dirs.push(value.into()),
             "--input" => cli.inputs.push(value.into()),
             "-D" | "--define" | "-U" | "--undef" => {
@@ -148,6 +151,9 @@ fn parse(args: &[String]) -> Result<Option<Cli>, String> {
     }
     if cli.output_dir.is_none() && (!cli.sources.is_empty() || !cli.data.is_empty()) {
         return Err("--source and --data require --output-dir".into());
+    }
+    if cli.cmake_source_dir.is_some() && cli.output_dir.is_none() {
+        return Err("CMake preprocessing requires a tree output".into());
     }
     if cli.entry.is_none() || (cli.output.is_none() && cli.output_dir.is_none()) {
         return Err("expected an input file and -o OUTPUT".into());

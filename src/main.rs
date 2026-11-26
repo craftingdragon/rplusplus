@@ -234,6 +234,10 @@ fn execute_inner(args: Vec<String>, final_output: Option<&str>) -> Result<()> {
         let dep = take(&mut args, "--depfile")?.ok_or("missing depfile")?;
         let edition = take(&mut args, "--edition")?.unwrap_or_else(|| "2024".into());
         let snapshot_dir = take(&mut args, "--rpp-snapshot")?;
+        let original_entry = take(&mut args, "--rpp-original-entry")?;
+        if original_entry.is_some() && snapshot_dir.is_none() {
+            return Err("--rpp-original-entry requires --rpp-snapshot".into());
+        }
         let name = take(&mut args, "--name")?.unwrap_or_else(|| "rpp_probe".into());
         if !["bin", "rlib", "staticlib"].contains(&kind.as_str()) {
             return Err("unsupported crate type".into());
@@ -253,7 +257,14 @@ fn execute_inner(args: Vec<String>, final_output: Option<&str>) -> Result<()> {
         }
         let snapshot = snapshot_dir
             .as_deref()
-            .map(|dir| snapshot_compile::Snapshot::compile(dir, &edition, &mut args))
+            .map(|dir| {
+                snapshot_compile::Snapshot::compile(
+                    dir,
+                    &edition,
+                    original_entry.as_deref(),
+                    &mut args,
+                )
+            })
             .transpose()?;
         use std::hash::{Hash, Hasher};
         let mut identity = std::collections::hash_map::DefaultHasher::new();

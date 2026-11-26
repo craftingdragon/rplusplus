@@ -338,8 +338,13 @@ pub(super) fn publish(
     payload: BTreeMap<PathBuf, Vec<u8>>,
     dep: Option<(PathBuf, Vec<u8>)>,
     inputs: &[PathBuf],
+    managed: bool,
 ) -> Result<()> {
-    publish_with(root, spec, payload, dep, inputs, |_| {})
+    publish_with(root, spec, payload, dep, inputs, managed, |_| {})?;
+    if managed {
+        fs::File::open(root.join(COMPLETE))?.set_modified(std::time::SystemTime::now())?;
+    }
+    Ok(())
 }
 
 fn publish_with(
@@ -348,6 +353,7 @@ fn publish_with(
     mut payload: BTreeMap<PathBuf, Vec<u8>>,
     dep: Option<(PathBuf, Vec<u8>)>,
     inputs: &[PathBuf],
+    managed: bool,
     checkpoint: impl Fn(&str),
 ) -> Result<()> {
     let dep_path = dep.as_ref().map(|(p, _)| p.clone());
@@ -365,8 +371,20 @@ fn publish_with(
     let (files, dirs) = tree_entries(root)?;
     let ledger = bytes(root, Path::new(OWNED))?;
     let existing_manifest = bytes(root, Path::new(MANIFEST))?;
+    let journal = managed.then(|| root.with_extension("rpp-owned"));
+    let recovery = journal
+        .as_deref()
+        .map(|path| bytes(path.parent().unwrap(), Path::new(path.file_name().unwrap())))
+        .transpose()?
+        .flatten();
+    let recovered = recovery
+        .as_deref()
+        .map(|data| ownership(Some(data)))
+        .transpose()?;
     let old = if ledger.is_some() {
         ownership(ledger.as_deref())?
+    } else if let Some(recovered) = recovered {
+        recovered
     } else if let Some(manifest) = &existing_manifest {
         // The last published manifest retains its owned paths even if the
         // ledger was deleted. It includes the optional disposable depfile.
@@ -384,13 +402,17 @@ fn publish_with(
             temporary(Path::new(COMPLETE)),
         ])
         .collect();
+    // CMake can create parent directories for declared outputs before the
+    // first writer starts. Files inside them still need an ownership record.
+    let declared_dirs = desired.iter().filter(|_| managed).flat_map(|p| parents(p));
     let previous_dirs: BTreeSet<_> = old
         .iter()
         .flat_map(|p| parents(p))
         .chain([Path::new(".rpp")])
+        .chain(declared_dirs)
         .collect();
     for path in &files {
-        let known = if ledger.is_some() || existing_manifest.is_some() {
+        let known = if ledger.is_some() || existing_manifest.is_some() || recovery.is_some() {
             old.contains(path)
                 || [OWNED, MANIFEST, COMPLETE]
                     .iter()
@@ -456,6 +478,10 @@ fn publish_with(
     // retry after interruption safe.
     let mut pending = old.clone();
     pending.extend(desired.iter().cloned());
+    if let Some(journal) = &journal {
+        fs::create_dir_all(journal.parent().unwrap())?;
+        artifacts::publish(vec![(journal.clone(), encode_owned(&pending))], inputs)?;
+    }
     for path in files.intersection(&temps) {
         remove(root, path)?;
     }
@@ -487,6 +513,9 @@ fn publish_with(
     }
     if pending != desired {
         replace(root, Path::new(OWNED), &encode_owned(&desired))?;
+        if let Some(journal) = &journal {
+            artifacts::publish(vec![(journal.clone(), encode_owned(&desired))], inputs)?;
+        }
     }
     checkpoint("manifest");
     replace(root, Path::new(COMPLETE), &completion)?;
@@ -498,7 +527,7 @@ mod tests {
     use super::*;
     use std::process::Command;
 
-    fn write_fixture(root: &Path, new: bool, stop: impl Fn(&str)) -> Result<()> {
+    fn write_fixture(root: &Path, new: bool, managed: bool, stop: impl Fn(&str)) -> Result<()> {
         let mut files = BTreeMap::from([(
             PathBuf::from("entry.rs"),
             if new {
@@ -515,21 +544,27 @@ mod tests {
             map: Path::new("map.json"),
             edition: "2024",
         };
-        publish_with(root, spec, files, None, &[], stop)
+        publish_with(root, spec, files, None, &[], managed, stop)
     }
 
     #[test]
     fn interrupted_snapshot_recovers() {
         const CHILD: &str = "RPP_TEST_SNAPSHOT_CHILD";
         const PHASE: &str = "RPP_TEST_SNAPSHOT_PHASE";
+        const MANAGED: &str = "RPP_TEST_SNAPSHOT_MANAGED";
         if let Some(root) = std::env::var_os(CHILD) {
             let phase = std::env::var(PHASE).unwrap();
-            write_fixture(Path::new(&root), true, |checkpoint| {
-                if checkpoint == phase {
-                    // Exit without unwinding, as with an interrupted writer.
-                    std::process::exit(71);
-                }
-            })
+            write_fixture(
+                Path::new(&root),
+                true,
+                std::env::var_os(MANAGED).is_some(),
+                |checkpoint| {
+                    if checkpoint == phase {
+                        // Exit without unwinding, as with an interrupted writer.
+                        std::process::exit(71);
+                    }
+                },
+            )
             .unwrap();
             panic!("checkpoint did not interrupt publication");
         }
@@ -546,7 +581,7 @@ mod tests {
             for phase in ["invalidated", "staged", "payload", "manifest"] {
                 let folder = root.join(format!("{first}-{phase}"));
                 if !first {
-                    write_fixture(&folder, false, |_| {}).unwrap();
+                    write_fixture(&folder, false, false, |_| {}).unwrap();
                     assert!(verify(&folder).is_ok());
                 }
                 let result = Command::new(std::env::current_exe().unwrap())
@@ -560,23 +595,47 @@ mod tests {
                     .unwrap();
                 assert_eq!(result.status.code(), Some(71), "{result:?}");
                 assert!(verify(&folder).is_err(), "{phase}");
-                write_fixture(&folder, true, |_| {}).unwrap();
+                write_fixture(&folder, true, false, |_| {}).unwrap();
                 assert!(verify(&folder).is_ok(), "{phase}");
                 assert!(!folder.join("old").exists(), "{phase}");
                 fs::write(folder.join("entry.rs"), "bad").unwrap();
                 assert!(verify(&folder).is_err());
-                write_fixture(&folder, true, |_| {}).unwrap();
+                write_fixture(&folder, true, false, |_| {}).unwrap();
                 fs::remove_file(folder.join("new/data.bin")).unwrap();
                 assert!(verify(&folder).is_err());
-                write_fixture(&folder, true, |_| {}).unwrap();
+                write_fixture(&folder, true, false, |_| {}).unwrap();
                 assert!(verify(&folder).is_ok());
                 let unexpected = folder.join("unexpected.rs");
                 fs::write(&unexpected, "unowned").unwrap();
                 assert!(verify(&folder).is_err());
-                assert!(write_fixture(&folder, true, |_| {}).is_err());
+                assert!(write_fixture(&folder, true, false, |_| {}).is_err());
                 assert_eq!(fs::read(&unexpected).unwrap(), b"unowned");
             }
         }
+        let folder = root.join("managed");
+        write_fixture(&folder, false, true, |_| {}).unwrap();
+        let result = Command::new(std::env::current_exe().unwrap())
+            .args([
+                "--exact",
+                "preprocess_cli::snapshot::tests::interrupted_snapshot_recovers",
+            ])
+            .env(CHILD, &folder)
+            .env(PHASE, "manifest")
+            .env(MANAGED, "1")
+            .output()
+            .unwrap();
+        assert_eq!(result.status.code(), Some(71), "{result:?}");
+        for record in [OWNED, MANIFEST] {
+            fs::remove_file(folder.join(record)).unwrap();
+        }
+        assert!(verify(&folder).is_err());
+        fs::write(folder.join("unexpected.rs"), "unowned").unwrap();
+        assert!(write_fixture(&folder, true, true, |_| {}).is_err());
+        assert_eq!(fs::read(folder.join("unexpected.rs")).unwrap(), b"unowned");
+        fs::remove_file(folder.join("unexpected.rs")).unwrap();
+        write_fixture(&folder, true, true, |_| {}).unwrap();
+        assert!(verify(&folder).is_ok());
+        assert!(!folder.join("old").exists());
         fs::remove_dir_all(root).unwrap();
     }
 }
