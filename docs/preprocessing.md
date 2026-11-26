@@ -286,6 +286,11 @@ Check that an error appears and that Save and Delete are disabled. Follow the
 candidate-specific recording instructions for the mandatory release visual
 signoff. [Release procedure](release-procedure.md)
 
+The three Qt build modes passed on Ninja, Unix Makefiles and Ninja Multi-Config
+in Debug and Release. All eleven CTest gates passed for each pairing of CMake
+3.25.0 and 4.5.0 with stable Rust 1.85.0, 1.99.1 and 1.100.0.
+[Compatibility evidence](baselines/v0.2-m7-qt-notes.json)
+
 ## Preprocessing language and internal library (v0.2 M2)
 
 M2 implements the pure, standard-library-only Rust library in `src/preprocess`
