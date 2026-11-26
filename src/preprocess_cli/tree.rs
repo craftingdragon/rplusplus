@@ -142,7 +142,10 @@ pub(super) fn execute(cli: Cli, cwd: &Path) -> Result<()> {
     for (path, result) in results {
         payload.insert(path, result.text.into_bytes());
     }
-    if payload.insert(map, map_bytes.into_bytes()).is_some() {
+    if payload
+        .insert(map.clone(), map_bytes.into_bytes())
+        .is_some()
+    {
         return Err("source map collides with mirrored input".into());
     }
     let dependency = dep
@@ -155,5 +158,13 @@ pub(super) fn execute(cli: Cli, cwd: &Path) -> Result<()> {
             Ok((path, contents.into_bytes()))
         })
         .transpose()?;
-    snapshot::publish(&out, &logical_entry, payload, dependency, &physical_inputs)
+    let spec = snapshot::TreeSpec {
+        entry: &logical_entry,
+        map: &map,
+        edition: match options.edition {
+            crate::lex::Edition::Rust2021 => "2021",
+            crate::lex::Edition::Rust2024 => "2024",
+        },
+    };
+    snapshot::publish(&out, spec, payload, dependency, &physical_inputs)
 }

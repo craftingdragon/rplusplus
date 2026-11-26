@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-mod artifacts;
+pub(crate) mod artifacts;
 mod references;
 mod sha256;
-mod snapshot;
+pub(crate) mod snapshot;
 mod tree;
 
 use crate::{lex, preprocess as pp};
@@ -181,7 +181,7 @@ pub(super) fn run(args: &[String]) -> i32 {
     }
 }
 
-fn absolute(cwd: &Path, path: &Path) -> PathBuf {
+pub(crate) fn absolute(cwd: &Path, path: &Path) -> PathBuf {
     let mut normalized = PathBuf::new();
     for component in cwd.join(path).components() {
         match component {

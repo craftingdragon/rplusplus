@@ -58,8 +58,9 @@ def main(driver, base):
         state = files()
         data = state[".rpp/manifest"][0]
         assert state[".rpp/complete"][0].strip().decode() == hashlib.sha256(data).hexdigest()
-        magic, entry, dep_name, *fields = data.decode().split("\0")[:-1]
-        assert (magic, entry, dep_name) == ("rpp-tree-v1", "src/main.rs", ".rpp/tree.d")
+        magic, entry, edition, mapping, dep_name, *fields = data.decode().split("\0")[:-1]
+        assert (magic, entry, dep_name) == ("rpp-tree-v2", "src/main.rs", ".rpp/tree.d")
+        assert edition in ("2021", "2024") and mapping == ".rpp/source-map.json"
         assert list(fields[::2]) == sorted([*sources, *assets, ".rpp/source-map.json"], key=lambda p: Path(p).parts)
         assert all(hashlib.sha256(state[p][0]).hexdigest() == h for p, h in zip(fields[::2], fields[1::2]))
         assert {v["generated"] for v in json.loads(state[".rpp/source-map.json"][0])["sources"]} == set(sources)

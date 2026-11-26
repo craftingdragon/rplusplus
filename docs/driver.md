@@ -1,5 +1,10 @@
 # Cargo-free driver milestone
 
+## Preprocessed compilation
+
+The snapshot flag can be passed directly to `rpp compile`. See the [preprocessing
+guide](preprocessing.md) for the invocation, dependency rules and diagnostic behavior.
+
 ## Bootstrap and tool selection
 
 Configure R++ with `-DRPP_RUSTC_EXECUTABLE=/absolute/path/to/stable/rustc`, build, then install. The driver is installed to `bin/rpp`; modules remain in `share/rplusplus/cmake`. Consumers set `RPLUSPLUS_MODULE_DIR` before enabling `project(App LANGUAGES CXX Rpp)`. Alternatively call `find_package(Rplusplus CONFIG REQUIRED)` before `project()` with the installed prefix on CMAKE_PREFIX_PATH. Installed modules discover the sibling installed driver; `CMAKE_Rpp_COMPILER` can explicitly select another installed driver. Select the same underlying rustc for every crate in a build.

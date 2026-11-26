@@ -3,13 +3,14 @@
 mod lex;
 mod preprocess;
 mod preprocess_cli;
+mod snapshot_compile;
 use std::{
     env, fs,
     path::{Path, PathBuf},
     process::{Command, Stdio},
 };
 #[derive(Debug)]
-struct ToolFailure(i32);
+struct ToolFailure(i32, bool);
 impl std::fmt::Display for ToolFailure {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "compiler or linker exited with status {}", self.0)
@@ -20,7 +21,7 @@ type Result<T> = std::result::Result<T, Box<dyn std::error::Error>>;
 fn run(tool: &str, args: &[String]) -> Result<()> {
     let status = Command::new(tool).args(args).status()?;
     if !status.success() {
-        return Err(Box::new(ToolFailure(status.code().unwrap_or(1))));
+        return Err(Box::new(ToolFailure(status.code().unwrap_or(1), false)));
     }
     Ok(())
 }
@@ -119,8 +120,11 @@ fn embedded(path: &Path) -> Result<Vec<String>> {
 }
 fn main() {
     if let Err(e) = execute() {
-        eprintln!("rpp: {e}");
-        std::process::exit(e.downcast_ref::<ToolFailure>().map_or(1, |e| e.0));
+        let failure = e.downcast_ref::<ToolFailure>();
+        if !failure.is_some_and(|e| e.1) {
+            eprintln!("rpp: {e}");
+        }
+        std::process::exit(failure.map_or(1, |e| e.0));
     }
 }
 fn execute() -> Result<()> {
@@ -140,10 +144,10 @@ fn execute() -> Result<()> {
         return Ok(());
     }
     let Some(index) = args.iter().position(|s| s == "-o") else {
-        return execute_inner(args);
+        return execute_inner(args, None);
     };
     let Some(output) = args.get(index + 1).cloned() else {
-        return execute_inner(args);
+        return execute_inner(args, None);
     };
     let staged = format!("{output}.rpp-stage.rlib");
     args[index + 1] = staged.clone();
@@ -156,36 +160,62 @@ fn execute() -> Result<()> {
         let i = args.iter().position(|s| s == "--depfile").unwrap();
         args[i + 1] = format!("{dep}.rpp-stage");
     }
+    let snapshot_compile = args.first().is_some_and(|op| op == "compile")
+        && args.iter().any(|arg| arg == "--rpp-snapshot");
+    if snapshot_compile {
+        if let Some(dep) = &dep {
+            let cwd = env::current_dir()?;
+            let output_path = preprocess_cli::absolute(&cwd, Path::new(&output));
+            let dep_path = preprocess_cli::absolute(&cwd, Path::new(dep));
+            if preprocess_cli::artifacts::aliases(&output_path, &dep_path) {
+                return Err("compiler output and depfile must be distinct".into());
+            }
+        }
+    }
+    let mut cleanup = vec![staged.clone(), format!("{staged}.rust.a")];
+    if let Some(dep) = &dep {
+        cleanup.push(format!("{dep}.rpp-stage"));
+    }
+    // An invalid output destination can name an existing verified payload
+    // through the staging spelling. On failure retain paths we did not own.
+    let preexisting: Vec<_> = cleanup
+        .iter()
+        .map(|p| fs::symlink_metadata(p).is_ok())
+        .collect();
     let result = (|| {
-        execute_inner(args)?;
+        execute_inner(args, Some(&output))?;
         if let Some(dep) = &dep {
             let temp = format!("{dep}.rpp-stage");
-            let escape = |s: &str| {
-                s.replace('\\', "\\\\")
-                    .replace(' ', "\\ ")
-                    .replace('#', "\\#")
-            };
-            let text = fs::read_to_string(&temp)?.replace(&escape(&staged), &escape(&output));
-            fs::write(&temp, text)?;
+            if !snapshot_compile {
+                let escape = |s: &str| {
+                    s.replace('\\', "\\\\")
+                        .replace(' ', "\\ ")
+                        .replace('#', "\\#")
+                };
+                let text = fs::read_to_string(&temp)?.replace(&escape(&staged), &escape(&output));
+                fs::write(&temp, text)?;
+            }
             fs::rename(temp, dep)?;
         }
         fs::rename(&staged, &output)?;
         Ok(())
     })();
-    let _ = fs::remove_file(&staged);
-    let _ = fs::remove_file(format!("{staged}.rust.a"));
-    if let Some(dep) = dep {
-        let _ = fs::remove_file(format!("{dep}.rpp-stage"));
+    for (path, existed) in cleanup.into_iter().zip(preexisting) {
+        if !existed || result.is_ok() {
+            let _ = fs::remove_file(path);
+        }
     }
     result
 }
-fn execute_inner(args: Vec<String>) -> Result<()> {
+fn execute_inner(args: Vec<String>, final_output: Option<&str>) -> Result<()> {
     if args.first().map(String::as_str) == Some("--version") {
         println!("rpp 0.1.0");
         return Ok(());
     }
     if args.is_empty() || args[0] == "--help" {
-        println!("rpp compile|link --rustc PATH [options]\nrpp preprocess INPUT -o OUTPUT [options]\nCargo-free Rust compiler driver");
+        println!(
+            "rpp compile|link --rustc PATH [options]\nrpp preprocess INPUT -o OUTPUT [options]\nCargo-free Rust compiler driver"
+        );
         return Ok(());
     }
     let mut args = args;
@@ -203,6 +233,7 @@ fn execute_inner(args: Vec<String>) -> Result<()> {
         let entry = take(&mut args, "--entry")?.unwrap_or_else(|| "Rpp".into());
         let dep = take(&mut args, "--depfile")?.ok_or("missing depfile")?;
         let edition = take(&mut args, "--edition")?.unwrap_or_else(|| "2024".into());
+        let snapshot_dir = take(&mut args, "--rpp-snapshot")?;
         let name = take(&mut args, "--name")?.unwrap_or_else(|| "rpp_probe".into());
         if !["bin", "rlib", "staticlib"].contains(&kind.as_str()) {
             return Err("unsupported crate type".into());
@@ -220,6 +251,10 @@ fn execute_inner(args: Vec<String>) -> Result<()> {
         {
             return Err("Rpp v0.1 supports native builds only; remove --target/--sysroot and select a matching installed rustc".into());
         }
+        let snapshot = snapshot_dir
+            .as_deref()
+            .map(|dir| snapshot_compile::Snapshot::compile(dir, &edition, &mut args))
+            .transpose()?;
         use std::hash::{Hash, Hasher};
         let mut identity = std::collections::hash_map::DefaultHasher::new();
         output.hash(&mut identity);
@@ -233,12 +268,24 @@ fn execute_inner(args: Vec<String>) -> Result<()> {
         if kind == "bin" && entry == "Rpp" {
             compile.push("--cap-lints=allow".into());
         }
-        compile.extend([
-            "--crate-type=rlib".into(),
-            format!("--emit=link,dep-info={dep}"),
-            "-o".into(),
-            output.clone(),
-        ]);
+        compile.push("--crate-type=rlib".into());
+        if snapshot.is_none() {
+            compile.push(format!("--emit=link,dep-info={dep}"));
+        }
+        compile.extend(["-o".into(), output.clone()]);
+        if let Some(snapshot) = snapshot {
+            let final_output = final_output.ok_or("missing final compile output")?;
+            snapshot.outside(final_output)?;
+            snapshot.outside(
+                dep.strip_suffix(".rpp-stage")
+                    .ok_or("missing staged depfile")?,
+            )?;
+            let report = snapshot.run(&rustc, compile, &output, Path::new(&dep), false)?;
+            report.publish_rule(Path::new(&dep), final_output, &env::current_dir()?)?;
+            let mut record = snapshot.record(kind, entry)?;
+            record.extend(saved);
+            return embed(Path::new(&output), &record);
+        }
         run(&rustc, &compile)?;
         let mut deptext = fs::read_to_string(&dep)?;
         let escape = |s: &str| {
@@ -328,8 +375,20 @@ fn execute_inner(args: Vec<String>) -> Result<()> {
         }
         if let Some(object) = records.first() {
             let data = embedded(Path::new(object))?;
-            if data.len() < 4 || data.first().map(String::as_str) != Some("rpp-record-v1") {
-                return Err("invalid compile record".into());
+            let (snapshot, first_arg) = match data.first().map(String::as_str) {
+                Some("rpp-record-v1") if data.len() >= 4 => (None, 3),
+                Some(snapshot_compile::RECORD) if data.len() >= 7 => (
+                    Some(snapshot_compile::Snapshot::from_record(&data[3..6])?),
+                    6,
+                ),
+                _ => return Err("invalid compile record".into()),
+            };
+            if let Some(snapshot) = &snapshot {
+                snapshot.outside(&output)?;
+                if let Some(path) = final_output {
+                    snapshot.outside(path)?;
+                }
+                snapshot_compile::remove_if_present(Path::new(&output))?;
             }
             let kind = &data[1];
             let entry = &data[2];
@@ -346,7 +405,7 @@ fn execute_inner(args: Vec<String>) -> Result<()> {
             } else {
                 output.clone()
             };
-            let mut compile = data[3..].to_vec();
+            let mut compile = data[first_arg..].to_vec();
             compile.extend([
                 format!(
                     "--crate-type={}",
@@ -360,26 +419,39 @@ fn execute_inner(args: Vec<String>) -> Result<()> {
                     return Err("multiple Rust static runtime boundaries".into());
                 }
                 compile.push("--print=native-static-libs".into());
-                let result = Command::new(&rustc)
-                    .args(&compile)
-                    .stdout(Stdio::inherit())
-                    .output()?;
-                let stderr = String::from_utf8_lossy(&result.stderr);
-                for line in stderr.lines() {
-                    if let Some((_, libs)) = line.split_once("native-static-libs:") {
-                        runtime.extend(
-                            libs.split('"')
-                                .next()
-                                .unwrap_or(libs)
-                                .split_whitespace()
-                                .map(String::from),
-                        );
-                    } else {
-                        eprintln!("{line}");
+                if let Some(snapshot) = &snapshot {
+                    runtime.extend(snapshot_final(
+                        snapshot,
+                        &rustc,
+                        compile,
+                        &destination,
+                        true,
+                    )?);
+                } else {
+                    let result = Command::new(&rustc)
+                        .args(&compile)
+                        .stdout(Stdio::inherit())
+                        .output()?;
+                    let stderr = String::from_utf8_lossy(&result.stderr);
+                    for line in stderr.lines() {
+                        if let Some((_, libs)) = line.split_once("native-static-libs:") {
+                            runtime.extend(
+                                libs.split('"')
+                                    .next()
+                                    .unwrap_or(libs)
+                                    .split_whitespace()
+                                    .map(String::from),
+                            );
+                        } else {
+                            eprintln!("{line}");
+                        }
                     }
-                }
-                if !result.status.success() {
-                    return Err(Box::new(ToolFailure(result.status.code().unwrap_or(1))));
+                    if !result.status.success() {
+                        return Err(Box::new(ToolFailure(
+                            result.status.code().unwrap_or(1),
+                            false,
+                        )));
+                    }
                 }
                 let mut record = vec!["rpp-runtime-v1".into()];
                 record.extend(runtime.clone());
@@ -397,6 +469,10 @@ fn execute_inner(args: Vec<String>) -> Result<()> {
                 compile.push(format!("-Clinker={cxx}"));
                 for arg in objects.iter().chain(native.iter()) {
                     compile.push(format!("-Clink-arg={arg}"));
+                }
+                if let Some(snapshot) = &snapshot {
+                    snapshot_final(snapshot, &rustc, compile, &destination, false)?;
+                    return Ok(());
                 }
                 return run(&rustc, &compile);
             }
@@ -421,6 +497,22 @@ fn execute_inner(args: Vec<String>) -> Result<()> {
         return Err(format!("unknown operation: {op}").into());
     }
     Ok(())
+}
+
+fn snapshot_final(
+    snapshot: &snapshot_compile::Snapshot,
+    rustc: &str,
+    args: Vec<String>,
+    destination: &str,
+    native: bool,
+) -> Result<Vec<String>> {
+    let dep = PathBuf::from(format!("{destination}.rpp-link.d"));
+    // Validate destinations before cleanup so no path inside a snapshot is
+    // touched when a caller supplies an invalid output location.
+    snapshot.outside(snapshot_compile::utf8(&dep)?)?;
+    let result = snapshot.run(rustc, args, destination, &dep, native);
+    let _ = fs::remove_file(dep);
+    Ok(result?.runtime)
 }
 
 #[cfg(test)]

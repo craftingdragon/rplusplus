@@ -9,9 +9,9 @@ use std::{
 };
 
 pub(super) const COMPLETE: &str = ".rpp/complete";
-const MANIFEST: &str = ".rpp/manifest";
+pub(crate) const MANIFEST: &str = ".rpp/manifest";
 const OWNED: &str = ".rpp/owned";
-const MANIFEST_MAGIC: &str = "rpp-tree-v1";
+const MANIFEST_MAGIC: &str = "rpp-tree-v2";
 const OWNED_MAGIC: &str = "rpp-owned-v1";
 
 pub(super) fn control(path: &Path) -> bool {
@@ -20,7 +20,7 @@ pub(super) fn control(path: &Path) -> bool {
         .any(|p| path.starts_with(p))
 }
 
-pub(super) fn validate_relative(path: &Path) -> Result<()> {
+pub(crate) fn validate_relative(path: &Path) -> Result<()> {
     let value = path.to_str().ok_or("snapshot paths must be UTF-8")?;
     if value.is_empty() || value.contains('\0')
         || !path.components().all(|c| matches!(c, Component::Normal(p) if !p.to_string_lossy().starts_with(".rpp-stage-")))
@@ -183,10 +183,22 @@ fn ownership(data: Option<&[u8]>) -> Result<BTreeSet<PathBuf>> {
     Ok(result)
 }
 
-fn manifest(entry: &Path, payload: &BTreeMap<PathBuf, Vec<u8>>, dep: Option<&Path>) -> Vec<u8> {
+pub(super) struct TreeSpec<'a> {
+    pub entry: &'a Path,
+    pub map: &'a Path,
+    pub edition: &'a str,
+}
+
+fn manifest(
+    spec: &TreeSpec<'_>,
+    payload: &BTreeMap<PathBuf, Vec<u8>>,
+    dep: Option<&Path>,
+) -> Vec<u8> {
     let mut out = format!(
-        "{MANIFEST_MAGIC}\0{}\0{}\0",
-        entry.to_str().unwrap(),
+        "{MANIFEST_MAGIC}\0{}\0{}\0{}\0{}\0",
+        spec.entry.to_str().unwrap(),
+        spec.edition,
+        spec.map.to_str().unwrap(),
         dep.map_or("", |p| p.to_str().unwrap())
     );
     for (p, content) in payload {
@@ -204,16 +216,29 @@ fn marker(manifest: &[u8]) -> Vec<u8> {
 
 struct Manifest<'a> {
     entry: PathBuf,
+    metadata: Option<(String, PathBuf)>,
     dep: Option<PathBuf>,
     payload: BTreeMap<PathBuf, &'a str>,
 }
 
 fn decode_manifest(manifest: &[u8]) -> Result<Manifest<'_>> {
     let mut entries = fields(manifest)?;
-    if entries.next() != Some(MANIFEST_MAGIC) {
-        return Err("invalid tree manifest version".into());
-    }
+    let legacy = match entries.next() {
+        Some("rpp-tree-v1") => true,
+        Some(MANIFEST_MAGIC) => false,
+        _ => return Err("invalid tree manifest version".into()),
+    };
     let entry = PathBuf::from(entries.next().ok_or("missing tree entry")?);
+    let metadata = if legacy {
+        None
+    } else {
+        let edition = entries
+            .next()
+            .filter(|s| matches!(*s, "2021" | "2024"))
+            .ok_or("missing or invalid tree edition")?;
+        let map = PathBuf::from(entries.next().ok_or("missing tree source map")?);
+        Some((edition.to_owned(), map))
+    };
     let dep = entries.next().ok_or("missing depfile field")?;
     let dep = (!dep.is_empty()).then(|| PathBuf::from(dep));
     let mut payload = BTreeMap::new();
@@ -236,8 +261,15 @@ fn decode_manifest(manifest: &[u8]) -> Result<Manifest<'_>> {
     if !payload.contains_key(&entry) || dep.as_ref().is_some_and(|p| payload.contains_key(p)) {
         return Err("invalid entry or depfile in manifest".into());
     }
+    if metadata
+        .as_ref()
+        .is_some_and(|(_, map)| map == &entry || !payload.contains_key(map))
+    {
+        return Err("invalid source map in manifest".into());
+    }
     Ok(Manifest {
         entry,
+        metadata,
         dep,
         payload,
     })
@@ -245,7 +277,15 @@ fn decode_manifest(manifest: &[u8]) -> Result<Manifest<'_>> {
 
 /// Verify a generated tree before consuming it. Return the entry path and
 /// snapshot identity so later compile/link integration can bind its record.
-pub(super) fn verify(root: &Path) -> Result<(PathBuf, String)> {
+pub(crate) struct Verified {
+    pub entry: PathBuf,
+    pub identity: String,
+    pub edition: String,
+    pub map: PathBuf,
+    pub payload: BTreeSet<PathBuf>,
+}
+
+pub(crate) fn verify(root: &Path) -> Result<Verified> {
     prospective_path(root)?;
     let (files, dirs) = tree_entries(root)?;
     let owned = ownership(bytes(root, Path::new(OWNED))?.as_deref())?;
@@ -280,29 +320,38 @@ pub(super) fn verify(root: &Path) -> Result<(PathBuf, String)> {
     {
         return Err("unexpected generated tree contents".into());
     }
-    Ok((expected.entry, sha256::hex(&manifest)))
+    let (edition, map) = expected
+        .metadata
+        .ok_or("legacy snapshot: regenerate the preprocessing tree")?;
+    Ok(Verified {
+        entry: expected.entry,
+        identity: sha256::hex(&manifest),
+        edition,
+        map,
+        payload: payload.into_keys().collect(),
+    })
 }
 
 pub(super) fn publish(
     root: &Path,
-    entry: &Path,
+    spec: TreeSpec<'_>,
     payload: BTreeMap<PathBuf, Vec<u8>>,
     dep: Option<(PathBuf, Vec<u8>)>,
     inputs: &[PathBuf],
 ) -> Result<()> {
-    publish_with(root, entry, payload, dep, inputs, |_| {})
+    publish_with(root, spec, payload, dep, inputs, |_| {})
 }
 
 fn publish_with(
     root: &Path,
-    entry: &Path,
+    spec: TreeSpec<'_>,
     mut payload: BTreeMap<PathBuf, Vec<u8>>,
     dep: Option<(PathBuf, Vec<u8>)>,
     inputs: &[PathBuf],
     checkpoint: impl Fn(&str),
 ) -> Result<()> {
     let dep_path = dep.as_ref().map(|(p, _)| p.clone());
-    let metadata = manifest(entry, &payload, dep_path.as_deref());
+    let metadata = manifest(&spec, &payload, dep_path.as_deref());
     if let Some((name, value)) = dep {
         payload.insert(name, value);
     }
@@ -460,7 +509,13 @@ mod tests {
         )]);
         let side = if new { "new/data.bin" } else { "old/data.bin" };
         files.insert(side.into(), vec![0, 255]);
-        publish_with(root, Path::new("entry.rs"), files, None, &[], stop)
+        files.insert("map.json".into(), b"map".to_vec());
+        let spec = TreeSpec {
+            entry: Path::new("entry.rs"),
+            map: Path::new("map.json"),
+            edition: "2024",
+        };
+        publish_with(root, spec, files, None, &[], stop)
     }
 
     #[test]

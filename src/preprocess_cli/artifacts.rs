@@ -109,7 +109,7 @@ fn utf8_path(path: &Path) -> Result<&str> {
         .ok_or_else(|| format!("path is not UTF-8: {}", path.display()).into())
 }
 
-fn make_path(out: &mut String, cwd: &Path, path: &Path, target: bool) -> Result<()> {
+pub(crate) fn make_path(out: &mut String, cwd: &Path, path: &Path, target: bool) -> Result<()> {
     let value = utf8_path(path.strip_prefix(cwd).unwrap_or(path))?;
     // Some Make grammar characters cannot be passed literally to both the
     // target and prerequisite parsers. Fail before touching any destination.
@@ -167,7 +167,7 @@ pub(super) fn dependency_rule(
     Ok(out)
 }
 
-pub(super) fn aliases(left: &Path, right: &Path) -> bool {
+pub(crate) fn aliases(left: &Path, right: &Path) -> bool {
     if left == right {
         return true;
     }
