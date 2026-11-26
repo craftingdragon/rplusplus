@@ -71,6 +71,21 @@ def main(driver, base):
     for edition in ("2021", "2024"):
         run([*command, "--edition", edition])
         before = verify()
+        duplicate = base / f"independent {edition}"
+        duplicate.mkdir()
+        for name in [*sources, *assets, *fragments]:
+            dest = duplicate / name
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_bytes((root / name).read_bytes())
+        duplicate_out = duplicate / out.name
+        duplicate_args = [
+            duplicate / item.relative_to(root) if isinstance(item, Path) else item
+            for item in command
+        ]
+        run([*duplicate_args, "--edition", edition])
+        for name, (content, _) in before.items():
+            if name != ".rpp/tree.d":
+                assert (duplicate_out / name).read_bytes() == content, name
         response = base / "tree args"
         response.write_bytes(("\0".join(map(str, [*command, "--edition", edition])) + "\0").encode())
         run(["@" + str(response)])

@@ -191,6 +191,7 @@ fn execute() -> Result<()> {
                     s.replace('\\', "\\\\")
                         .replace(' ', "\\ ")
                         .replace('#', "\\#")
+                        .replace('$', "$$")
                 };
                 let text = fs::read_to_string(&temp)?.replace(&escape(&staged), &escape(&output));
                 fs::write(&temp, text)?;
@@ -209,7 +210,7 @@ fn execute() -> Result<()> {
 }
 fn execute_inner(args: Vec<String>, final_output: Option<&str>) -> Result<()> {
     if args.first().map(String::as_str) == Some("--version") {
-        println!("rpp 0.1.0");
+        println!("rpp 0.2.0");
         return Ok(());
     }
     if args.is_empty() || args[0] == "--help" {
@@ -253,7 +254,7 @@ fn execute_inner(args: Vec<String>, final_output: Option<&str>) -> Result<()> {
             .iter()
             .any(|a| a.starts_with("--target") || a.starts_with("--sysroot"))
         {
-            return Err("Rpp v0.1 supports native builds only; remove --target/--sysroot and select a matching installed rustc".into());
+            return Err("Rpp supports native builds only; remove --target/--sysroot and select a matching installed rustc".into());
         }
         let snapshot = snapshot_dir
             .as_deref()
@@ -298,11 +299,22 @@ fn execute_inner(args: Vec<String>, final_output: Option<&str>) -> Result<()> {
             return embed(Path::new(&output), &record);
         }
         run(&rustc, &compile)?;
-        let mut deptext = fs::read_to_string(&dep)?;
+        // rustc escapes spaces but leaves literal # and $ in file names.
+        // Escape those for the generator's Make-style depfile parser.
+        let raw = fs::read_to_string(&dep)?;
+        let mut deptext = String::with_capacity(raw.len());
+        for line in raw.split_inclusive('\n') {
+            if line.starts_with("# env-dep:") {
+                deptext.push_str(line);
+            } else {
+                deptext.push_str(&line.replace('#', "\\#").replace('$', "$$"));
+            }
+        }
         let escape = |s: &str| {
             s.replace('\\', "\\\\")
                 .replace(' ', "\\ ")
                 .replace('#', "\\#")
+                .replace('$', "$$")
         };
         let mut dependencies = Vec::new();
         let mut externs: Vec<String> = saved

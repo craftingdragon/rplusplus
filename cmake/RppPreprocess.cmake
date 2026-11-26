@@ -94,6 +94,12 @@ function(_rpp_preprocess_target target dir root sources edition)
     # with DEPFILE. All original inputs are already explicit prerequisites.
     set(dep_rule)
   endif()
+  if(CMAKE_GENERATOR MATCHES "^Ninja" AND CMAKE_VERSION VERSION_LESS 4.5
+      AND CMAKE_BINARY_DIR MATCHES "[$]")
+    # Older CMake emits a literal dollar in Ninja's transformed depfile path.
+    # The explicit prerequisites already cover every declared input.
+    set(dep_rule)
+  endif()
   add_custom_command(OUTPUT ${outputs}
     COMMAND "${CMAKE_Rpp_COMPILER}" preprocess "${root}"
       --rpp-cmake-source-dir "${dir}" --source-root "${source_root}"
