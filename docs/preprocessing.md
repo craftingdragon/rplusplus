@@ -123,6 +123,12 @@ snapshot. An unchanged run preserves file timestamps, and recreating a
 consumed depfile leaves the completion marker unchanged. Snapshot integrity
 covers the payload and map. The depfile is disposable.
 
+M4 passed all nine CTest gates for CMake 3.25.0 and 4.5.0 with stable Rust
+1.85.0 and 1.100.0. The suite compiles the standalone mirror after removing
+access to the original sources and verifies interruption and deletion recovery.
+The M0 graph replay also passed, including its original failure controls.
+[Compatibility evidence](baselines/v0.2-m4-preprocess-tree.json)
+
 ## Preprocessing language and internal library (v0.2 M2)
 
 M2 implements the pure, standard-library-only Rust library in `src/preprocess`

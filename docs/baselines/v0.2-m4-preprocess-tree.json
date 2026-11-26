@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "stage": "v0.2/M4",
+  "status": "passed",
+  "implementation_revision": "1e3bcaa4200b735ee6e640e55cc507b27a444ad6",
+  "provenance": "The CTest matrix started before signing with the same implementation and test files. PLAN.md is user-owned and untracked.",
+  "implementation_sha256": {
+    "CMakeLists.txt": "2004f7a7fec7154e32be6f03817ab6e1ddbf92ae53aca034edc3ef33384ac020",
+    "README.md": "91a1ceba6735d1a174009b79fa990d931d95cb0236786829cacf2af3eddfb9fe",
+    "docs/preprocessing.md": "3515d013f45bbb598350926cdac7ecbb901273d8f9a57cf6aa411841be28d9e9",
+    "src/preprocess/engine.rs": "522f2c8ee2f8b1f6956bcfe066a58e41a369431e207b4353cd1b6d986e0ca9ce",
+    "src/preprocess/mod.rs": "d22b66ba2001169124fd3fce713f253919337f1494d8e69a73d92e4da6f52a0f",
+    "src/preprocess_cli/artifacts.rs": "d7ae433b9735206c8bca7f597f7c641331b40a73ed98e424dd2bc0a734656c2e",
+    "src/preprocess_cli/mod.rs": "5d3fbd31a2469242e62292b47a11ce3a3839b75a7b8fb1d4136cf5c58fe456f3",
+    "src/preprocess_cli/references.rs": "0045a04c1270d96cbffe962c97753d667dab8ab97336d4c56b61bcd6a111aef0",
+    "src/preprocess_cli/sha256.rs": "037f98b1f0e5e103ffe19eadaff9a2c8971722347c6bd048970990deb922e710",
+    "src/preprocess_cli/snapshot.rs": "a800061b299124c86801c59a034ea463405f89c79d6267c1b4a572d3520d8ba5",
+    "src/preprocess_cli/tree.rs": "cf312c9d84516755330a18e4469a25384c37df6650ea28e94a34a9b654f0961b",
+    "tests/lexer.py": "3301077aff8934edff4cf576a19c2a197561c1b2321b68b949427270d6cc2579",
+    "tests/preprocess_cli.py": "247a0fd9ff6309d641d6892ed7d8b9f3b0ef9165630487b9d0441bbf487ebfff",
+    "tests/preprocess_tree.py": "29c2de59d1720b27696eacba41f1b4d9c776e2b49931dd6eb7a548fbd20977ad"
+  },
+  "required_ctest_gates": [
+    "driver-failures",
+    "driver-unit",
+    "generator-compatibility",
+    "lexer-regression",
+    "preprocess-cli",
+    "preprocess-regression",
+    "preprocess-tree",
+    "qt-notes-installed",
+    "toolchain-errors"
+  ],
+  "results": [
+    {
+      "cmake": "cmake version 3.25.0",
+      "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+      "rustc_identity": "rustc 1.100.0 (0ef1bc386 2026-11-09)\nbinary: rustc\ncommit-hash: 0ef1bc386059596dada8fb65b50425aab2ea637a\ncommit-date: 2026-11-09\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0\nLLVM version: 23.1.5\n",
+      "log": "Internal ctest changing into directory: /tmp/rpp matrix 9jf5u083\nTest project /tmp/rpp matrix 9jf5u083\n    Start 1: driver-unit\n1/9 Test #1: driver-unit ......................   Passed    0.26 sec\n    Start 2: driver-failures\n2/9 Test #2: driver-failures ..................   Passed    0.39 sec\n    Start 3: toolchain-errors\n3/9 Test #3: toolchain-errors .................   Passed    0.22 sec\n    Start 4: lexer-regression\n4/9 Test #4: lexer-regression .................   Passed   96.23 sec\n    Start 5: preprocess-regression\n5/9 Test #5: preprocess-regression ............   Passed    0.64 sec\n    Start 6: preprocess-cli\n6/9 Test #6: preprocess-cli ...................   Passed    0.22 sec\n    Start 7: preprocess-tree\n7/9 Test #7: preprocess-tree ..................   Passed    0.35 sec\n    Start 8: generator-compatibility\n8/9 Test #8: generator-compatibility ..........   Passed   68.08 sec\n    Start 9: qt-notes-installed\n9/9 Test #9: qt-notes-installed ...............   Passed   36.56 sec\n\n100% tests passed, 0 tests failed out of 9\n\nTotal Test time (real) = 202.96 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 204.78802085200005,
+      "tested_base_revision": "16d9d55adbf498e28195b5de9facccc206be68f3",
+      "tested_dirty_worktree": true,
+      "timestamp_utc": "2026-11-26T07:58:24.938353+00:00"
+    },
+    {
+      "cmake": "cmake version 3.25.0",
+      "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+      "rustc_identity": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.0\nLLVM version: 19.1.7\n",
+      "log": "Internal ctest changing into directory: /tmp/rpp matrix b9grpfd_\nTest project /tmp/rpp matrix b9grpfd_\n    Start 1: driver-unit\n1/9 Test #1: driver-unit ......................   Passed    0.21 sec\n    Start 2: driver-failures\n2/9 Test #2: driver-failures ..................   Passed    0.32 sec\n    Start 3: toolchain-errors\n3/9 Test #3: toolchain-errors .................   Passed    0.24 sec\n    Start 4: lexer-regression\n4/9 Test #4: lexer-regression .................   Passed  112.66 sec\n    Start 5: preprocess-regression\n5/9 Test #5: preprocess-regression ............   Passed    0.90 sec\n    Start 6: preprocess-cli\n6/9 Test #6: preprocess-cli ...................   Passed    0.34 sec\n    Start 7: preprocess-tree\n7/9 Test #7: preprocess-tree ..................   Passed    0.43 sec\n    Start 8: generator-compatibility\n8/9 Test #8: generator-compatibility ..........   Passed   68.68 sec\n    Start 9: qt-notes-installed\n9/9 Test #9: qt-notes-installed ...............   Passed   33.69 sec\n\n100% tests passed, 0 tests failed out of 9\n\nTotal Test time (real) = 217.48 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 219.76427355600026,
+      "tested_base_revision": "16d9d55adbf498e28195b5de9facccc206be68f3",
+      "tested_dirty_worktree": true,
+      "timestamp_utc": "2026-11-26T07:58:24.950642+00:00"
+    },
+    {
+      "cmake": "cmake version 4.5.0",
+      "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+      "rustc_identity": "rustc 1.100.0 (0ef1bc386 2026-11-09)\nbinary: rustc\ncommit-hash: 0ef1bc386059596dada8fb65b50425aab2ea637a\ncommit-date: 2026-11-09\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0\nLLVM version: 23.1.5\n",
+      "log": "Test project /tmp/rpp matrix ec_agczt\n    Start 1: driver-unit\n1/9 Test #1: driver-unit ......................   Passed    0.24 sec\n    Start 2: driver-failures\n2/9 Test #2: driver-failures ..................   Passed    0.37 sec\n    Start 3: toolchain-errors\n3/9 Test #3: toolchain-errors .................   Passed    0.29 sec\n    Start 4: lexer-regression\n4/9 Test #4: lexer-regression .................   Passed  100.79 sec\n    Start 5: preprocess-regression\n5/9 Test #5: preprocess-regression ............   Passed    0.71 sec\n    Start 6: preprocess-cli\n6/9 Test #6: preprocess-cli ...................   Passed    0.21 sec\n    Start 7: preprocess-tree\n7/9 Test #7: preprocess-tree ..................   Passed    0.35 sec\n    Start 8: generator-compatibility\n8/9 Test #8: generator-compatibility ..........   Passed   82.71 sec\n    Start 9: qt-notes-installed\n9/9 Test #9: qt-notes-installed ...............   Passed   33.43 sec\n\n100% tests passed out of 9\n\nTotal Test time (real) = 219.11 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 221.07930306100025,
+      "tested_base_revision": "16d9d55adbf498e28195b5de9facccc206be68f3",
+      "tested_dirty_worktree": true,
+      "timestamp_utc": "2026-11-26T07:58:24.938040+00:00"
+    },
+    {
+      "cmake": "cmake version 4.5.0",
+      "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+      "rustc_identity": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.0\nLLVM version: 19.1.7\n",
+      "log": "Test project /tmp/rpp matrix hp14hhcq\n    Start 1: driver-unit\n1/9 Test #1: driver-unit ......................   Passed    0.19 sec\n    Start 2: driver-failures\n2/9 Test #2: driver-failures ..................   Passed    0.32 sec\n    Start 3: toolchain-errors\n3/9 Test #3: toolchain-errors .................   Passed    0.30 sec\n    Start 4: lexer-regression\n4/9 Test #4: lexer-regression .................   Passed  117.24 sec\n    Start 5: preprocess-regression\n5/9 Test #5: preprocess-regression ............   Passed    0.87 sec\n    Start 6: preprocess-cli\n6/9 Test #6: preprocess-cli ...................   Passed    0.31 sec\n    Start 7: preprocess-tree\n7/9 Test #7: preprocess-tree ..................   Passed    0.42 sec\n    Start 8: generator-compatibility\n8/9 Test #8: generator-compatibility ..........   Passed   82.77 sec\n    Start 9: qt-notes-installed\n9/9 Test #9: qt-notes-installed ...............   Passed   28.10 sec\n\n100% tests passed out of 9\n\nTotal Test time (real) = 230.53 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 232.92064213199956,
+      "tested_base_revision": "16d9d55adbf498e28195b5de9facccc206be68f3",
+      "tested_dirty_worktree": true,
+      "timestamp_utc": "2026-11-26T07:58:24.951628+00:00"
+    }
+  ],
+  "installed_cli_smoke": "passed from a separate project with empty PATH",
+  "interruption_test": {
+    "status": "passed",
+    "updates": [
+      "first publication",
+      "existing snapshot"
+    ],
+    "phases": [
+      "completion invalidated",
+      "payload staged",
+      "payload replaced",
+      "before completion marker"
+    ]
+  },
+  "m0_preservation": {
+    "status": "passed",
+    "rows": [
+      {
+        "cmake": "cmake version 3.25.0",
+        "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+        "status": "passed",
+        "required_output_recoveries": 42,
+        "native_control_failures": 12,
+        "native_control_recoveries": 6,
+        "byproduct_control_failures": 2
+      },
+      {
+        "cmake": "cmake version 4.5.0",
+        "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+        "status": "passed",
+        "required_output_recoveries": 42,
+        "native_control_failures": 12,
+        "native_control_recoveries": 6,
+        "byproduct_control_failures": 2
+      },
+      {
+        "cmake": "cmake version 3.25.0",
+        "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+        "status": "passed",
+        "required_output_recoveries": 42,
+        "native_control_failures": 12,
+        "native_control_recoveries": 6,
+        "byproduct_control_failures": 2
+      },
+      {
+        "cmake": "cmake version 4.5.0",
+        "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+        "status": "passed",
+        "required_output_recoveries": 42,
+        "native_control_failures": 12,
+        "native_control_recoveries": 6,
+        "byproduct_control_failures": 2
+      }
+    ],
+    "raw_report": "build-v02-m4/m0-external-tools.json",
+    "raw_report_sha256": "eab9fda202b083fe86524249931c754a7088e195f702beb25c13c27ad012b484",
+    "initial_tool_path_failure": "The first replay used a cached CMake binary inside the repository. The installed-only path check correctly rejected build recipes referring to that path. The passing replay ran the same binaries outside the repository, without changing the test."
+  }
+}
