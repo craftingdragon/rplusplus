@@ -1,9 +1,11 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
+# Maintainer: craftingDragon7
 pkgname=rplusplus
 pkgver=@VERSION@
 pkgrel=1
 pkgdesc='Experimental Cargo-free Rust compiler driver and native CMake integration'
 arch=('x86_64')
+url='https://github.com/craftingdragon/rplusplus'
 license=('GPL-3.0-or-later')
 # rustup provides unversioned rust. CMake checks the selected rustc version.
 depends=('rust' 'cmake>=3.25' 'gcc-libs')
