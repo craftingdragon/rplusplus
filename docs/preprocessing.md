@@ -56,6 +56,11 @@ after a sidecar was replaced, rerun the command to regenerate the set.
 Publishing several paths takes several renames. A process termination can
 leave a temporary file behind.
 
+M3 passed all eight CTest gates with CMake 3.25.0, 4.5.0 and 4.5.1, each
+paired with stable Rust 1.85.0 and 1.100.0. The installed command also ran
+from a separate directory with an empty `PATH`.
+[Compatibility evidence](baselines/v0.2-m3-preprocess-cli.json)
+
 ## Preprocessing language and internal library (v0.2 M2)
 
 M2 implements the pure, standard-library-only Rust library in `src/preprocess`

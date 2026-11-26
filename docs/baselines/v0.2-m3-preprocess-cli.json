@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "stage": "v0.2/M3",
+  "status": "passed",
+  "implementation_revision": "79c3549b33e895219ef04c0be3766ca217face43",
+  "provenance": "Runs started before or after signing the implementation. The tested source and tests match the signed implementation. PLAN.md was untracked.",
+  "source_sha256": {
+    "CMakeLists.txt": "a96cb5ae71ea9b373d67c26773e692cb636325a6bc0037615918e3205b53dc54",
+    "README.md": "029066ebf8fd11c9835eec229e68a5968181d7fc62621c80ef88c9571aed6642",
+    "docs/preprocessing.md": "6fef67fafec52775b1352ea3248dd38f814526b57df94e6694d5b1d8af331d37",
+    "src/lex/mod.rs": "6b36bdb24b634638eb97855799fe2b4bfc3e15b4ce97b0829a9d242bbae9f76a",
+    "src/lex/scanner.rs": "8ee0c41351b8e82ca6bd2eba795199d25e042bd0dd1cdb832da5a8c1e030bec7",
+    "src/main.rs": "d4102be22887edb033186cc118e614ed9079f1e88b1c645564ce4f3659f305e4",
+    "src/preprocess/mod.rs": "a59760a19ad1d14fb00aa52671dd7333847cc54cf79cb382ae534b89de835b8b",
+    "src/preprocess_cli/artifacts.rs": "582ae7bde6a52ee960d59bf430725af90ae63f7475fa336e339e39c396833728",
+    "src/preprocess_cli/mod.rs": "07c71f67a6550be40c04709637a76b07331d02ce7a837925ba246e9d5f30bf7f",
+    "tests/lexer.py": "858c7cc9fffe8e5c4da167783316f26fce73ec96ecb0b9485f2c01c9bae2fe58",
+    "tests/preprocess_cli.py": "128244d55de721a5202ecf1d579bfce6913f8f8f5f7755ad2b42f9ad4136a97e"
+  },
+  "required_ctest_gates": [
+    "driver-failures",
+    "driver-unit",
+    "generator-compatibility",
+    "lexer-regression",
+    "preprocess-cli",
+    "preprocess-regression",
+    "qt-notes-installed",
+    "toolchain-errors"
+  ],
+  "results": [
+    {
+      "cmake": "cmake version 3.25.0",
+      "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+      "rustc_identity": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.0\nLLVM version: 19.1.7\n",
+      "log": "Internal ctest changing into directory: /tmp/rpp matrix bw3bw05t\nTest project /tmp/rpp matrix bw3bw05t\n    Start 1: driver-unit\n1/8 Test #1: driver-unit ......................   Passed    0.30 sec\n    Start 2: driver-failures\n2/8 Test #2: driver-failures ..................   Passed    0.70 sec\n    Start 3: toolchain-errors\n3/8 Test #3: toolchain-errors .................   Passed    0.54 sec\n    Start 4: lexer-regression\n4/8 Test #4: lexer-regression .................   Passed   75.38 sec\n    Start 5: preprocess-regression\n5/8 Test #5: preprocess-regression ............   Passed    0.94 sec\n    Start 6: preprocess-cli\n6/8 Test #6: preprocess-cli ...................   Passed    0.35 sec\n    Start 7: generator-compatibility\n7/8 Test #7: generator-compatibility ..........   Passed   83.87 sec\n    Start 8: qt-notes-installed\n8/8 Test #8: qt-notes-installed ...............   Passed   37.93 sec\n\n100% tests passed, 0 tests failed out of 8\n\nTotal Test time (real) = 200.03 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 202.70075641599942,
+      "tested_base_revision": "ff4c6fd2643fbf42aacb3fba80569fa105e248b1",
+      "tested_dirty_worktree": true,
+      "timestamp_utc": "2026-11-26T07:29:25.309371+00:00"
+    },
+    {
+      "cmake": "cmake version 3.25.0",
+      "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+      "rustc_identity": "rustc 1.100.0 (0ef1bc386 2026-11-09)\nbinary: rustc\ncommit-hash: 0ef1bc386059596dada8fb65b50425aab2ea637a\ncommit-date: 2026-11-09\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0\nLLVM version: 23.1.5\n",
+      "log": "Internal ctest changing into directory: /tmp/rpp matrix bdtz0jpy\nTest project /tmp/rpp matrix bdtz0jpy\n    Start 1: driver-unit\n1/8 Test #1: driver-unit ......................   Passed    0.23 sec\n    Start 2: driver-failures\n2/8 Test #2: driver-failures ..................   Passed    0.59 sec\n    Start 3: toolchain-errors\n3/8 Test #3: toolchain-errors .................   Passed    0.41 sec\n    Start 4: lexer-regression\n4/8 Test #4: lexer-regression .................   Passed   67.57 sec\n    Start 5: preprocess-regression\n5/8 Test #5: preprocess-regression ............   Passed    0.81 sec\n    Start 6: preprocess-cli\n6/8 Test #6: preprocess-cli ...................   Passed    0.28 sec\n    Start 7: generator-compatibility\n7/8 Test #7: generator-compatibility ..........   Passed   90.88 sec\n    Start 8: qt-notes-installed\n8/8 Test #8: qt-notes-installed ...............   Passed   46.79 sec\n\n100% tests passed, 0 tests failed out of 8\n\nTotal Test time (real) = 207.57 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 209.76986423000017,
+      "tested_base_revision": "ff4c6fd2643fbf42aacb3fba80569fa105e248b1",
+      "tested_dirty_worktree": true,
+      "timestamp_utc": "2026-11-26T07:29:25.309371+00:00"
+    },
+    {
+      "cmake": "cmake version 4.5.0",
+      "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+      "rustc_identity": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.0\nLLVM version: 19.1.7\n",
+      "log": "Test project /tmp/rpp matrix 14gy8ed6\n    Start 1: driver-unit\n1/8 Test #1: driver-unit ......................   Passed    0.27 sec\n    Start 2: driver-failures\n2/8 Test #2: driver-failures ..................   Passed    0.59 sec\n    Start 3: toolchain-errors\n3/8 Test #3: toolchain-errors .................   Passed    0.59 sec\n    Start 4: lexer-regression\n4/8 Test #4: lexer-regression .................   Passed  100.89 sec\n    Start 5: preprocess-regression\n5/8 Test #5: preprocess-regression ............   Passed    1.27 sec\n    Start 6: preprocess-cli\n6/8 Test #6: preprocess-cli ...................   Passed    0.45 sec\n    Start 7: generator-compatibility\n7/8 Test #7: generator-compatibility ..........   Passed  101.08 sec\n    Start 8: qt-notes-installed\n8/8 Test #8: qt-notes-installed ...............   Passed   38.30 sec\n\n100% tests passed out of 8\n\nTotal Test time (real) = 243.45 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 246.46628633099954,
+      "tested_base_revision": "79c3549b33e895219ef04c0be3766ca217face43",
+      "tested_dirty_worktree": true,
+      "timestamp_utc": "2026-11-26T07:33:43.162400+00:00"
+    },
+    {
+      "cmake": "cmake version 4.5.0",
+      "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+      "rustc_identity": "rustc 1.100.0 (0ef1bc386 2026-11-09)\nbinary: rustc\ncommit-hash: 0ef1bc386059596dada8fb65b50425aab2ea637a\ncommit-date: 2026-11-09\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0\nLLVM version: 23.1.5\n",
+      "log": "Test project /tmp/rpp matrix lf87nt8u\n    Start 1: driver-unit\n1/8 Test #1: driver-unit ......................   Passed    0.34 sec\n    Start 2: driver-failures\n2/8 Test #2: driver-failures ..................   Passed    0.61 sec\n    Start 3: toolchain-errors\n3/8 Test #3: toolchain-errors .................   Passed    0.57 sec\n    Start 4: lexer-regression\n4/8 Test #4: lexer-regression .................   Passed   85.22 sec\n    Start 5: preprocess-regression\n5/8 Test #5: preprocess-regression ............   Passed    0.89 sec\n    Start 6: preprocess-cli\n6/8 Test #6: preprocess-cli ...................   Passed    0.31 sec\n    Start 7: generator-compatibility\n7/8 Test #7: generator-compatibility ..........   Passed  104.06 sec\n    Start 8: qt-notes-installed\n8/8 Test #8: qt-notes-installed ...............   Passed   38.07 sec\n\n100% tests passed out of 8\n\nTotal Test time (real) = 230.06 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 232.58285985699968,
+      "tested_base_revision": "79c3549b33e895219ef04c0be3766ca217face43",
+      "tested_dirty_worktree": true,
+      "timestamp_utc": "2026-11-26T07:33:43.162270+00:00"
+    },
+    {
+      "cmake": "cmake version 4.5.1",
+      "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+      "rustc_identity": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.0\nLLVM version: 19.1.7\n",
+      "log": "Test project /tmp/rpp matrix bbom9ch2\n    Start 1: driver-unit\n1/8 Test #1: driver-unit ......................   Passed    0.26 sec\n    Start 2: driver-failures\n2/8 Test #2: driver-failures ..................   Passed    0.67 sec\n    Start 3: toolchain-errors\n3/8 Test #3: toolchain-errors .................   Passed    0.65 sec\n    Start 4: lexer-regression\n4/8 Test #4: lexer-regression .................   Passed   79.66 sec\n    Start 5: preprocess-regression\n5/8 Test #5: preprocess-regression ............   Passed    0.98 sec\n    Start 6: preprocess-cli\n6/8 Test #6: preprocess-cli ...................   Passed    0.37 sec\n    Start 7: generator-compatibility\n7/8 Test #7: generator-compatibility ..........   Passed   99.47 sec\n    Start 8: qt-notes-installed\n8/8 Test #8: qt-notes-installed ...............   Passed   37.25 sec\n\n100% tests passed out of 8\n\nTotal Test time (real) = 219.32 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 222.12614619099986,
+      "tested_base_revision": "ff4c6fd2643fbf42aacb3fba80569fa105e248b1",
+      "tested_dirty_worktree": true,
+      "timestamp_utc": "2026-11-26T07:29:25.309029+00:00"
+    },
+    {
+      "cmake": "cmake version 4.5.1",
+      "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+      "rustc_identity": "rustc 1.100.0 (0ef1bc386 2026-11-09)\nbinary: rustc\ncommit-hash: 0ef1bc386059596dada8fb65b50425aab2ea637a\ncommit-date: 2026-11-09\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0\nLLVM version: 23.1.5\n",
+      "log": "Test project /tmp/rpp matrix 24ygojyl\n    Start 1: driver-unit\n1/8 Test #1: driver-unit ......................   Passed    0.27 sec\n    Start 2: driver-failures\n2/8 Test #2: driver-failures ..................   Passed    0.57 sec\n    Start 3: toolchain-errors\n3/8 Test #3: toolchain-errors .................   Passed    0.50 sec\n    Start 4: lexer-regression\n4/8 Test #4: lexer-regression .................   Passed   77.36 sec\n    Start 5: preprocess-regression\n5/8 Test #5: preprocess-regression ............   Passed    0.92 sec\n    Start 6: preprocess-cli\n6/8 Test #6: preprocess-cli ...................   Passed    0.28 sec\n    Start 7: generator-compatibility\n7/8 Test #7: generator-compatibility ..........   Passed  109.23 sec\n    Start 8: qt-notes-installed\n8/8 Test #8: qt-notes-installed ...............   Passed   42.99 sec\n\n100% tests passed out of 8\n\nTotal Test time (real) = 232.12 sec\n",
+      "status": "passed",
+      "elapsed_seconds": 234.26298822199988,
+      "tested_base_revision": "ff4c6fd2643fbf42aacb3fba80569fa105e248b1",
+      "tested_dirty_worktree": true,
+      "timestamp_utc": "2026-11-26T07:29:25.309029+00:00"
+    }
+  ],
+  "installed_cli_smoke": "passed from a separate directory with empty PATH"
+}
