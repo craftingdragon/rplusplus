@@ -457,6 +457,16 @@ impl<'a> Engine<'a> {
                 site.clone(),
             )
         })?;
+        if self.sources.rust_units.contains(&path) {
+            return Err(self.err(
+                ErrorKind::Include,
+                format!(
+                    "preprocessing inclusion requires --input, not --source: {}",
+                    path.display()
+                ),
+                site,
+            ));
+        }
         if self.files.contains(&path) {
             return Err(self.err(
                 ErrorKind::Include,

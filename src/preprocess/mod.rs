@@ -101,10 +101,18 @@ impl Default for Options {
 #[derive(Default, Debug)]
 pub struct Sources {
     files: BTreeMap<PathBuf, String>,
+    rust_units: BTreeSet<PathBuf>,
 }
 impl Sources {
     pub(crate) fn text(&self, path: &Path) -> Option<&str> {
         self.files.get(path).map(String::as_str)
+    }
+
+    pub(crate) fn insert_unit(&mut self, path: &Path, text: String) -> Result<(), String> {
+        let path = normalize(path)?;
+        self.insert(&path, text)?;
+        self.rust_units.insert(path);
+        Ok(())
     }
 
     pub fn insert(&mut self, path: impl AsRef<Path>, text: String) -> Result<(), String> {

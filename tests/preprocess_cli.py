@@ -107,10 +107,11 @@ def main(driver, work):
         assert command("preprocess", *extra, *options, status=1).stderr
         assert state() == before
     for extra in [("--edition", "2018"), ("--source", "module.rs"),
-                  ("--output-dir", "dir"), ("-D", "bad-name"), ("--unknown",)]:
+                  ("-D", "bad-name"), ("--data", "asset.bin"), ("--unknown",)]:
         command("preprocess", *extra, *options, status=2)
         assert state() == before
     command("preprocess", root, "-o", status=2)
+    command("preprocess", root, "--output-dir", "dir", status=2)
     command("preprocess", "@missing-response", status=1)
     link.unlink()
     link.symlink_to(root)

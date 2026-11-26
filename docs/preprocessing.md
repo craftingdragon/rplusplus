@@ -61,6 +61,68 @@ paired with stable Rust 1.85.0 and 1.100.0. The installed command also ran
 from a separate directory with an empty `PATH`.
 [Compatibility evidence](baselines/v0.2-m3-preprocess-cli.json)
 
+## Declared source trees (v0.2 M4)
+
+```sh
+rpp preprocess app/src/main.rs --source-root app --output-dir app/build/generated \
+  --source app/src/worker.rs --source app/src/embedded.rs \
+  --data app/assets/banner.txt --input app/src/settings.rph \
+  --depfile app/build/generated/.rpp/tree.d
+rustc --edition=2024 app/build/generated/src/main.rs -o app/build/example
+```
+
+The positional input is the entry Rust file. Repeat `--source` for additional
+Rust files, including Rust `include!` inputs. Declare preprocessing fragments
+with `--input` and assets with `--data`. Each Rust file starts with the same
+command-line macros. Preprocessing `#include` shares the receiving file's macros,
+while Rust `include!` reads a separately preprocessed file. Assets retain their
+original bytes. All paths on the command line are relative to the invocation
+directory. If supplied, `-o` must name the implied mirrored entry.
+
+The output directory can be a dedicated subtree of the source root. Declared
+inputs and include search directories cannot be inside it. Tree mode rejects
+conflicting input roles and aliases, root and symlink escapes, and unowned files
+in the output directory. Choose a fresh output directory if a previously
+generated file path needs to become a directory or vice versa. Use one writer
+per output directory.
+
+Direct Rust `include!`, `include_str!` and `include_bytes!` calls accept a
+single cooked or raw string literal and an optional trailing comma. The path is
+relative to the receiving Rust file. Declare the path as `--source` for
+`include!` and `--data` for the other two. Computed arguments, including
+`concat!` and `env!`, require conversion to a literal or an ordinary Rust build.
+
+Rust still chooses module files. Tree mode checks visible external `mod`
+declarations and `#[path]` attributes, including conditional alternatives,
+for possible data/source role conflicts. The check can reject a data file in
+another directory if its name matches a module candidate, or if its path
+matches an attribute suffix whose base is ambiguous. Unicode identifier matches
+are conservative. Use a nonconflicting asset path or declare the file as Rust.
+Parent traversal in path attributes is allowed when its base is statically
+bounded. In nested or included contexts, a relative path must stay beneath
+its base without assuming how far that base is from the root. Rust `cfg`
+evaluation and unresolved-module errors are handled by `rustc`. Reads introduced
+through Rust macro expansion are outside the lexical checks. See the
+[M0 dependency-reporting limits](preprocessing-m0.md).
+
+The default aggregate map is `.rpp/source-map.json`. It contains a `sources`
+array of M3 mapping records with generated paths relative to the output
+directory. Override the map with `--source-map FILE`. The optional `--depfile FILE`
+lists all declared Rust files and assets and the preprocessing fragments
+actually read. Its target is `.rpp/complete`. Both sidecars must be inside
+the output directory.
+
+The versioned manifest records the entry, optional depfile path and SHA-256
+hashes of the generated Rust, assets and map. The completion marker identifies
+that manifest. The ownership record tracks both prior and pending output paths
+during an update. Once publication begins, R++ invalidates the marker, replaces
+changed files through sibling staging files, removes stale owned paths, and
+publishes completion last. Rerun the same command to recover after an
+interruption. Validation failures before publication preserve the prior
+snapshot. An unchanged run preserves file timestamps, and recreating a
+consumed depfile leaves the completion marker unchanged. Snapshot integrity
+covers the payload and map. The depfile is disposable.
+
 ## Preprocessing language and internal library (v0.2 M2)
 
 M2 implements the pure, standard-library-only Rust library in `src/preprocess`
@@ -84,9 +146,8 @@ on-disk outputs belong to M3/M4, not this library.
 
 Logical paths are normalized and checked for absolute paths, root escape and
 duplicate aliases. Include directories can name the logical root (`.`).
-The M3 adapter validates standalone paths. M4 extends these checks to tree
-outputs, destination collisions and Rust source/data declarations. Logical validation
-is not a filesystem sandbox.
+The command validates the selected filesystem paths and declared roles. Rust
+macro expansion and compiler reads remain outside these lexical checks.
 
 ## Directives
 

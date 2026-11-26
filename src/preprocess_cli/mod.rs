@@ -1,5 +1,9 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 mod artifacts;
+mod references;
+mod sha256;
+mod snapshot;
+mod tree;
 
 use crate::{lex, preprocess as pp};
 use std::{
@@ -8,9 +12,13 @@ use std::{
 };
 
 const HELP: &str = "Usage: rpp preprocess INPUT -o OUTPUT [options]
+       rpp preprocess INPUT --source-root DIR --output-dir DIR [options]
   -I, --include-dir DIR        Add a preprocessing include directory
   -D, --define NAME[=VALUE]     Define a macro (default value: 1)
   -U, --undef NAME              Remove a macro definition
+      --source FILE            Declare an additional Rust file in tree mode
+      --data FILE              Declare a copied asset in tree mode
+      --output-dir DIR         Generate a declared source tree
       --input FILE             Declare a preprocessing fragment (repeatable)
       --source-root DIR        Bound inputs (default: input's parent)
       --edition 2021|2024      Select Rust edition (default: 2024)
@@ -24,6 +32,9 @@ struct Cli {
     entry: Option<PathBuf>,
     output: Option<PathBuf>,
     root: Option<PathBuf>,
+    output_dir: Option<PathBuf>,
+    sources: Vec<PathBuf>,
+    data: Vec<PathBuf>,
     inputs: Vec<PathBuf>,
     depfile: Option<PathBuf>,
     map: Option<PathBuf>,
@@ -63,9 +74,6 @@ fn parse(args: &[String]) -> Result<Option<Cli>, String> {
             } else {
                 (arg, None)
             };
-        if matches!(flag, "--source" | "--output-dir") {
-            return Err(format!("{flag} requires source-tree mode (M4)"));
-        }
         if !matches!(
             flag,
             "-o" | "-I"
@@ -76,6 +84,9 @@ fn parse(args: &[String]) -> Result<Option<Cli>, String> {
                 | "--undef"
                 | "--input"
                 | "--source-root"
+                | "--source"
+                | "--data"
+                | "--output-dir"
                 | "--edition"
                 | "--depfile"
                 | "--source-map"
@@ -89,6 +100,9 @@ fn parse(args: &[String]) -> Result<Option<Cli>, String> {
             .ok_or_else(|| format!("missing value for {flag}"))?;
         match flag {
             "-o" => set(&mut cli.output, value.into(), flag)?,
+            "--source" => cli.sources.push(value.into()),
+            "--data" => cli.data.push(value.into()),
+            "--output-dir" => set(&mut cli.output_dir, value.into(), flag)?,
             "--source-root" => set(&mut cli.root, value.into(), flag)?,
             "--depfile" => set(&mut cli.depfile, value.into(), flag)?,
             "--source-map" => set(&mut cli.map, value.into(), flag)?,
@@ -129,7 +143,13 @@ fn parse(args: &[String]) -> Result<Option<Cli>, String> {
             _ => unreachable!(),
         }
     }
-    if cli.entry.is_none() || cli.output.is_none() {
+    if cli.output_dir.is_some() && cli.root.is_none() {
+        return Err("--output-dir requires --source-root".into());
+    }
+    if cli.output_dir.is_none() && (!cli.sources.is_empty() || !cli.data.is_empty()) {
+        return Err("--source and --data require --output-dir".into());
+    }
+    if cli.entry.is_none() || (cli.output.is_none() && cli.output_dir.is_none()) {
         return Err("expected an input file and -o OUTPUT".into());
     }
     Ok(Some(cli))
@@ -187,6 +207,9 @@ fn beneath(path: &Path, root: &Path) -> crate::Result<PathBuf> {
 
 fn execute(cli: Cli) -> crate::Result<()> {
     let cwd = env::current_dir()?;
+    if cli.output_dir.is_some() {
+        return tree::execute(cli, &cwd);
+    }
     let entry = absolute(&cwd, &cli.entry.unwrap());
     let output = absolute(&cwd, &cli.output.unwrap());
     let root = cli.root.map_or_else(
@@ -248,54 +271,62 @@ fn execute(cli: Cli) -> crate::Result<()> {
     artifacts::publish(files, &physical_inputs)
 }
 
+fn mapped_error(
+    output: &pp::Output,
+    inputs: &pp::Sources,
+    entry: &Path,
+    span: lex::Span,
+    kind: pp::ErrorKind,
+    message: String,
+) -> pp::Error {
+    let mapping = output
+        .mappings
+        .iter()
+        .find(|m| m.generated.end > span.start)
+        .or_else(|| output.mappings.last());
+    let mut location = mapping
+        .map(|m| m.original.clone())
+        .unwrap_or_else(|| pp::Location {
+            source: pp::SourceName::File(entry.to_owned()),
+            span: lex::Span { start: 0, end: 0 },
+            line: 1,
+            column: 1,
+        });
+    if let Some((m, path)) = mapping
+        .filter(|m| m.exact)
+        .and_then(|m| match &location.source {
+            pp::SourceName::File(path) => Some((m, path)),
+            pp::SourceName::Predefined(_) => None,
+        })
+    {
+        let start = m.original.span.start + span.start.saturating_sub(m.generated.start);
+        if let Some(pos) = inputs
+            .text(path)
+            .and_then(|text| lex::source_position(text, start))
+        {
+            location.span = lex::Span {
+                start,
+                end: start + span.end.min(m.generated.end).saturating_sub(span.start),
+            };
+            location.line = pos.line;
+            location.column = pos.column;
+        }
+    }
+    pp::Error {
+        kind,
+        message,
+        location,
+        notes: mapping.map_or_else(Vec::new, |m| m.definitions.clone()),
+        include_stack: mapping.map_or_else(Vec::new, |m| m.include_stack.clone()),
+    }
+}
 fn check_single_file(
     output: &pp::Output,
     inputs: &pp::Sources,
     entry: &Path,
     edition: lex::Edition,
 ) -> crate::Result<()> {
-    let error_at = |span: lex::Span, kind, message: String| {
-        let mapping = output
-            .mappings
-            .iter()
-            .find(|m| m.generated.end > span.start)
-            .or_else(|| output.mappings.last());
-        let mut location = mapping
-            .map(|m| m.original.clone())
-            .unwrap_or_else(|| pp::Location {
-                source: pp::SourceName::File(entry.to_owned()),
-                span: lex::Span { start: 0, end: 0 },
-                line: 1,
-                column: 1,
-            });
-        if let Some((m, path)) = mapping
-            .filter(|m| m.exact)
-            .and_then(|m| match &location.source {
-                pp::SourceName::File(path) => Some((m, path)),
-                pp::SourceName::Predefined(_) => None,
-            })
-        {
-            let start = m.original.span.start + span.start.saturating_sub(m.generated.start);
-            if let Some(pos) = inputs
-                .text(path)
-                .and_then(|text| lex::source_position(text, start))
-            {
-                location.span = lex::Span {
-                    start,
-                    end: start + span.end.min(m.generated.end).saturating_sub(span.start),
-                };
-                location.line = pos.line;
-                location.column = pos.column;
-            }
-        }
-        pp::Error {
-            kind,
-            message,
-            location,
-            notes: mapping.map_or_else(Vec::new, |m| m.definitions.clone()),
-            include_stack: mapping.map_or_else(Vec::new, |m| m.include_stack.clone()),
-        }
-    };
+    let error_at = |span, kind, message| mapped_error(output, inputs, entry, span, kind, message);
     let lexed = lex::scan_generated(&output.text, edition).map_err(|e| {
         error_at(
             e.span,

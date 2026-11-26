@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 use crate::{Result, lex::Span, preprocess as pp};
 use std::{
+    collections::BTreeSet,
     fmt::Write as _,
     fs::{self, OpenOptions},
     io::{self, Write as _},
@@ -146,10 +147,19 @@ pub(super) fn depfile(
     output: &Path,
     result: &pp::Output,
 ) -> Result<String> {
+    dependency_rule(cwd, root, output, &result.dependencies)
+}
+
+pub(super) fn dependency_rule(
+    cwd: &Path,
+    root: &Path,
+    output: &Path,
+    deps: &BTreeSet<PathBuf>,
+) -> Result<String> {
     let mut out = String::new();
     make_path(&mut out, cwd, output, true)?;
     out.push(':');
-    for path in &result.dependencies {
+    for path in deps {
         out.push(' ');
         make_path(&mut out, cwd, &root.join(path), false)?;
     }
